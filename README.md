@@ -8,8 +8,8 @@ Requirements
 
 * Invision Power Board
 * Apache, MySQL and PHP
-* A valid license key (May be purchased at http://www.3rdinf.us)
-* FTP access to the root IPB folder.
+* A valid license key
+* FTP access to the root IPB folder
 
 
 Features
