@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<languageexport>
+  <languagegroup>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>admin_lang</word_pack>
+      <word_key>description</word_key>
+      <word_default>A soldier management system designed for realism based units.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>admin_lang</word_pack>
+      <word_key>perscom</word_key>
+      <word_default>PERSCOM</word_default>
+    </lang>
+  </languagegroup>
+</languageexport>

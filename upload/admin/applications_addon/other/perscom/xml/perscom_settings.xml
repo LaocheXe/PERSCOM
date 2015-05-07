@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settingexport>
+  <settinggroup>
+    <setting>
+      <conf_is_title>1</conf_is_title>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_title_title>Database Settings</conf_title_title>
+      <conf_title_desc>The database table names used in PERSCOM.</conf_title_desc>
+      <conf_title_tab>PERSCOM</conf_title_tab>
+      <conf_title_app>perscom</conf_title_app>
+      <conf_title_noshow>0</conf_title_noshow>
+    </setting>
+    <setting>
+      <conf_title>Personnel Files</conf_title>
+      <conf_description>The table name for the personnel files in PERSCOM.</conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_personnel_files</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>1</conf_position>
+      <conf_start_group>Tables</conf_start_group>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Ranks</conf_title>
+      <conf_description>The table name for the ranks in PERSCOM.</conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_ranks</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>2</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Awards</conf_title>
+      <conf_description>The table name for the awards in PERSCOM.</conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_awards</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>3</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Units</conf_title>
+      <conf_description>The table name for the combat units in PERSCOM.</conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_units</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>4</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Weapons</conf_title>
+      <conf_description>The table name for the weapons in PERSCOM.</conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_weapons</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>5</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Administrative DMOS</conf_title>
+      <conf_description><![CDATA[The table name for the administrative DMOS' in PERSCOM.]]></conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_dmos</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>0</conf_protected>
+      <conf_position>6</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Status</conf_title>
+      <conf_description><![CDATA[The table name for the status' in PERSCOM.]]></conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_status</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>7</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Service Record Entries</conf_title>
+      <conf_description>The table name for the service record entries in PERSCOM.</conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_records</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>8</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Temporary Pass Requests</conf_title>
+      <conf_description><![CDATA[The table name for the TPR's in PERSCOM.]]></conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_tpr</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>9</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Leave of Absences</conf_title>
+      <conf_description><![CDATA[The table name for the LOA's in PERSCOM.]]></conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_loa</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>10</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Muster Logs</conf_title>
+      <conf_description>The table name for the muster logs in PERSCOM.</conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_muster</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>11</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Requests</conf_title>
+      <conf_description>The table name for the requests in PERSCOM.</conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_requests</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>12</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Settings</conf_title>
+      <conf_description>The table name of all settings proprietary to PERSCOM.</conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_database_settings</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>0</conf_protected>
+      <conf_position>13</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_database_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_is_title>1</conf_is_title>
+      <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
+      <conf_title_title>Enlistment Application</conf_title_title>
+      <conf_title_desc>All settings related to the enlistment application portion of PERSCOM.</conf_title_desc>
+      <conf_title_tab>PERSCOM</conf_title_tab>
+      <conf_title_app>perscom</conf_title_app>
+      <conf_title_noshow>0</conf_title_noshow>
+    </setting>
+    <setting>
+      <conf_title>Recruiting and Retention Group</conf_title>
+      <conf_description>This is the user group that every member must be apart of to access the enlistment applications, soldier processing and adding a soldier features of PERSCOM.	</conf_description>
+      <conf_type>dropdown</conf_type>
+      <conf_key>perscom_recruiting_and_retention_group</conf_key>
+      <conf_default/>
+      <conf_extra>#show_groups#</conf_extra>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>1</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Supported Games</conf_title>
+      <conf_description>All games supported by the unit. These games will be listed in the dropdown menu of the enlistment application. Separate by a COMMA.</conf_description>
+      <conf_type>textarea</conf_type>
+      <conf_key>perscom_supported_games</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>2</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Application Submission Forum</conf_title>
+      <conf_description>The forum that all enlistment applications will be posted to upon submission.</conf_description>
+      <conf_type>dropdown</conf_type>
+      <conf_key>perscom_application_submission_forum</conf_key>
+      <conf_default/>
+      <conf_extra>#show_forums#</conf_extra>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>3</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Application Submission Group</conf_title>
+      <conf_description>The group the user will be added to upon submission of the application.</conf_description>
+      <conf_type>dropdown</conf_type>
+      <conf_key>perscom_application_submission_group</conf_key>
+      <conf_default/>
+      <conf_extra>#show_groups#</conf_extra>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>5</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Enlistment Requirements</conf_title>
+      <conf_description>The enlistment requirements that are displayed prior to filling out the application.</conf_description>
+      <conf_type>editor</conf_type>
+      <conf_key>perscom_enlistment_requirements</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>6</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_is_title>1</conf_is_title>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_title_title>General Settings</conf_title_title>
+      <conf_title_desc>All general settings for PERSCOM.</conf_title_desc>
+      <conf_title_tab>PERSCOM</conf_title_tab>
+      <conf_title_app>perscom</conf_title_app>
+      <conf_title_noshow>0</conf_title_noshow>
+    </setting>
+    <setting>
+      <conf_title>Turn PERSCOM Offline</conf_title>
+      <conf_description>Disable access to PERSCOM. The application will still be accessible by groups that are set in the permissions below.</conf_description>
+      <conf_type>yes_no</conf_type>
+      <conf_key>perscom_disable</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>0</conf_protected>
+      <conf_position>1</conf_position>
+      <conf_start_group>Access Settings</conf_start_group>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Offline Message</conf_title>
+      <conf_description>Message that will be displayed to users not allowed access when PERSCOM is offline.</conf_description>
+      <conf_type>textarea</conf_type>
+      <conf_key>perscom_offline_message</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>0</conf_protected>
+      <conf_position>2</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Access Groups</conf_title>
+      <conf_description>The groups that will be allowed access to PERSCOM when it is offline. Use CTRL to select multiple.</conf_description>
+      <conf_type>multi</conf_type>
+      <conf_key>perscom_offline_access_groups</conf_key>
+      <conf_default/>
+      <conf_extra>#show_groups#</conf_extra>
+      <conf_evalphp><![CDATA[if ( $save == 1)
+{
+	if ( is_array($_POST['perscom_offline_access_groups']) )
+	{
+		$_POST['perscom_offline_access_groups'] = ',' . implode(",",$_POST['perscom_offline_access_groups']) . ',';
+	}
+	else
+	{
+		$_POST['perscom_offline_access_groups'] = "";
+	}
+
+	$key = 'perscom_offline_access_groups';
+}
+
+if ( $show == 1 )
+{
+	$key = 'perscom_offline_access_groups[]';
+}]]></conf_evalphp>
+      <conf_protected>0</conf_protected>
+      <conf_position>3</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Base Unit Usergroup</conf_title>
+      <conf_description><![CDATA[This is the base unit user group that every member of the unit is apart of. This user group is allowed to access PERSCOM features such as LOA's, TPR's, mustering (if enabled), and requesting a discharge.]]></conf_description>
+      <conf_type>dropdown</conf_type>
+      <conf_key>perscom_base_unit_usergroup</conf_key>
+      <conf_default/>
+      <conf_extra>#show_groups#</conf_extra>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>4</conf_position>
+      <conf_start_group>Usergroups</conf_start_group>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Administrative Usergroup</conf_title>
+      <conf_description>This is the base unit user group that every staff member of the unit is apart of. This user group is allowed to access PERSCOM features such as promotions, demotions and discharging.</conf_description>
+      <conf_type>dropdown</conf_type>
+      <conf_key>perscom_administrative_usergroup</conf_key>
+      <conf_default/>
+      <conf_extra>#show_groups#</conf_extra>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>5</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Base Maintenance Opetations Usergroup</conf_title>
+      <conf_description>This is the user group that every member must be apart of to access the service records, combat records, award records and assignment features of PERSCOM.</conf_description>
+      <conf_type>dropdown</conf_type>
+      <conf_key>perscom_bmo_usergroup</conf_key>
+      <conf_default/>
+      <conf_extra>#show_groups#</conf_extra>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>6</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Civilian Usergroup</conf_title>
+      <conf_description>This is the default user group that every member who signs up for your IPB website will be automatically assigned to. It is also the group that soldiers will be placed into upon discharge.</conf_description>
+      <conf_type>dropdown</conf_type>
+      <conf_key>perscom_civilian_usergroup</conf_key>
+      <conf_default/>
+      <conf_extra>#show_groups#</conf_extra>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>7</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Retired Usergroup</conf_title>
+      <conf_description>This is the default user group that every member who receives an Honorable Retirement will be placed into.&#13;
+</conf_description>
+      <conf_type>dropdown</conf_type>
+      <conf_key>perscom_retired_usergroup</conf_key>
+      <conf_default/>
+      <conf_extra>#show_groups#</conf_extra>
+      <conf_evalphp/>
+      <conf_protected>0</conf_protected>
+      <conf_position>8</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>PERSCOM Automated User</conf_title>
+      <conf_description>The member that is responsible for most automated actions completed through PERSCOM.</conf_description>
+      <conf_type>name_autocomplete</conf_type>
+      <conf_key>perscom_application_submission_author</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>9</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>PERSCOM Signing Soldier ID</conf_title>
+      <conf_description>The member ID of the soldier is responsible for signing all award, promotion and demotion citations. Integers ONLY.</conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_signing_soldier</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp><![CDATA[if ( $save == 1)
+{
+	if ( is_numeric($value) )
+	{
+		$_POST['perscom_signing_soldier'] = $value;
+	}
+	else
+	{
+		$_POST['perscom_signing_soldier'] = '';
+	}
+
+	$key = 'perscom_signing_soldier';
+}
+
+if ( $show == 1 )
+{
+	$key = 'perscom_signing_soldier';
+}]]></conf_evalphp>
+      <conf_protected>0</conf_protected>
+      <conf_position>10</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>TPR Expiration Time</conf_title>
+      <conf_description>The number of days the TPR will expire after filing. Integers ONLY.</conf_description>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_tpr_expiration</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp><![CDATA[if ( $save == 1)
+{
+	if ( is_numeric($value) )
+	{
+		$_POST['perscom_tpr_expiration'] = $value;
+	}
+	else
+	{
+		$_POST['perscom_tpr_expiration'] = '';
+	}
+
+	$key = 'perscom_tpr_expiration';
+}
+
+if ( $show == 1 )
+{
+	$key = 'perscom_tpr_expiration';
+}]]></conf_evalphp>
+      <conf_protected>1</conf_protected>
+      <conf_position>11</conf_position>
+      <conf_start_group>Temporary Pass Request</conf_start_group>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Enable Muster System</conf_title>
+      <conf_description><![CDATA[Switch on and off to enable PERSCOM's muster system]]></conf_description>
+      <conf_type>yes_no</conf_type>
+      <conf_key>perscom_enable_muster</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>13</conf_position>
+      <conf_start_group>Miscellaneous Settings</conf_start_group>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Enable Personnel Profile</conf_title>
+      <conf_description><![CDATA[Display the user's PERSCOM personnel file as a tab in their forum profile.]]></conf_description>
+      <conf_type>yes_no</conf_type>
+      <conf_key>perscom_enable_profile_pfile</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>0</conf_protected>
+      <conf_position>14</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+  </settinggroup>
+</settingexport>

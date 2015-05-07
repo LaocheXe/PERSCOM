@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+	<tabitems>
+        <item>
+			<title>General Settings</title>
+			<subitems>
+				<subitem>
+					<subitemtitle>General Settings</subitemtitle>
+					<subsection>settings</subsection>
+					<subitemurl></subitemurl>
+					<subitemrolekey></subitemrolekey>
+					<subisredirect>0</subisredirect>
+				</subitem>
+            </subitems>
+        </item>
+		<item>
+			<title>Enlistment Application</title>
+			<subitems>
+				<subitem>
+					<subitemtitle>Enlistment Application</subitemtitle>
+					<subsection>settings</subsection>
+					<subitemurl>do=enlistment_application</subitemurl>
+					<subitemrolekey></subitemrolekey>
+					<subisredirect>0</subisredirect>
+				</subitem>
+            </subitems>
+        </item>
+		<item>
+			<title>Database</title>
+			<subitems>
+				<subitem>
+					<subitemtitle>Database</subitemtitle>
+					<subsection>settings</subsection>
+					<subitemurl>do=database</subitemurl>
+					<subitemrolekey></subitemrolekey>
+					<subisredirect>0</subisredirect>
+				</subitem>
+            </subitems>
+        </item>
+	</tabitems>
+</menu>

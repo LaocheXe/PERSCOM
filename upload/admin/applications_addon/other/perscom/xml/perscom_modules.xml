@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moduleexport>
+  <modulegroup>
+    <module>
+      <sys_module_title>Base Camp</sys_module_title>
+      <sys_module_application>perscom</sys_module_application>
+      <sys_module_key>basecamp</sys_module_key>
+      <sys_module_description><![CDATA[The operation&#39;s center for PERSCOM. All transactions and management happen within this module.]]></sys_module_description>
+      <sys_module_version>1.0</sys_module_version>
+      <sys_module_protected>0</sys_module_protected>
+      <sys_module_visible>1</sys_module_visible>
+      <sys_module_position>1</sys_module_position>
+      <sys_module_admin>0</sys_module_admin>
+    </module>
+    <module>
+      <sys_module_title>Ranks</sys_module_title>
+      <sys_module_application>perscom</sys_module_application>
+      <sys_module_key>ranks</sys_module_key>
+      <sys_module_description>Mange and display the ranks used within the PERSCOM system.</sys_module_description>
+      <sys_module_version>1.0</sys_module_version>
+      <sys_module_protected>0</sys_module_protected>
+      <sys_module_visible>1</sys_module_visible>
+      <sys_module_position>24</sys_module_position>
+      <sys_module_admin>0</sys_module_admin>
+    </module>
+    <module>
+      <sys_module_title>Enlistment Application</sys_module_title>
+      <sys_module_application>perscom</sys_module_application>
+      <sys_module_key>enlistment</sys_module_key>
+      <sys_module_description>The enlistment application portion of the PERSCOM system. Handles the incoming end of the tool.</sys_module_description>
+      <sys_module_version>1.0</sys_module_version>
+      <sys_module_protected>0</sys_module_protected>
+      <sys_module_visible>1</sys_module_visible>
+      <sys_module_position>25</sys_module_position>
+      <sys_module_admin>0</sys_module_admin>
+    </module>
+    <module>
+      <sys_module_title>Personnel</sys_module_title>
+      <sys_module_application>perscom</sys_module_application>
+      <sys_module_key>personnel</sys_module_key>
+      <sys_module_description>The core of the PERSCOM system. All personnel management happens in this module.</sys_module_description>
+      <sys_module_version>1.0</sys_module_version>
+      <sys_module_protected>0</sys_module_protected>
+      <sys_module_visible>1</sys_module_visible>
+      <sys_module_position>27</sys_module_position>
+      <sys_module_admin>0</sys_module_admin>
+    </module>
+    <module>
+      <sys_module_title>Awards</sys_module_title>
+      <sys_module_application>perscom</sys_module_application>
+      <sys_module_key>awards</sys_module_key>
+      <sys_module_description>Mange and display the awards used within the PERSCOM system.</sys_module_description>
+      <sys_module_version>1.0</sys_module_version>
+      <sys_module_protected>0</sys_module_protected>
+      <sys_module_visible>1</sys_module_visible>
+      <sys_module_position>28</sys_module_position>
+      <sys_module_admin>0</sys_module_admin>
+    </module>
+    <module>
+      <sys_module_title>Settings</sys_module_title>
+      <sys_module_application>perscom</sys_module_application>
+      <sys_module_key>settings</sys_module_key>
+      <sys_module_description>PERSCOM general configuration.</sys_module_description>
+      <sys_module_version>1.0</sys_module_version>
+      <sys_module_protected>0</sys_module_protected>
+      <sys_module_visible>1</sys_module_visible>
+      <sys_module_position>37</sys_module_position>
+      <sys_module_admin>1</sys_module_admin>
+    </module>
+  </modulegroup>
+</moduleexport>

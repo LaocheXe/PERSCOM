@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<information>
+  <data>
+    <name>PERSCOM</name>
+    <public_name>PERSCOM</public_name>
+    <hide_tab>0</hide_tab>
+    <author>Third Infantry Division (Jon Erickson)</author>
+    <description>A realism unit personnel and operational management tool built by the 3rd Infantry Division.</description>
+    <disabledatinstall>0</disabledatinstall>
+    <global_caches/>
+    <website>http://www.3rdinf.us</website>
+    <update_check/>
+    <templategroups>
+        <template match="contains">skin_perscom</template>
+    </templategroups>
+  </data>
+</information>
