@@ -7,6 +7,7 @@ PERSCOM is a versatile soldier management tool built by the 3rd Infantry Divisio
 
 * Invision Power Board
 * Apache, MySQL and PHP
+* A Valid License Key
 
 ### Features
 
@@ -17,3 +18,10 @@ PERSCOM is a versatile soldier management tool built by the 3rd Infantry Divisio
 5. Promotions and Demotions with Auto-Created Citations
 6. Transfer Soldiers Among Combat Units with worrying about Forum Usergroups and Permissions
 7. Automated Notifications and Private Messages to keep Soldiers Informed
+
+##### Pricing
+
+Base Installation Cost: $30
+Annual Fee: $10
+
+PERSCOM may be purchased here: http://www.3rdinf.us
