@@ -97,9 +97,15 @@ class public_perscom_basecamp_applications extends ipsCommand
 			'from' => $this->settings['perscom_database_settings'], 
 			'where' => '`key`="dropped_applications"' ) );
 
+		// Get the latest reset date of the enlistment statistics
+		$enlistment_statistics_reset = $this->DB->buildAndFetch( array( 'select' => '*', 
+			'from' => $this->settings['perscom_database_settings'], 
+			'where' => '`key`="enlistment_statistics_reset"' ) );
+
 		// Get all the recruiters
 		$this->DB->build( array( 'select' => 'recruiter',
-			'from' => $this->settings['perscom_database_personnel_files'] ) );
+			'from' => $this->settings['perscom_database_personnel_files'],
+			'where' => 'induction_date > ' . $enlistment_statistics_reset['value'] ) );
 
 		// Execute the DB query
 		$recruiters_result = $this->DB->execute();
@@ -132,7 +138,7 @@ class public_perscom_basecamp_applications extends ipsCommand
 			if ($recruiter_pfile) {
 				
 				// Add the statistic
-				$this->stats['most_active_recruiter'] = $recruiter_pfile['members_display_name'] . ' (' . $count[$recruiter] . ' Recruits)';
+				$this->stats['most_active_recruiter'] = $recruiter_pfile['members_display_name'] . ' - ' . $count[$recruiter] . ' recruits since ' . strftime($this->settings['clock_short2'], $enlistment_statistics_reset['value']);
 			}
 
 			// Unable to load member
@@ -142,11 +148,6 @@ class public_perscom_basecamp_applications extends ipsCommand
 				$this->stats['most_active_recruiter'] = 'Unable to load member';
 			}
 		}
-
-		// Get the latest reset date of the enlistment statistics
-		$enlistment_statistics_reset = $this->DB->buildAndFetch( array( 'select' => '*', 
-			'from' => $this->settings['perscom_database_settings'], 
-			'where' => '`key`="enlistment_statistics_reset"' ) );
 
 		// Set our stats array
 		$this->stats['total_applications'] = $total_applications['value'];
