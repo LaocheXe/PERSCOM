@@ -97,6 +97,52 @@ class public_perscom_basecamp_applications extends ipsCommand
 			'from' => $this->settings['perscom_database_settings'], 
 			'where' => '`key`="dropped_applications"' ) );
 
+		// Get all the recruiters
+		$this->DB->build( array( 'select' => 'recruiter',
+			'from' => $this->settings['perscom_database_personnel_files'] ) );
+
+		// Execute the DB query
+		$recruiters_result = $this->DB->execute();
+
+		// Create an array to store all the recruiters
+		$recruiters = array();
+
+		// Loop through the results and add to array
+		while( $r = $this->DB->fetch( $recruiters_result ) )
+		{
+			// If not a 0
+			if ($r['recruiter'] != '0') {
+				
+				// Add the result to the recruiters array
+				array_push($recruiters, $r['recruiter']);
+			}
+		}
+
+		// Count the array and look for the most popular result
+		$count = array_count_values($recruiters); 
+		$recruiter = array_search(max($count), $count);
+
+		// If we get a result
+		if ($recruiter) {
+			
+			// Get the member
+			$recruiter_pfile = IPSMember::load( $recruiter );
+
+			// If we get a member profile
+			if ($recruiter_pfile) {
+				
+				// Add the statistic
+				$this->stats['most_active_recruiter'] = $recruiter_pfile['members_display_name'] . ' (' . $count[$recruiter] . ' Recruits)';
+			}
+
+			// Unable to load member
+			else {
+
+				// Inform the user
+				$this->stats['most_active_recruiter'] = 'Unable to load member';
+			}
+		}
+
 		// Get the latest reset date of the enlistment statistics
 		$enlistment_statistics_reset = $this->DB->buildAndFetch( array( 'select' => '*', 
 			'from' => $this->settings['perscom_database_settings'], 
@@ -123,6 +169,7 @@ class public_perscom_basecamp_applications extends ipsCommand
 		// Loop through the accepted applications and find the difference between the date applied and date enlisted
 		while( $r = $this->DB->fetch( $result ) )
 		{
+			// Calculate the difference in time between the induction date and enlistment date and add the number of days to the array
 			$datediff = $r['enlistment_date'] - $r['induction_date'];
 			array_push($days, abs(floor($datediff/(60*60*24))));
 		}
