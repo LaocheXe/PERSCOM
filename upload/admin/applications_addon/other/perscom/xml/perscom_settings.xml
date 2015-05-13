@@ -317,6 +317,22 @@
       <conf_title_noshow>0</conf_title_noshow>
     </setting>
     <setting>
+      <conf_title>License Key</conf_title>
+      <conf_description/>
+      <conf_type>input</conf_type>
+      <conf_key>perscom_license_key</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>0</conf_protected>
+      <conf_position>1</conf_position>
+      <conf_start_group>License Key</conf_start_group>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
       <conf_title>Turn PERSCOM Offline</conf_title>
       <conf_description>Disable access to PERSCOM. The application will still be accessible by groups that are set in the permissions below.</conf_description>
       <conf_type>yes_no</conf_type>
@@ -325,7 +341,7 @@
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>0</conf_protected>
-      <conf_position>1</conf_position>
+      <conf_position>2</conf_position>
       <conf_start_group>Access Settings</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -341,7 +357,7 @@
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>0</conf_protected>
-      <conf_position>2</conf_position>
+      <conf_position>3</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -374,7 +390,7 @@ if ( $show == 1 )
 	$key = 'perscom_offline_access_groups[]';
 }]]></conf_evalphp>
       <conf_protected>0</conf_protected>
-      <conf_position>3</conf_position>
+      <conf_position>4</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -390,7 +406,7 @@ if ( $show == 1 )
       <conf_extra>#show_groups#</conf_extra>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>4</conf_position>
+      <conf_position>5</conf_position>
       <conf_start_group>Usergroups</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -406,7 +422,7 @@ if ( $show == 1 )
       <conf_extra>#show_groups#</conf_extra>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>5</conf_position>
+      <conf_position>6</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -422,7 +438,7 @@ if ( $show == 1 )
       <conf_extra>#show_groups#</conf_extra>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>6</conf_position>
+      <conf_position>7</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -438,7 +454,7 @@ if ( $show == 1 )
       <conf_extra>#show_groups#</conf_extra>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>7</conf_position>
+      <conf_position>8</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -455,7 +471,7 @@ if ( $show == 1 )
       <conf_extra>#show_groups#</conf_extra>
       <conf_evalphp/>
       <conf_protected>0</conf_protected>
-      <conf_position>8</conf_position>
+      <conf_position>9</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -471,7 +487,7 @@ if ( $show == 1 )
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>9</conf_position>
+      <conf_position>10</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -504,7 +520,7 @@ if ( $show == 1 )
 	$key = 'perscom_signing_soldier';
 }]]></conf_evalphp>
       <conf_protected>0</conf_protected>
-      <conf_position>10</conf_position>
+      <conf_position>11</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -537,7 +553,7 @@ if ( $show == 1 )
 	$key = 'perscom_tpr_expiration';
 }]]></conf_evalphp>
       <conf_protected>1</conf_protected>
-      <conf_position>11</conf_position>
+      <conf_position>12</conf_position>
       <conf_start_group>Temporary Pass Request</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
