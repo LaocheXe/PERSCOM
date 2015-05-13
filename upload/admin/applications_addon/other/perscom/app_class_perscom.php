@@ -16,6 +16,13 @@ if ( ! defined( 'IN_IPB' ) )
 	exit();
 }
 
+// Define some variables
+define( 'IPS_XML_RPC_DEBUG_ON'  , 0 );
+define( 'IPS_XML_RPC_DEBUG_FILE', '' );
+
+// Adjust this path as needed
+require_once( "ips_kernel/classXmlRpc.php" );
+
 class app_class_perscom
 {
 	/**
@@ -146,6 +153,53 @@ class app_class_perscom
     	    		// Show an error
 					$registry->output->showError( ipsRegistry::$settings['perscom_offline_message'], 12345678, false, '', 403 );    
 				}		
+			}
+
+			// PERSCOM is not disabled
+			else {
+
+				// Check if there has been a license key even saved
+				if (is_null(ipsRegistry::$settings['perscom_license_key']) || ipsRegistry::$settings['perscom_license_key'] == '') {
+					
+					// Show an error
+					$registry->output->showError( 'No license key has been provided under PERSCOM Settings in the Admin CP.', 12345678, false, '', 401 );
+				}
+
+				// A license key has been entered
+				else {
+
+					// Check our license key
+					$classXmlRpc = new classXmlRpc();
+					$response = $classXmlRpc->sendXmlRpc( "http://www.3rdinf.us/interface/licenses.php", "check", array( 
+						'key' => ipsRegistry::$settings['perscom_license_key'],
+						'usage_id' => '1' ) );
+					
+					// If we get an error
+					if ($classXmlRpc->errors) {
+
+						// If we get a bad usage ID, try and activate the key
+						if ($classXmlRpc->errors[0] == 'BAD_USAGE_ID') {
+						
+							// Activate the license key
+							$activate = $classXmlRpc->sendXmlRpc( "http://www.3rdinf.us/interface/licenses.php", "activate", array( 
+								'key' => ipsRegistry::$settings['perscom_license_key'] ) );	
+						}
+
+						// Some other error
+						else {
+
+							// Show an error
+							$registry->output->showError( 'License Key Error: ' . $classXmlRpc->errors[0] . '. Please make sure your license key is entered properly in the Admin CP PERSCOM Settings page.', 12345678, false, '', 401 );  
+						}
+					}
+
+					// Make sure the license key is still active
+					if ($classXmlRpc->xmlrpc_params[0]['STATUS'] != 'ACTIVE') {
+
+						// Show an error
+						$registry->output->showError( 'License Key Error: ' . $classXmlRpc->xmlrpc_params[0]['STATUS'] . '. Please contact the 3rd Infantry Division if this problem persists.', 12345678, false, '', 401 );
+					}
+				}
 			}	
     	}
     }
