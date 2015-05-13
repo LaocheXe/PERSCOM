@@ -126,27 +126,40 @@ class public_perscom_basecamp_applications extends ipsCommand
 
 		// Count the array and look for the most popular result
 		$count = array_count_values($recruiters); 
-		$recruiter = array_search(max($count), $count);
 
-		// If we get a result
-		if ($recruiter) {
-			
-			// Get the member
-			$recruiter_pfile = IPSMember::load( $recruiter );
+		// If we have an array with more than one element
+		if (count($count) > 0) {
 
-			// If we get a member profile
-			if ($recruiter_pfile) {
+			// Get the most active recruiter's member id
+			$recruiter = array_search(max($count), $count);
+
+			// If we get a result
+			if ($recruiter) {
 				
-				// Add the statistic
-				$this->stats['most_active_recruiter'] = $recruiter_pfile['members_display_name'] . ' - ' . $count[$recruiter] . ' recruits since ' . strftime($this->settings['clock_short2'], $enlistment_statistics_reset['value']);
-			}
+				// Get the member
+				$recruiter_pfile = IPSMember::load( $recruiter );
 
-			// Unable to load member
-			else {
+				// If we get a member profile
+				if ($recruiter_pfile) {
+					
+					// Add the statistic
+					$this->stats['most_active_recruiter'] = $recruiter_pfile['members_display_name'] . ' - ' . $count[$recruiter] . ' recruit(s) since ' . strftime($this->settings['clock_short2'], $enlistment_statistics_reset['value']);
+				}
 
-				// Inform the user
-				$this->stats['most_active_recruiter'] = 'Unable to load member';
+				// Unable to load member
+				else {
+
+					// Inform the user
+					$this->stats['most_active_recruiter'] = 'Unable to load recruiter';
+				}
 			}
+		}
+
+		// No recruiters found
+		else {
+
+			// Inform the user
+			$this->stats['most_active_recruiter'] = 'There have been no assigned recruiters since the last reset date';
 		}
 
 		// Set our stats array
