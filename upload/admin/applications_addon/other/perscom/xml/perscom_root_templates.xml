@@ -1664,7 +1664,7 @@
 						</li>
 						<li class="clear clearfix">
 							<span class="row_title" style="width: 49%;">Most Active Recruiter</span>
-							<span class="row_data">Feature Yet To Be Released</span>
+							<span class="row_data">{$stats['most_active_recruiter']}</span>
 						</li>
 						<li class="clear clearfix">
 							<span class="row_title" style="width: 49%;">Enlistment Statistics Last Reset</span>
