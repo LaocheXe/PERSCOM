@@ -1708,7 +1708,7 @@
 				</foreach>
 			<else />
 				<tr>
-					<td colspan=7 style="padding: 14px;">There are no applications to display</td>
+					<td colspan=7 style="padding: 14px;">{$this->lang->words['no_applications']}</td>
 				</tr>
 			</if>
 		</table>	
@@ -1729,7 +1729,7 @@
 				</select>
 			<else />
 				<select id="" class="input_select" tabindex="1" name="">
-					<option value="">No Service Record to Lookup</option>
+					<option value="">{$this->lang->words['no_service_record_lookup']}</option>
 				</select>
 			</if>
 		</div>
@@ -2357,9 +2357,9 @@
 				<else />	
 					<tr>
 						<if test="$admin">
-							<td colspan=4 style="padding: 14px;">No Temporary Pass Requests to Display</td>
+							<td colspan=4 style="padding: 14px;">{$this->lang->words['no_tprs']}</td>
 						<else />
-							<td colspan=3 style="padding: 14px;">No Temporary Pass Requests to Display</td>
+							<td colspan=3 style="padding: 14px;">{$this->lang->words['no_tprs']}</td>
 						</if>
 					</tr>
 				</if>
@@ -2391,9 +2391,9 @@
 				<else />	
 					<tr>
 						<if test="$admin">
-						        <td colspan=5 style="padding: 14px;">No Leave of Absences to Display</td>
+						        <td colspan=5 style="padding: 14px;">{$this->lang->words['no_loas']}</td>
 						<else />
-					       		<td colspan=4 style="padding: 14px;">No Leave of Absences to Display</td>
+					       		<td colspan=4 style="padding: 14px;">{$this->lang->words['no_loas']}</td>
 						</if>
 					</tr>
 				</if>
@@ -2429,7 +2429,7 @@
 							</foreach>
 						<else />	
 							<tr>
-								<td colspan=4 style="padding: 14px;">No Recent Promotions to Display</td>
+								<td colspan=4 style="padding: 14px;">{$this->lang->words['no_recent_promotions']}</td>
 							</tr>
 						</if>
 					</table>
@@ -2455,7 +2455,7 @@
 							</foreach>
 						<else />	
 							<tr>
-								<td colspan=4 style="padding: 14px;">No Recent Awards or Commendations to Display</td>
+								<td colspan=4 style="padding: 14px;">{$this->lang->words['no_recent_awards']}</td>
 							</tr>
 						</if>
 					</table>
@@ -2483,7 +2483,7 @@
 							</foreach>
 						<else />	
 							<tr>
-								<td colspan=4 style="padding: 14px;">No Recent Demotions to Display</td>
+								<td colspan=4 style="padding: 14px;">{$this->lang->words['no_recent_demotions']}</td>
 							</tr>
 						</if>
 					</table>
@@ -2509,7 +2509,7 @@
 							</foreach>
 						<else />	
 							<tr>
-								<td colspan=4 style="padding: 14px;">No Recent Discharges to Display</td>
+								<td colspan=4 style="padding: 14px;">{$this->lang->words['no_recent_discharges']}</td>
 							</tr>
 						</if>
 					</table>
@@ -2557,7 +2557,7 @@
 							</foreach>
 						<else />
 							<tr>
-								<td colspan="3">No Personnel Have Musterd In</td>
+								<td colspan="3">{$this->lang->words['no_musters']}</td>
 							</tr>
 						</if>
 					</table>
