@@ -17,7 +17,7 @@
       <word_app>perscom</word_app>
       <word_pack>public_awards</word_pack>
       <word_key>no_awards</word_key>
-      <word_default>There are no awards or commendations to display</word_default>
+      <word_default>No Awards or Commendations to Display</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
@@ -1069,7 +1069,7 @@ Please click the link below to visit the Candidate Files.]]></word_default>
       <word_app>perscom</word_app>
       <word_pack>public_personnel</word_pack>
       <word_key>no_personnel</word_key>
-      <word_default>There are no personnel to display</word_default>
+      <word_default>No Personnel to Display</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
@@ -1087,7 +1087,7 @@ Please click the link below to visit the Candidate Files.]]></word_default>
       <word_app>perscom</word_app>
       <word_pack>public_ranks</word_pack>
       <word_key>no_ranks</word_key>
-      <word_default>There are no ranks to display</word_default>
+      <word_default>No Ranks to Display</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
