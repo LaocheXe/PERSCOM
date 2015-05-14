@@ -4,14 +4,32 @@
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_awards</word_pack>
-      <word_key>badges</word_key>
-      <word_default>Badges</word_default>
+      <word_key>awards_and_commendations</word_key>
+      <word_default>Awards and Commendations</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_awards</word_pack>
-      <word_key>medals</word_key>
-      <word_default>Medals</word_default>
+      <word_key>awards_and_commendations_desc</word_key>
+      <word_default><![CDATA[Medals, ribbons, citations and badges issued and awarded by the {$this->settings['board_name']} to soldiers for excellence.]]></word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_awards</word_pack>
+      <word_key>citations</word_key>
+      <word_default>Citations</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_awards</word_pack>
+      <word_key>ribbons</word_key>
+      <word_default>Ribbons</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_awards</word_pack>
+      <word_key>prerequisites</word_key>
+      <word_default>Prerequisites</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
@@ -28,368 +46,170 @@
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_awards</word_pack>
-      <word_key>prerequisites</word_key>
-      <word_default>Prerequisites</word_default>
+      <word_key>medals</word_key>
+      <word_default>Medals</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_awards</word_pack>
-      <word_key>ribbons</word_key>
-      <word_default>Ribbons</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_awards</word_pack>
-      <word_key>citations</word_key>
-      <word_default>Citations</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_awards</word_pack>
-      <word_key>awards_and_commendations</word_key>
-      <word_default>Awards and Commendations</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_awards</word_pack>
-      <word_key>awards_and_commendations_desc</word_key>
-      <word_default><![CDATA[Medals, ribbons, citations and badges issued and awarded by the {$this->settings['board_name']} to soldiers for excellence.]]></word_default>
+      <word_key>badges</word_key>
+      <word_default>Badges</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_reset_tig</word_key>
-      <word_default><![CDATA[The soldier's time in grade has been successfully reset!]]></word_default>
+      <word_key>no_service_record_lookup</word_key>
+      <word_default>No Service Record to Lookup</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_reset_tis</word_key>
-      <word_default><![CDATA[The soldier's time in service has been successfully reset!]]></word_default>
+      <word_key>no_musters</word_key>
+      <word_default>No Personnel Have Musterd In</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_edit_soldier</word_key>
-      <word_default>You have successfully edited this soldier!</word_default>
+      <word_key>no_recent_discharges</word_key>
+      <word_default>No Recent Discharges to Display</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>perscom_request_logs</word_key>
-      <word_default>PERSCOM Request Logs</word_default>
+      <word_key>no_recent_awards</word_key>
+      <word_default>No Recent Awards or Commendations to Display</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_empty_logs</word_key>
-      <word_default>You have successfully emptied the logs!</word_default>
+      <word_key>no_recent_demotions</word_key>
+      <word_default>No Recent Demotions to Display</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_extend_loa_link</word_key>
-      <word_default>Extend your Leave of Absence here.</word_default>
+      <word_key>no_recent_promotions</word_key>
+      <word_default>No Recent Promotions to Display</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_return_loa_link</word_key>
-      <word_default>Return from your Leave of Absence here.</word_default>
+      <word_key>no_loas</word_key>
+      <word_default>No Leave of Absences to Display</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_on_loa</word_key>
-      <word_default>You are currently on LOA.</word_default>
+      <word_key>no_tprs</word_key>
+      <word_default>No Temporary Pass Request to Display</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_return_loa</word_key>
-      <word_default>You have successfully returned from LOA!</word_default>
+      <word_key>no_applications</word_key>
+      <word_default>No Applications to Process</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_muster_in_error</word_key>
-      <word_default>You have already mustered in this week!</word_default>
+      <word_key>add_soldier_bypass</word_key>
+      <word_default>Bypass enlistment application process and add soldier directly to the PERSCOM system. You must fill out all fields if you are bypassing the processing stage of the enlistment application.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_muster_in</word_key>
-      <word_default>You have successfully mustered in!</word_default>
+      <word_key>operations_center_desc</word_key>
+      <word_default>All unit operations may be viewed here.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_request_tpr</word_key>
-      <word_default>Your temporary pass request was successfully submitted!</word_default>
+      <word_key>file_promotion</word_key>
+      <word_default>File Promotion</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_application_drop</word_key>
-      <word_default>You have successfully dropped the application!</word_default>
+      <word_key>file_promotion_desc</word_key>
+      <word_default>Fill out the form below to file a promotion.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_application_deny</word_key>
-      <word_default>You have successfully denied the application!</word_default>
+      <word_key>add_soldier_bypass_message</word_key>
+      <word_default><![CDATA[Do not fill in this information if you want the soldier's profile to go to the "Process Applicant" stage. If you would like to bypass this and add the soldier directly to PERSCOM, fill out the information below and make sure to select the checkbox at the bottom of the page.]]></word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_application_reset_statistics</word_key>
-      <word_default>You have successfully reset the enlistment application statistics!</word_default>
+      <word_key>settings</word_key>
+      <word_default>PERSCOM Settings</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_request_loa</word_key>
-      <word_default>Your leave of absence was successfully submitted!</word_default>
+      <word_key>add_combat_record_entry</word_key>
+      <word_default>Add Combat Record Entry</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_request_loa_pending</word_key>
-      <word_default>You already have an active leave of absence in place or there is one awaiting a status update! Please wait till the current one expires or the pending LOA is updated.</word_default>
+      <word_key>add_soldier_desc</word_key>
+      <word_default>Soldiers may be added to the PERSCOM system here when skipping the enlistment application is needed.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_request_discharge</word_key>
-      <word_default>Your discharge was successfully submitted!</word_default>
+      <word_key>enlistment_applications_desc</word_key>
+      <word_default>Enlistment applications that have been submitted through the PERSCOM system.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_request_discharge_pending</word_key>
-      <word_default>You already have an pending discharge in place! Please wait till your current one is updated.</word_default>
+      <word_key>add_soldier</word_key>
+      <word_default>Add Soldier</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_process_applicant</word_key>
-      <word_default>You have successfully processed this applicant!</word_default>
+      <word_key>view_logs</word_key>
+      <word_default>View Logs</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_file_promotion</word_key>
-      <word_default>You have successfully promoted the soldier!</word_default>
+      <word_key>add_soldier_warning</word_key>
+      <word_default>This form should only be utilized if for whatever reason, the soldier did not utilize the standard enlistment application on the homepage.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_file_discharge</word_key>
-      <word_default>You have successfully filed the discharge!</word_default>
+      <word_key>add_service_record_entry_desc</word_key>
+      <word_default>Fill out the form below to add a service record entry.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_file_assignment</word_key>
-      <word_default>You have successfully assigned the soldier!</word_default>
+      <word_key>process_applicant</word_key>
+      <word_default>Process Applicant</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_file_demotion</word_key>
-      <word_default>You have successfully demoted the soldier!</word_default>
+      <word_key>request_discharge</word_key>
+      <word_default>Request Discharge</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_extend_loa</word_key>
-      <word_default>Your leave of absence was successfully extended!</word_default>
+      <word_key>add_leave_of_absence_desc</word_key>
+      <word_default>Fill out the form below to submit a Leave of Absence request.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>message_add_misc_entry</word_key>
-      <word_default>You have successfully added the service record!</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>view_logs_desc</word_key>
-      <word_default>All PERSCOM transactions that are made may be viewed here.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>message_add_soldier</word_key>
-      <word_default>You have successfully added the soldier!</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>message_add_award_entry</word_key>
-      <word_default>You have successfully awarded the soldier!</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>message_add_combat_entry</word_key>
-      <word_default>You have successfully added the combat record!</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>return_leave_of_absence_msg</word_key>
-      <word_default>You have successfully returned from your Leave of Absence. Welcome back! Your personnel file has been successfully updated.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>weapon_characteristics</word_key>
-      <word_default>Weapon Characteristics</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>file_discharge_additional</word_key>
-      <word_default><![CDATA[If you would like to retire a soldier, make sure to select 'Honorable Retirement' from the 'Grade' dropdown menu. This will move the soldier to the 'Retired' combat unit and preserve their personnel file. All other discharge grades will delete their personnel file.]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>add_soldier_usergroup_warning</word_key>
-      <word_default><![CDATA[All members should be in the {$this->settings['board_name']} group unless designated Command Staff.]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>file_demotion_desc</word_key>
-      <word_default>Fill out the form below to file a demotion.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>file_discharge_desc</word_key>
-      <word_default>Fill out the form below to file a discharge.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>extend_leave_of_absence_desc</word_key>
-      <word_default>Fill out the form below to extend your Leave of Absence.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>return_leave_of_absence</word_key>
-      <word_default>Return from Leave of Absence</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>return_leave_of_absence_desc</word_key>
-      <word_default>Please make sure to inform your immediate supervisor of your status and to re-engage with your combat unit.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>extend_leave_of_absence</word_key>
-      <word_default>Extend Leave of Absence</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>add_soldier_forum_warning</word_key>
-      <word_default><![CDATA[Enter the user's name just as it displays in the forum. This is imperative that it is correct. If not, the add will fail and you will receieve an error.]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>process_applicant_desc</word_key>
-      <word_default>Enlistment applications that have been submitted may be processed here for induction.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>title_command_staff_links</word_key>
-      <word_default>Command Staff Links</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>enlistment_applications</word_key>
-      <word_default>Enlistment Applications</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>title_base_maintenance_operation_links</word_key>
-      <word_default>Base Maintenance Operations Links</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>title_recruiting_retention_links</word_key>
-      <word_default>Recruiting and Retention Links</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>title_system_links</word_key>
-      <word_default>System Links</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>title_unit_member_links</word_key>
-      <word_default>Unit Member Links</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>add_file_assignment_entry_desc</word_key>
-      <word_default>Fill out the form below to add a file assignment entry.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>add_award_entry_desc</word_key>
-      <word_default>Fill out the form below to add an award/commendation entry.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>add_combat_record_entry_desc</word_key>
-      <word_default>Fill out the form below to add a combat record entry.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>request_discharge_desc</word_key>
-      <word_default>Fill out the form below to submit a discharge request.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>add_temporary_pass_request_desc</word_key>
-      <word_default>Fill out the form below to submit a Temporary Pass Request.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>muster_in</word_key>
-      <word_default>Muster In</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>add_temporary_pass_request</word_key>
-      <word_default>Temporary Pass Request(s)</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>add_leave_of_absence</word_key>
-      <word_default>Leave of Absence(s)</word_default>
+      <word_key>file_discharge</word_key>
+      <word_default>File Discharge</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
@@ -430,122 +250,344 @@
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>request_discharge</word_key>
-      <word_default>Request Discharge</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>add_leave_of_absence_desc</word_key>
-      <word_default>Fill out the form below to submit a Leave of Absence request.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
-      <word_key>file_discharge</word_key>
-      <word_default>File Discharge</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_base_camp</word_pack>
       <word_key>add_award_entry</word_key>
       <word_default>Add Award / Commendation Entry</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>add_service_record_entry_desc</word_key>
-      <word_default>Fill out the form below to add a service record entry.</word_default>
+      <word_key>add_leave_of_absence</word_key>
+      <word_default>Leave of Absence(s)</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>process_applicant</word_key>
-      <word_default>Process Applicant</word_default>
+      <word_key>add_temporary_pass_request_desc</word_key>
+      <word_default>Fill out the form below to submit a Temporary Pass Request.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>add_soldier_desc</word_key>
-      <word_default>Soldiers may be added to the PERSCOM system here when skipping the enlistment application is needed.</word_default>
+      <word_key>muster_in</word_key>
+      <word_default>Muster In</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>enlistment_applications_desc</word_key>
-      <word_default>Enlistment applications that have been submitted through the PERSCOM system.</word_default>
+      <word_key>add_temporary_pass_request</word_key>
+      <word_default>Temporary Pass Request(s)</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>add_soldier</word_key>
-      <word_default>Add Soldier</word_default>
+      <word_key>request_discharge_desc</word_key>
+      <word_default>Fill out the form below to submit a discharge request.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>view_logs</word_key>
-      <word_default>View Logs</word_default>
+      <word_key>add_award_entry_desc</word_key>
+      <word_default>Fill out the form below to add an award/commendation entry.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>add_soldier_warning</word_key>
-      <word_default>This form should only be utilized if for whatever reason, the soldier did not utilize the standard enlistment application on the homepage.</word_default>
+      <word_key>add_combat_record_entry_desc</word_key>
+      <word_default>Fill out the form below to add a combat record entry.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>add_combat_record_entry</word_key>
-      <word_default>Add Combat Record Entry</word_default>
+      <word_key>add_file_assignment_entry_desc</word_key>
+      <word_default>Fill out the form below to add a file assignment entry.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>add_soldier_bypass</word_key>
-      <word_default>Bypass enlistment application process and add soldier directly to the PERSCOM system. You must fill out all fields if you are bypassing the processing stage of the enlistment application.</word_default>
+      <word_key>title_system_links</word_key>
+      <word_default>System Links</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>operations_center_desc</word_key>
-      <word_default>All unit operations may be viewed here.</word_default>
+      <word_key>title_unit_member_links</word_key>
+      <word_default>Unit Member Links</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>file_promotion</word_key>
-      <word_default>File Promotion</word_default>
+      <word_key>title_recruiting_retention_links</word_key>
+      <word_default>Recruiting and Retention Links</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>file_promotion_desc</word_key>
-      <word_default>Fill out the form below to file a promotion.</word_default>
+      <word_key>title_base_maintenance_operation_links</word_key>
+      <word_default>Base Maintenance Operations Links</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>add_soldier_bypass_message</word_key>
-      <word_default><![CDATA[Do not fill in this information if you want the soldier's profile to go to the "Process Applicant" stage. If you would like to bypass this and add the soldier directly to PERSCOM, fill out the information below and make sure to select the checkbox at the bottom of the page.]]></word_default>
+      <word_key>title_command_staff_links</word_key>
+      <word_default>Command Staff Links</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
-      <word_key>settings</word_key>
-      <word_default>PERSCOM Settings</word_default>
+      <word_key>enlistment_applications</word_key>
+      <word_default>Enlistment Applications</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
-      <word_pack>public_citations</word_pack>
-      <word_key>citation_award</word_key>
-      <word_default>The Secretary of the Army has reposed special trust and confidence in your patriotism, valor, fidelity and professional excellence. In view of these qualities and your demonstrated leadership potential and dedicated service to the United States Army and the unit, you are, therefore, awarded the</word_default>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>process_applicant_desc</word_key>
+      <word_default>Enlistment applications that have been submitted may be processed here for induction.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
-      <word_pack>public_citations</word_pack>
-      <word_key>citation_promotion</word_key>
-      <word_default>The Secretary of the Army has reposed special trust and confidence in your patriotism, valor, fidelity and professional excellence. In view of these qualities and your demonstrated leadership potential and dedicated service to the United States Army and the unit, you are, therefore, promoted to the rank of</word_default>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>return_leave_of_absence</word_key>
+      <word_default>Return from Leave of Absence</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>return_leave_of_absence_desc</word_key>
+      <word_default>Please make sure to inform your immediate supervisor of your status and to re-engage with your combat unit.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>extend_leave_of_absence</word_key>
+      <word_default>Extend Leave of Absence</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>add_soldier_forum_warning</word_key>
+      <word_default><![CDATA[Enter the user's name just as it displays in the forum. This is imperative that it is correct. If not, the add will fail and you will receieve an error.]]></word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>extend_leave_of_absence_desc</word_key>
+      <word_default>Fill out the form below to extend your Leave of Absence.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>file_demotion_desc</word_key>
+      <word_default>Fill out the form below to file a demotion.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>file_discharge_desc</word_key>
+      <word_default>Fill out the form below to file a discharge.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>add_soldier_usergroup_warning</word_key>
+      <word_default><![CDATA[All members should be in the {$this->settings['board_name']} group unless designated Command Staff.]]></word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>file_discharge_additional</word_key>
+      <word_default><![CDATA[If you would like to retire a soldier, make sure to select 'Honorable Retirement' from the 'Grade' dropdown menu. This will move the soldier to the 'Retired' combat unit and preserve their personnel file. All other discharge grades will delete their personnel file.]]></word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_file_promotion</word_key>
+      <word_default>You have successfully promoted the soldier!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_file_discharge</word_key>
+      <word_default>You have successfully filed the discharge!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_file_assignment</word_key>
+      <word_default>You have successfully assigned the soldier!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_file_demotion</word_key>
+      <word_default>You have successfully demoted the soldier!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_extend_loa</word_key>
+      <word_default>Your leave of absence was successfully extended!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_request_discharge_pending</word_key>
+      <word_default>You already have an pending discharge in place! Please wait till your current one is updated.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>weapon_characteristics</word_key>
+      <word_default>Weapon Characteristics</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>return_leave_of_absence_msg</word_key>
+      <word_default>You have successfully returned from your Leave of Absence. Welcome back! Your personnel file has been successfully updated.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_add_combat_entry</word_key>
+      <word_default>You have successfully added the combat record!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_add_award_entry</word_key>
+      <word_default>You have successfully awarded the soldier!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_add_soldier</word_key>
+      <word_default>You have successfully added the soldier!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>view_logs_desc</word_key>
+      <word_default>All PERSCOM transactions that are made may be viewed here.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_add_misc_entry</word_key>
+      <word_default>You have successfully added the service record!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_process_applicant</word_key>
+      <word_default>You have successfully processed this applicant!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_request_discharge</word_key>
+      <word_default>Your discharge was successfully submitted!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_request_loa_pending</word_key>
+      <word_default>You already have an active leave of absence in place or there is one awaiting a status update! Please wait till the current one expires or the pending LOA is updated.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_request_loa</word_key>
+      <word_default>Your leave of absence was successfully submitted!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_application_deny</word_key>
+      <word_default>You have successfully denied the application!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_application_reset_statistics</word_key>
+      <word_default>You have successfully reset the enlistment application statistics!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_application_drop</word_key>
+      <word_default>You have successfully dropped the application!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_muster_in_error</word_key>
+      <word_default>You have already mustered in this week!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_muster_in</word_key>
+      <word_default>You have successfully mustered in!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_request_tpr</word_key>
+      <word_default>Your temporary pass request was successfully submitted!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_return_loa_link</word_key>
+      <word_default>Return from your Leave of Absence here.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_on_loa</word_key>
+      <word_default>You are currently on LOA.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_return_loa</word_key>
+      <word_default>You have successfully returned from LOA!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_empty_logs</word_key>
+      <word_default>You have successfully emptied the logs!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_extend_loa_link</word_key>
+      <word_default>Extend your Leave of Absence here.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_reset_tis</word_key>
+      <word_default><![CDATA[The soldier's time in service has been successfully reset!]]></word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>perscom_request_logs</word_key>
+      <word_default>PERSCOM Request Logs</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_edit_soldier</word_key>
+      <word_default>You have successfully edited this soldier!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_reset_tig</word_key>
+      <word_default><![CDATA[The soldier's time in grade has been successfully reset!]]></word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
@@ -564,6 +606,218 @@
       <word_pack>public_citations</word_pack>
       <word_key>citation_demotion_punitive</word_key>
       <word_default>For failure to uphold the seven Army core values and negligence of your duties, you are hereby demoted to the rank of</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_citations</word_pack>
+      <word_key>citation_promotion</word_key>
+      <word_default>The Secretary of the Army has reposed special trust and confidence in your patriotism, valor, fidelity and professional excellence. In view of these qualities and your demonstrated leadership potential and dedicated service to the United States Army and the unit, you are, therefore, promoted to the rank of</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_citations</word_pack>
+      <word_key>citation_award</word_key>
+      <word_default>The Secretary of the Army has reposed special trust and confidence in your patriotism, valor, fidelity and professional excellence. In view of these qualities and your demonstrated leadership potential and dedicated service to the United States Army and the unit, you are, therefore, awarded the</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>previous_clans_list</word_key>
+      <word_default>If yes, please list them.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>steam_id</word_key>
+      <word_default>Steam ID</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>communications</word_key>
+      <word_default>Communications</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>player_id</word_key>
+      <word_default>Player ID</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>teamspeak3</word_key>
+      <word_default>Do you have Teamspeak 3?</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>previous_clans_radio</word_key>
+      <word_default>Previous units?</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>enlistment_application</word_key>
+      <word_default>Enlistment Application</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>working_microphone</word_key>
+      <word_default>Do you have a working mic?</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>first_name</word_key>
+      <word_default>First Name</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>game</word_key>
+      <word_default>Game</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>last_name</word_key>
+      <word_default>Last Name</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>age</word_key>
+      <word_default>Age</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>date_of_birth</word_key>
+      <word_default>Date of Birth</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>timezone</word_key>
+      <word_default>Timezone</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>personal_information</word_key>
+      <word_default>Personal Information</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>thank_you_desc</word_key>
+      <word_default>Thank you for submitting your application!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>required_fields</word_key>
+      <word_default>Required fields</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>iso_country_code</word_key>
+      <word_default>ISO Country Codes</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>my_timezone</word_key>
+      <word_default>My Timezone</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>steam_id_finder</word_key>
+      <word_default>Steam ID Finder</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>country</word_key>
+      <word_default>Country</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>in_game_name</word_key>
+      <word_default>Current In-Game Name</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>enlistment_requirements</word_key>
+      <word_default>Enlistment Requirements</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>game_information</word_key>
+      <word_default>Game Information</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>forum_name</word_key>
+      <word_default>Forum Name</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>enlistment_requirements_header_desc</word_key>
+      <word_default><![CDATA[Before applying with the {$this->settings['board_name']}, please read over the following enlistment requirements. If you do not meet the current requirements, please contact a recruiter and we would be more than happy to assist you in any way we can. You MUST meet the following requirements to be considered for enlistment. Failure to meet the basic requirements will result in your application being dropped. Thank you for the understanding and good luck!]]></word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>thank_you</word_key>
+      <word_default>Thank You</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>enlistment_application_desc</word_key>
+      <word_default><![CDATA[Thank you for applying with the {$this->settings['board_name']}. Please fill out all required fields. Failure to do so will result in termination of your application.]]></word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>hear_about_us</word_key>
+      <word_default>How did you hear about us?</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>two_reasons</word_key>
+      <word_default>Provide two reasons why you would like to join this unit.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>commitment_time</word_key>
+      <word_default>Commitment Time</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>policy_statement</word_key>
+      <word_default><![CDATA[By submitting your application, you understand that the {$this->settings['board_name']} is a military based realism unit. You will be expected to act responsible and behave in proper fashion and that failure to do so will result in disciplinary action. The {$this->settings['board_name']} is based on the core values of the US Army and therefore models a rank structure similiar to that of the US Army. You will be expected to abide by the chain of command and act appropriately among unit members. The  {$this->settings['board_name']} is a fun and exciting unit, but only because our members understand the true values set forth by the US Army and practice them daily within the unit.]]></word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_enlistment</word_pack>
+      <word_key>submission_message</word_key>
+      <word_default><![CDATA[Your application has been successfully submitted and posted in our Candidate Files section of our forums. You may visit the Candidate Files at anytime to check up on the status of your application. Please do not hesitate to contact your recruiter with any questions. <br />
+<br />
+Please click the link below to visit the Candidate Files.]]></word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
@@ -609,209 +863,21 @@
     </lang>
     <lang>
       <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>hear_about_us</word_key>
-      <word_default>How did you hear about us?</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>two_reasons</word_key>
-      <word_default>Provide two reasons why you would like to join this unit.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>commitment_time</word_key>
-      <word_default>Commitment Time</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>policy_statement</word_key>
-      <word_default><![CDATA[By submitting your application, you understand that the {$this->settings['board_name']} is a military based realism unit. You will be expected to act responsible and behave in proper fashion and that failure to do so will result in disciplinary action. The {$this->settings['board_name']} is based on the core values of the US Army and therefore models a rank structure similiar to that of the US Army. You will be expected to abide by the chain of command and act appropriately among unit members. The  {$this->settings['board_name']} is a fun and exciting unit, but only because our members understand the true values set forth by the US Army and practice them daily within the unit.]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>submission_message</word_key>
-      <word_default><![CDATA[Your application has been successfully submitted and posted in our Candidate Files section of our forums. You may visit the Candidate Files at anytime to check up on the status of your application. Please do not hesitate to contact your recruiter with any questions. <br />
-<br />
-Please click the link below to visit the Candidate Files.]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>thank_you</word_key>
-      <word_default>Thank You</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>enlistment_application_desc</word_key>
-      <word_default><![CDATA[Thank you for applying with the {$this->settings['board_name']}. Please fill out all required fields. Failure to do so will result in termination of your application.]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>thank_you_desc</word_key>
-      <word_default>Thank you for submitting your application!</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>required_fields</word_key>
-      <word_default>Required fields</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>iso_country_code</word_key>
-      <word_default>ISO Country Codes</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>my_timezone</word_key>
-      <word_default>My Timezone</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>steam_id_finder</word_key>
-      <word_default>Steam ID Finder</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>forum_name</word_key>
-      <word_default>Forum Name</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>enlistment_requirements_header_desc</word_key>
-      <word_default><![CDATA[Before applying with the {$this->settings['board_name']}, please read over the following enlistment requirements. If you do not meet the current requirements, please contact a recruiter and we would be more than happy to assist you in any way we can. You MUST meet the following requirements to be considered for enlistment. Failure to meet the basic requirements will result in your application being dropped. Thank you for the understanding and good luck!]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>in_game_name</word_key>
-      <word_default>Current In-Game Name</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>enlistment_requirements</word_key>
-      <word_default>Enlistment Requirements</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>game_information</word_key>
-      <word_default>Game Information</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>country</word_key>
-      <word_default>Country</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>timezone</word_key>
-      <word_default>Timezone</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>personal_information</word_key>
-      <word_default>Personal Information</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>age</word_key>
-      <word_default>Age</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>date_of_birth</word_key>
-      <word_default>Date of Birth</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>last_name</word_key>
-      <word_default>Last Name</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>game</word_key>
-      <word_default>Game</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>enlistment_application</word_key>
-      <word_default>Enlistment Application</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>first_name</word_key>
-      <word_default>First Name</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>working_microphone</word_key>
-      <word_default>Do you have a working mic?</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>teamspeak3</word_key>
-      <word_default>Do you have Teamspeak 3?</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>previous_clans_radio</word_key>
-      <word_default>Previous units?</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>player_id</word_key>
-      <word_default>Player ID</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>steam_id</word_key>
-      <word_default>Steam ID</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>communications</word_key>
-      <word_default>Communications</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_enlistment</word_pack>
-      <word_key>previous_clans_list</word_key>
-      <word_default>If yes, please list them.</word_default>
+      <word_pack>public_lang</word_pack>
+      <word_key>cancel</word_key>
+      <word_default>Cancel</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_lang</word_pack>
-      <word_key>perscom_tab</word_key>
-      <word_default>Personnel File</word_default>
+      <word_key>perscom_offline</word_key>
+      <word_default>PERSCOM is currently offline. Head over to the ACP Settings to re-enable PERSCOM.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_lang</word_pack>
+      <word_key>no</word_key>
+      <word_default>No</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
@@ -834,164 +900,32 @@ Please click the link below to visit the Candidate Files.]]></word_default>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_lang</word_pack>
-      <word_key>no</word_key>
-      <word_default>No</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_lang</word_pack>
-      <word_key>cancel</word_key>
-      <word_default>Cancel</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_lang</word_pack>
-      <word_key>perscom_offline</word_key>
-      <word_default>PERSCOM is currently offline. Head over to the ACP Settings to re-enable PERSCOM.</word_default>
+      <word_key>perscom_tab</word_key>
+      <word_default>Personnel File</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_notifications</word_pack>
-      <word_key>notification_application_submission_private_message</word_key>
-      <word_default><![CDATA[Hi %s,<p>&nbsp;</p>Thank you for applying for enlistment with the {$this->settings['board_name']}. Your application has successfully submitted to our Candidate Files section of our forums and is under review. You have been added to our "Enlistees" group and may view the application status at any time. Please visit our forums and scroll down to Candidate Files to view your current application status.<p>&nbsp;</p>Sincerely,<p>&nbsp;</p>The {$this->settings['board_name']}]]></word_default>
+      <word_key>notify__short__perscom_notification_tpr</word_key>
+      <word_default>PERSCOM Notifications TPR</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_notifications</word_pack>
-      <word_key>notification_application_submission_rro</word_key>
-      <word_default>A new enlistment application has been posted to the Candidate Files. Head on over to process the application here: %s</word_default>
+      <word_key>notify__perscom_notification_tpr</word_key>
+      <word_default>Notify me when I submit a Temporary Pass Request.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_notifications</word_pack>
-      <word_key>notification_tpr_submission</word_key>
-      <word_default>Your temporary pass request has been submitted and you are clear for leave for %s day(s).</word_default>
+      <word_key>notify__short__perscom_notification_muster</word_key>
+      <word_default>PERSCOM Notifications Muster</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_notifications</word_pack>
-      <word_key>notification_tpr_submission_supervisor</word_key>
-      <word_default>%s has submitted a temporary pass request for %s and has been cleared for leave for %s day(s). Explanation: %s</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_discharge_submission</word_key>
-      <word_default>Your discharge has been successfully submitted. When command staff approves the discharge, you will receive another push notification with the update.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_discharge_submission_supervisor</word_key>
-      <word_default>%s has requested a(n) %s. It is currently awaiting approval from Command Staff. Explanation: %s</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_promotion</word_key>
-      <word_default>You have been promoted to the rank of %s. Congratulations. Please understand your new login name is: %s. Your personnel file has been updated and you are good to go! Make sure to request a uniform update to reflect your new rank. Hooah Soldier!</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_application_processed</word_key>
-      <word_default><![CDATA[Your enlistment application has been officially processed and you are now a member of the {$this->settings['board_name']}. You have been added to the unit\'s usergroup and you now have access to all unit functions. If you have any questions, please contact your recruiter. You will receive a PM as well with all information needed to continue your enlistment journey. Your new login name is: %s. Hooah solider and welcome to the unit!]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_application_private_message</word_key>
-      <word_default><![CDATA[Hi %s,<p>&nbsp;</p>Congratulations on your enlistment with the {$this->settings['board_name']}. Below is some information that will be helpful as you begin your journey within the unit. If at any time you have a question, please contact your recruiter immediately!<p>&nbsp;</p><b>Information:</b><p>&nbsp;</p><b>Rank:</b> %s<p>&nbsp;</p><b>Combat Unit:</b> %s<p>&nbsp;</p><b>Combat Position:</b> %s<p>&nbsp;</p><b>Supervisor:</b> %s<p>&nbsp;</p><b>Recruiter:</b> %s<p>&nbsp;</p>Keep this information for your records.]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_loa_extension</word_key>
-      <word_default>Your leave of absence has been successfully extended. Please make sure to inform your immediate supervisor. See you when you get back!</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_loa_return</word_key>
-      <word_default>You have successfully returned from LOA. Please contact your immediate supervisor and inform them of your current status.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_loa_submission_supervisor</word_key>
-      <word_default>%s has requested a leave of absence for %s through %s. It is currently awaiting approval from Command Staff. Explanation: %s</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_discharge_dropped</word_key>
-      <word_default>Your discharge has been dropped.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_muster_in</word_key>
-      <word_default>You have officially mustered in. Thank you and enjoy the rest of your day!</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_loa_submission</word_key>
-      <word_default>Your leave of absence has been successfully submitted. When command staff approves the LOA, you will receive another push notification with the update.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_loa_dropped</word_key>
-      <word_default>Your leave of absence has been dropped.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_discharge_denied</word_key>
-      <word_default>Your discharge has been denied. Please contact a member of Command Staff for more information.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_discharge_approved</word_key>
-      <word_default>Your discharge has been approved. You will receive another notification when your discharge has been processed.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_loa_denied</word_key>
-      <word_default>Your leave of absence has been denied. Please contact a member of Command Staff for more information.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_retirement</word_key>
-      <word_default><![CDATA[You have been honorably retired from the {$this->settings['board_name']}. Thank you for your time and service. We wish you the best on your future endevaours and adventures. Please note, your new login name is now: %s. God speed and God bless! Hooah Soldier!]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_discharge</word_key>
-      <word_default><![CDATA[Your discharge has been processed and you have been discharged from the {$this->settings['board_name']}. Grade: %s. Your new login name is: %s. Thank you for your time and service.]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_loa_approved</word_key>
-      <word_default>Your leave of absence has been successfully approved. See you when you get back!</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_demotion_nonpunitive</word_key>
-      <word_default>You have been demoted to the rank of %s. This is a non-punitive demotion. Please contact a member of Command Staff if you would like more information. Please understand your new login name is: %s. Your personnel file has been updated and you are good to go. Make sure to request a uniform update to reflect your new rank.</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_notifications</word_pack>
-      <word_key>notification_demotion_punitive</word_key>
-      <word_default>You have been demoted to the rank of %s. This is a punitive demotion. Please contact a member of Command Staff if you would like more information. Please understand your new login name is: %s. Your personnel file has been updated and you are good to go. Make sure to request a uniform update to reflect your new rank.</word_default>
+      <word_key>notify__short__perscom_notification</word_key>
+      <word_default>PERSCOM Notifications</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
@@ -1032,26 +966,152 @@ Please click the link below to visit the Candidate Files.]]></word_default>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_notifications</word_pack>
-      <word_key>notify__short__perscom_notification_tpr</word_key>
-      <word_default>PERSCOM Notifications TPR</word_default>
+      <word_key>notification_demotion_punitive</word_key>
+      <word_default>You have been demoted to the rank of %s. This is a punitive demotion. Please contact a member of Command Staff if you would like more information. Please understand your new login name is: %s. Your personnel file has been updated and you are good to go. Make sure to request a uniform update to reflect your new rank.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_notifications</word_pack>
-      <word_key>notify__perscom_notification_tpr</word_key>
-      <word_default>Notify me when I submit a Temporary Pass Request.</word_default>
+      <word_key>notification_retirement</word_key>
+      <word_default><![CDATA[You have been honorably retired from the {$this->settings['board_name']}. Thank you for your time and service. We wish you the best on your future endevaours and adventures. Please note, your new login name is now: %s. God speed and God bless! Hooah Soldier!]]></word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_notifications</word_pack>
-      <word_key>notify__short__perscom_notification_muster</word_key>
-      <word_default>PERSCOM Notifications Muster</word_default>
+      <word_key>notification_discharge</word_key>
+      <word_default><![CDATA[Your discharge has been processed and you have been discharged from the {$this->settings['board_name']}. Grade: %s. Your new login name is: %s. Thank you for your time and service.]]></word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_notifications</word_pack>
-      <word_key>notify__short__perscom_notification</word_key>
-      <word_default>PERSCOM Notifications</word_default>
+      <word_key>notification_loa_approved</word_key>
+      <word_default>Your leave of absence has been successfully approved. See you when you get back!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_demotion_nonpunitive</word_key>
+      <word_default>You have been demoted to the rank of %s. This is a non-punitive demotion. Please contact a member of Command Staff if you would like more information. Please understand your new login name is: %s. Your personnel file has been updated and you are good to go. Make sure to request a uniform update to reflect your new rank.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_muster_in</word_key>
+      <word_default>You have officially mustered in. Thank you and enjoy the rest of your day!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_loa_denied</word_key>
+      <word_default>Your leave of absence has been denied. Please contact a member of Command Staff for more information.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_discharge_approved</word_key>
+      <word_default>Your discharge has been approved. You will receive another notification when your discharge has been processed.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_discharge_denied</word_key>
+      <word_default>Your discharge has been denied. Please contact a member of Command Staff for more information.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_loa_dropped</word_key>
+      <word_default>Your leave of absence has been dropped.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_loa_submission</word_key>
+      <word_default>Your leave of absence has been successfully submitted. When command staff approves the LOA, you will receive another push notification with the update.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_discharge_dropped</word_key>
+      <word_default>Your discharge has been dropped.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_loa_submission_supervisor</word_key>
+      <word_default>%s has requested a leave of absence for %s through %s. It is currently awaiting approval from Command Staff. Explanation: %s</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_loa_return</word_key>
+      <word_default>You have successfully returned from LOA. Please contact your immediate supervisor and inform them of your current status.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_loa_extension</word_key>
+      <word_default>Your leave of absence has been successfully extended. Please make sure to inform your immediate supervisor. See you when you get back!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_application_processed</word_key>
+      <word_default><![CDATA[Your enlistment application has been officially processed and you are now a member of the {$this->settings['board_name']}. You have been added to the unit\'s usergroup and you now have access to all unit functions. If you have any questions, please contact your recruiter. You will receive a PM as well with all information needed to continue your enlistment journey. Your new login name is: %s. Hooah solider and welcome to the unit!]]></word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_application_private_message</word_key>
+      <word_default><![CDATA[Hi %s,<p>&nbsp;</p>Congratulations on your enlistment with the {$this->settings['board_name']}. Below is some information that will be helpful as you begin your journey within the unit. If at any time you have a question, please contact your recruiter immediately!<p>&nbsp;</p><b>Information:</b><p>&nbsp;</p><b>Rank:</b> %s<p>&nbsp;</p><b>Combat Unit:</b> %s<p>&nbsp;</p><b>Combat Position:</b> %s<p>&nbsp;</p><b>Supervisor:</b> %s<p>&nbsp;</p><b>Recruiter:</b> %s<p>&nbsp;</p>Keep this information for your records.]]></word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_tpr_submission</word_key>
+      <word_default>Your temporary pass request has been submitted and you are clear for leave for %s day(s).</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_tpr_submission_supervisor</word_key>
+      <word_default>%s has submitted a temporary pass request for %s and has been cleared for leave for %s day(s). Explanation: %s</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_discharge_submission</word_key>
+      <word_default>Your discharge has been successfully submitted. When command staff approves the discharge, you will receive another push notification with the update.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_discharge_submission_supervisor</word_key>
+      <word_default>%s has requested a(n) %s. It is currently awaiting approval from Command Staff. Explanation: %s</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_promotion</word_key>
+      <word_default>You have been promoted to the rank of %s. Congratulations. Please understand your new login name is: %s. Your personnel file has been updated and you are good to go! Make sure to request a uniform update to reflect your new rank. Hooah Soldier!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_application_submission_private_message</word_key>
+      <word_default><![CDATA[Hi %s,<p>&nbsp;</p>Thank you for applying for enlistment with the {$this->settings['board_name']}. Your application has successfully submitted to our Candidate Files section of our forums and is under review. You have been added to our "Enlistees" group and may view the application status at any time. Please visit our forums and scroll down to Candidate Files to view your current application status.<p>&nbsp;</p>Sincerely,<p>&nbsp;</p>The {$this->settings['board_name']}]]></word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_notifications</word_pack>
+      <word_key>notification_application_submission_rro</word_key>
+      <word_default>A new enlistment application has been posted to the Candidate Files. Head on over to process the application here: %s</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_personnel</word_pack>
+      <word_key>no_personnel</word_key>
+      <word_default>No Personnel to Display</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
@@ -1067,21 +1127,15 @@ Please click the link below to visit the Candidate Files.]]></word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
-      <word_pack>public_personnel</word_pack>
-      <word_key>no_personnel</word_key>
-      <word_default>No Personnel to Display</word_default>
+      <word_pack>public_profile</word_pack>
+      <word_key>profile_tab_no_personnel_file</word_key>
+      <word_default>This user does not have a personnel file!</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_profile</word_pack>
       <word_key>perscom_profile_tab</word_key>
       <word_default>PERSCOM Personnel File</word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_profile</word_pack>
-      <word_key>profile_tab_no_personnel_file</word_key>
-      <word_default>This user does not have a personnel file!</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
@@ -1116,26 +1170,20 @@ Please click the link below to visit the Candidate Files.]]></word_default>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_servers</word_pack>
-      <word_key>game_servers</word_key>
-      <word_default>Game Servers</word_default>
+      <word_key>server_unknown</word_key>
+      <word_default>Unable to query server information.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_servers</word_pack>
-      <word_key>server_offline</word_key>
-      <word_default>The server is offline.</word_default>
+      <word_key>server_screenshots</word_key>
+      <word_default>Screenshots</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_servers</word_pack>
-      <word_key>game_servers_desc</word_key>
-      <word_default><![CDATA[All game servers owned and operated by the {$this->settings['board_name']}.]]></word_default>
-    </lang>
-    <lang>
-      <word_app>perscom</word_app>
-      <word_pack>public_servers</word_pack>
-      <word_key>server_status</word_key>
-      <word_default>Status</word_default>
+      <word_key>server_name</word_key>
+      <word_default>Server Name</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
@@ -1164,32 +1212,38 @@ Please click the link below to visit the Candidate Files.]]></word_default>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_servers</word_pack>
-      <word_key>server_name</word_key>
-      <word_default>Server Name</word_default>
+      <word_key>game_servers</word_key>
+      <word_default>Game Servers</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_servers</word_pack>
-      <word_key>server_screenshots</word_key>
-      <word_default>Screenshots</word_default>
+      <word_key>server_offline</word_key>
+      <word_default>The server is offline.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_servers</word_pack>
-      <word_key>server_unknown</word_key>
-      <word_default>Unable to query server information.</word_default>
+      <word_key>game_servers_desc</word_key>
+      <word_default><![CDATA[All game servers owned and operated by the {$this->settings['board_name']}.]]></word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
-      <word_pack>public_teamspeak</word_pack>
-      <word_key>teamspeak</word_key>
-      <word_default>Teamspeak</word_default>
+      <word_pack>public_servers</word_pack>
+      <word_key>server_status</word_key>
+      <word_default>Status</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_teamspeak</word_pack>
       <word_key>teamspeak_desc</word_key>
       <word_default>Join us today at teamspeak.3rdinf.us</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_teamspeak</word_pack>
+      <word_key>teamspeak</word_key>
+      <word_default>Teamspeak</word_default>
     </lang>
   </languagegroup>
 </languageexport>
