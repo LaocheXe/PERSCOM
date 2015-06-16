@@ -138,7 +138,7 @@ class public_perscom_basecamp_loa extends ipsCommand
 				'member_id' => $this->memberData['member_id'], 
 				'members_display_name' => $this->memberData['members_display_name'],
 				'date' => strtotime('now'),
-				'description' => sprintf('%s is requesting a Leave of Absence. Explanation: %s', $this->memberData['members_display_name'], $this->request['explanation']),
+				'description' => sprintf('%s is requesting a Leave of Absence. Explanation:<br /><br /> %s', $this->memberData['members_display_name'], $this->request['explanation']),
 				'type' => 'LOA',
 				'administrator_member_id' => 0,
 				'administrator_members_display_name' => NULL,

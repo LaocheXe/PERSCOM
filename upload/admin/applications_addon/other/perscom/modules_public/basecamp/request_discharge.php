@@ -79,7 +79,7 @@ class public_perscom_basecamp_request_discharge extends ipsCommand
 				'member_id' => $this->memberData['member_id'], 
 				'members_display_name' => $this->memberData['members_display_name'],
 				'date' => strtotime('now'),
-				'description' => sprintf('%s is requesting a(n) %s. Explanation: %s', $this->memberData['members_display_name'], $this->request['grade'], $this->request['explanation']),
+				'description' => sprintf('%s is requesting a(n) %s. Explanation:<br /><br /> %s', $this->memberData['members_display_name'], $this->request['grade'], $this->request['explanation']),
 				'type' => 'Discharge',
 				'administrator_member_id' => 0,
 				'administrator_members_display_name' => NULL,
