@@ -120,6 +120,7 @@ $TABLE[] = "CREATE TABLE `perscom_service_records` (
   `type` text,
   `award` text,
   `rank` text,
+  `citation` text,
   `discharge_grade` text,
   `position` text,
   `combat_unit` text,
