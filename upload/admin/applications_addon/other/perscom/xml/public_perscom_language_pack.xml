@@ -599,25 +599,25 @@
       <word_app>perscom</word_app>
       <word_pack>public_citations</word_pack>
       <word_key>citation_demotion_non_punitive</word_key>
-      <word_default>You are have received a non-punitive demotion and are hereby demoted to the rank of</word_default>
+      <word_default>You are have received a non-punitive demotion and are hereby demoted to the rank of %s.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_citations</word_pack>
       <word_key>citation_demotion_punitive</word_key>
-      <word_default>For failure to uphold the seven Army core values and negligence of your duties, you are hereby demoted to the rank of</word_default>
+      <word_default>For failure to uphold the seven Army core values and negligence of your duties, you are hereby demoted to the rank of %s.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_citations</word_pack>
       <word_key>citation_promotion</word_key>
-      <word_default>The Secretary of the Army has reposed special trust and confidence in your patriotism, valor, fidelity and professional excellence. In view of these qualities and your demonstrated leadership potential and dedicated service to the United States Army and the unit, you are, therefore, promoted to the rank of</word_default>
+      <word_default>The Secretary of the Army has reposed special trust and confidence in your patriotism, valor, fidelity and professional excellence. In view of these qualities and your demonstrated leadership potential and dedicated service to the United States Army and the unit, you are, therefore, promoted to the rank of %s.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
       <word_pack>public_citations</word_pack>
       <word_key>citation_award</word_key>
-      <word_default>The Secretary of the Army has reposed special trust and confidence in your patriotism, valor, fidelity and professional excellence. In view of these qualities and your demonstrated leadership potential and dedicated service to the United States Army and the unit, you are, therefore, awarded the</word_default>
+      <word_default>The Secretary of the Army has reposed special trust and confidence in your patriotism, valor, fidelity and professional excellence. In view of these qualities and your demonstrated leadership potential and dedicated service to the United States Army and the unit, you are, therefore, awarded the %s.</word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>

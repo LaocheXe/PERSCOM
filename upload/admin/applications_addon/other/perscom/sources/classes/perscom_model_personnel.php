@@ -220,7 +220,7 @@ class perscom_model_personnel extends perscom_model_perscom {
 						$promotion_count++;
 
 						// Add the citation to the award record
-						$r['citation'] = '<a href="#" id="a_promotion_'.$promotion_count.'" rank="'.$r['rank'].'" count="'.$promotion_count.'" class="promotion" image="http://3rdinf.us/images/perscom/insignia/large/plain_background/'.$rank['rank'].'.png">Click to view Citation</a>';
+						$r['html'] = '<a href="#" id="a_promotion_'.$promotion_count.'" rank="'.$r['rank'].'" count="'.$promotion_count.'" class="promotion" image="http://3rdinf.us/images/perscom/insignia/large/plain_background/'.$rank['rank'].'.png">Click to view Citation</a>';
 
 						// Set count
 						$r['count'] = $promotion_count;
@@ -230,7 +230,7 @@ class perscom_model_personnel extends perscom_model_perscom {
 						$demotion_count++;
 
 						// Add the citation to the award record
-						$r['citation'] = '<a href="#" id="a_demotion_'.$demotion_count.'" grade="'.strtolower($r['discharge_grade']).'" count="'.$demotion_count.'" class="demotion" rank="'.$r['rank'].'" image="http://3rdinf.us/images/perscom/insignia/large/plain_background/'.$rank['rank'].'.png">Click to view Citation</a>';
+						$r['html'] = '<a href="#" id="a_demotion_'.$demotion_count.'" grade="'.strtolower($r['discharge_grade']).'" count="'.$demotion_count.'" class="demotion" rank="'.$r['rank'].'" image="http://3rdinf.us/images/perscom/insignia/large/plain_background/'.$rank['rank'].'.png">Click to view Citation</a>';
 
 						// Set count
 						$r['count'] = $demotion_count;
@@ -244,8 +244,8 @@ class perscom_model_personnel extends perscom_model_perscom {
 					$assignment_count++;
 
 					// Add the citation to the award record
-					$r['citation'] = '<a href="#" id="a_assignment_'.$assignment_count.'" count="'.$assignment_count.'" class="assignment" unit="'.$r['combat_unit'].'" position="'.$r['position'].'">Click to view OPORD</a>';
-					
+					$r['html'] = '<a href="#" id="a_assignment_'.$assignment_count.'" count="'.$assignment_count.'" class="assignment" unit="'.$r['combat_unit'].'" position="'.$r['position'].'">Click to view OPORD</a>';
+
 					// Set count
 					$r['count'] = $assignment_count;
 				}
@@ -253,7 +253,8 @@ class perscom_model_personnel extends perscom_model_perscom {
 				// No specific type
 				else {	
 
-					$r['citation'] = '---';
+					// Set no HTML
+					$r['html'] = '---';
 				}				
 				
 				// Add the members on end of the array
@@ -303,7 +304,7 @@ class perscom_model_personnel extends perscom_model_perscom {
 				$award_count++;
 
 				// Add the citation to the award record
-				$r['citation'] = '<a href="#" id="a_award_'.$award_count.'" award="'.$r['award'].'" count="'.$award_count.'" class="award" image="'.$this->settings['board_url'].'/images/perscom/medals/medal_ribbon/'.$image['image'].'">Click to view Citation</a>';
+				$r['html'] = '<a href="#" id="a_award_'.$award_count.'" award="'.$r['award'].'" count="'.$award_count.'" class="award" image="'.$this->settings['board_url'].'/images/perscom/medals/medal_ribbon/'.$image['image'].'">Click to view Citation</a>';
 
 				// Set count
 				$r['count'] = $award_count;

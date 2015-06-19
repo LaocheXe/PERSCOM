@@ -210,7 +210,7 @@ function populateServiceRecordDatatable(data) {
 		var columns = [
 			{ "title": "Date", "className": "center", "width": "10%", "data": "date"},
 			{ "title": "Entry", "width": "60%", "data": "entry", "orderable": false},
-			{ "title": "Citation / OPORD", "className": "citation", "width": "20%", "data": "citation", "orderable": false},
+			{ "title": "Citation / OPORD", "className": "citation", "width": "20%", "data": "html", "orderable": false},
 			{ "title": "Delete", "className": "center delete", "width": "10%", "orderable": false}
 		];
 	}
@@ -220,7 +220,7 @@ function populateServiceRecordDatatable(data) {
 		var columns = [
 			{ "title": "Date", "width": "10%", "data": "date"},
 			{ "title": "Entry", "width": "70%", "data": "entry", "orderable": false},
-			{ "title": "Citation / OPORD", "className": "citation", "width": "20%", "data": "citation", "orderable": false}
+			{ "title": "Citation / OPORD", "className": "citation", "width": "20%", "data": "html", "orderable": false}
 		];
 	}
 
@@ -303,11 +303,9 @@ function populateServiceRecordDatatable(data) {
 			
 			// Set properties
 			var promotion_image = 'img_promotion_image_';
-			var promotion_rank = 'p_promotion_rank_';
  			
  			// Set the award name
 			document.getElementById(promotion_image.concat(count)).setAttribute('src', element.getAttribute('image'));
-			document.getElementById(promotion_rank.concat(count)).innerHTML=element.getAttribute('rank');
 
 			// Set modal view id
 			var modal = 'view_promotion_citation_';
@@ -328,11 +326,9 @@ function populateServiceRecordDatatable(data) {
 			
 			// Set properties
 			var demotion_image = 'img_demotion_image_';
-			var demotion_rank = 'p_demotion_rank_';
 			
 			// Set the award name
 			document.getElementById(demotion_image.concat(count)).setAttribute('src', element.getAttribute('image'));
-			document.getElementById(demotion_rank.concat(count)).innerHTML=element.getAttribute('rank');
 			
 			// Set modal view id
 			var modal = 'view_demotion_citation_';
@@ -384,7 +380,7 @@ function populateAwardRecordDatatable(data) {
 		var columns = [
 			{ "title": "Date", "className": "center", "width": "10%", "data": "date"},
 			{ "title": "Entry", "width": "60%", "data": "entry", "orderable": false},
-			{ "title": "Citation / OPORD", "className": "citation", "width": "20%", "data": "citation", "orderable": false},
+			{ "title": "Citation / OPORD", "className": "citation", "width": "20%", "data": "html", "orderable": false},
 			{ "title": "Delete", "className": "center delete", "width": "10%", "orderable": false}
 		];
 	}
@@ -394,7 +390,7 @@ function populateAwardRecordDatatable(data) {
 		var columns = [
 			{ "title": "Date", "width": "10%", "data": "date"},
 			{ "title": "Entry", "width": "70%", "data": "entry", "orderable": false},
-			{ "title": "Citation / OPORD", "className": "citation", "width": "20%", "data": "citation", "orderable": false}
+			{ "title": "Citation / OPORD", "className": "citation", "width": "20%", "data": "html", "orderable": false}
 		];
 	}
 
@@ -473,11 +469,9 @@ function populateAwardRecordDatatable(data) {
 		var count = element.getAttribute('count');
 		
 		// Set properties
-		var award_name = 'p_award_name_';
 		var award_image = 'img_award_image_';
 		
 		// Set the award name
-		document.getElementById(award_name.concat(count)).innerHTML=element.getAttribute('award');
 		document.getElementById(award_image.concat(count)).setAttribute('src', element.getAttribute('image'));
 		
 		// Set modal view id

@@ -23,6 +23,7 @@ class public_perscom_basecamp_promote extends ipsCommand
 		// Load our language files
 		$this->registry->class_localization->loadLanguageFile( array( 'public_base_camp' ) );
 		$this->registry->class_localization->loadLanguageFile( array( 'public_notifications' ) );
+		$this->registry->class_localization->loadLanguageFile( array( 'public_citations' ) );
 
 		// Set navigation
 		$this->registry->output->addNavigation( $this->lang->words['base_camp'], 'app=perscom' );		
@@ -99,6 +100,7 @@ class public_perscom_basecamp_promote extends ipsCommand
 			'type' => 'Promotion',
 			'award' => '',
 			'rank' => $rank['title'],
+			'citation' => $this->request['citation'],
 			'discharge_grade' => '',
 			'display' => $this->request['service_record'],
 	       	'position' => '',

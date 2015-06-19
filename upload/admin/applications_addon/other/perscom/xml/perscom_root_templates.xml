@@ -3,7 +3,8 @@
   <templategroup group="skin_perscom">
     <template>
       <template_group>skin_perscom</template_group>
-      <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
+      <template_content><![CDATA[
+{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
 <if test="$this->request['do'] == 'submit'">
 	<p class="message">{$this->lang->words['message_add_award_entry']}</p>
 	<br />
@@ -64,7 +65,25 @@
 		</div>
 	</div>
 	<br />
-	<div class="maintitle">Step 3: Award Date</div>
+	<div class="maintitle">Step 3: Award Citation</div>
+	<div class="ipsBox">
+		<div class="ipsBox_container ipsPad">
+			<ul class="ipsForm_horizontal ipsPad">
+				<li class="ipsField ipsField_select" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_cat" style="line-height: 10px;">Citation</label>
+					<div class="ipsField_content">
+						<textarea id="citation" class="input_text" type="text" value="" rows="8" cols="50" name="citation">{$this->lang->words['citation_award']}</textarea>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Use "%s" without the quotes, in lower case, for the award name.
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<br />
+	<div class="maintitle">Step 4: Award Date</div>
 	<div class="ipsBox">
 		<div class="ipsBox_container ipsPad">
 			<ul class="ipsForm_horizontal ipsPad">
@@ -79,7 +98,7 @@
 		</div>
 	</div>
 	<br />
-	<div class="maintitle">Step 4: Additional Information</div>
+	<div class="maintitle">Step 5: Additional Information</div>
 	<div class="ipsBox">
 		<div class="ipsBox_container ipsPad">
 			<ul class="ipsForm_horizontal ipsPad">
@@ -712,7 +731,8 @@
     </template>
     <template>
       <template_group>skin_perscom</template_group>
-      <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
+      <template_content><![CDATA[
+{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
 <if test="$this->request['do'] == 'submit'">
 	<p class="message">{$this->lang->words['message_file_demotion']}</p>
 	<br />
@@ -780,7 +800,25 @@
 		</div>
 	</div>
 	<br />
-	<div class="maintitle">Step 3: Demotion Date</div>
+	<div class="maintitle">Step 3: Demotion Citation</div>
+	<div class="ipsBox">
+		<div class="ipsBox_container ipsPad">
+			<ul class="ipsForm_horizontal ipsPad">
+				<li class="ipsField ipsField_select" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_cat" style="line-height: 10px;">Citation</label>
+					<div class="ipsField_content">
+						<textarea id="citation" class="input_text" type="text" value="" rows="8" cols="50" name="citation">{$this->lang->words['citation_demotion_punitive']}</textarea>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Use "%s" without the quotes, in lower case, for the rank name.
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<br />
+	<div class="maintitle">Step 4: Demotion Date</div>
 	<div class="ipsBox">
 		<div class="ipsBox_container ipsPad">
 			<ul class="ipsForm_horizontal ipsPad">
@@ -794,7 +832,7 @@
 		</div>
 	</div>
 	<br />
-	<div class="maintitle">Step 4: Additional Information</div>
+	<div class="maintitle">Step 5: Additional Information</div>
 	<div class="ipsBox">
 		<div class="ipsBox_container ipsPad">
 			<ul class="ipsForm_horizontal ipsPad">
@@ -831,7 +869,30 @@
 	<p class="submit">
 		<input class="input_submit" type="submit" accesskey="s" value="{$this->lang->words['file_demotion']}" name="dosubmit"> or <a href="{$this->settings['base_url']}" title="Cancel" id="close_filters" class="cancel">{$this->lang->words['cancel']}</a>
 	</p>
-</form>]]></template_content>
+</form>
+<script>
+
+// Get the drop down menu and observe the onchange function
+document.getElementById('grade').onchange = function() {
+    
+    // Get the currently selected option's value
+    var option = this.options[this.selectedIndex].value;
+
+    // If the value is punitive
+    if (option == 'Punitive') {
+
+    	// Update the text area with the option
+    	document.getElementById('citation').value = "For failure to uphold the seven Army core values and negligence of your duties, you are hereby demoted to the rank of %s.";
+    } 
+
+    // The option is non-punitive
+    else {
+
+    	// Update the text area with the option
+    	document.getElementById('citation').value = "You are have received a non-punitive demotion and are hereby demoted to the rank of %s.";
+    }
+};
+</script>]]></template_content>
       <template_name>fileDemotion</template_name>
       <template_data>$soldiers, $ranks</template_data>
       <template_removable>0</template_removable>
@@ -964,7 +1025,8 @@
     </template>
     <template>
       <template_group>skin_perscom</template_group>
-      <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
+      <template_content><![CDATA[
+{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
 <if test="$this->request['do'] == 'submit'">
 	<p class="message">{$this->lang->words['message_file_promotion']}</p>
 	<br />
@@ -1023,7 +1085,25 @@
 		</div>
 	</div>
 	<br />
-	<div class="maintitle">Step 3: Promotion Date</div>
+	<div class="maintitle">Step 3: Promotion Citation</div>
+	<div class="ipsBox">
+		<div class="ipsBox_container ipsPad">
+			<ul class="ipsForm_horizontal ipsPad">
+				<li class="ipsField ipsField_select" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_cat" style="line-height: 10px;">Citation</label>
+					<div class="ipsField_content">
+						<textarea id="citation" class="input_text" type="text" value="" rows="8" cols="50" name="citation">{$this->lang->words['citation_promotion']}</textarea>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Use "%s" without the quotes, in lower case, for the rank name.
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<br />
+	<div class="maintitle">Step 4: Promotion Date</div>
 	<div class="ipsBox">
 		<div class="ipsBox_container ipsPad">
 			<ul class="ipsForm_horizontal ipsPad">
@@ -1038,7 +1118,7 @@
 		</div>
 	</div>
 	<br />
-	<div class="maintitle">Step 4: Additional Information</div>
+	<div class="maintitle">Step 5: Additional Information</div>
 	<div class="ipsBox">
 		<div class="ipsBox_container ipsPad">
 			<ul class="ipsForm_horizontal ipsPad">
@@ -2840,7 +2920,8 @@
     </template>
     <template>
       <template_group>skin_perscom</template_group>
-      <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.jquery.js" type="javascript"}
+      <template_content><![CDATA[
+{parse addtohead="{$this->settings['public_dir']}js/perscom.jquery.js" type="javascript"}
 {parse addtohead="{$this->settings['public_dir']}js/perscom.jquery.dataTables.js" type="javascript"}
 {parse addtohead="{$this->settings['public_dir']}js/perscom.soldier.js" type="javascript"}
 <script>jQuery.noConflict();</script>
@@ -3224,7 +3305,6 @@
 	</div>
 </if>
 <foreach loop="$soldier['service_record_entries'] as $entry">
-	
 	{parse variable="assignment_counter" default="0" oncondition="$entry['type'] == 'Assignment'" value="{$entry['count']}"}
 	{parse variable="promotion_counter" default="0" oncondition="$entry['type'] == 'Promotion'" value="{$entry['count']}"}
 	{parse variable="demotion_counter" default="0" oncondition="$entry['type'] == 'Demotion'" value="{$entry['count']}"}
@@ -3260,8 +3340,17 @@
 				<div class="ipsBox">
 					<div class="ipsBox_container ipsPad">
 						{$soldier['rank_long']} {$soldier['lastname']},<br />
-						<center><img id="img_promotion_image_{parse variable="promotion_counter"}"  /></center><br />
-						    {$this->lang->words['citation_promotion']} <span id="p_promotion_rank_{parse variable="promotion_counter"}" style="font-weight: bold;"></span>.<br /><br />
+						<center>
+							<img id="img_promotion_image_{parse variable="promotion_counter"}"  />
+						</center>
+						<br />
+						<if test="isset($entry['citation']) && strlen($entry['citation']) > 0">
+							{parse expression="sprintf($entry['citation'], $entry['rank'])"}
+						<else />
+							{parse expression="sprintf($this->lang->words['citation_promotion'], $entry['rank'])"}
+						</if>
+						<br />
+						<br />
 						<em>Signed,</em><br />
 						{$soldier['perscom_signing_soldier']['rank_long']} {$soldier['perscom_signing_soldier']['firstname']} {$soldier['perscom_signing_soldier']['lastname']}
 					</div>
@@ -3270,7 +3359,6 @@
 		</div>
 	</if>
 	<if test="$entry['type'] == 'Demotion'">
-		
 		<if test="$entry['discharge_grade'] == 'Non-punitive'">
 			<div id="view_demotion_citation_{parse variable="demotion_counter"}" style='display:none;'>
 				<h3>Memorandum For Record</h3>
@@ -3278,8 +3366,16 @@
 					<div class="ipsBox">
 						<div class="ipsBox_container ipsPad">
 							{$soldier['rank_long']} {$soldier['lastname']},<br />
-							<center><img id="img_demotion_image_{parse variable="demotion_counter"}"  /></center><br />
-							{$this->lang->words['citation_demotion_non_punitive']} <span id="p_demotion_rank_{parse variable="demotion_counter"}" style="font-weight: bold;"></span>.<br /><br />
+							<center>
+								<img id="img_demotion_image_{parse variable="demotion_counter"}"  />
+							</center>
+							<if test="isset($entry['citation']) && strlen($entry['citation']) > 0">
+								{parse expression="sprintf($entry['citation'], $entry['rank'])"}
+							<else />
+								{parse expression="sprintf($this->lang->words['citation_demotion_non_punitive'], $entry['rank'])"}
+							</if>
+							<br />
+							<br />
 							<em>Signed,</em><br />
 							{$soldier['perscom_signing_soldier']['rank_long']} {$soldier['perscom_signing_soldier']['firstname']} {$soldier['perscom_signing_soldier']['lastname']}
 						</div>
@@ -3293,8 +3389,17 @@
 					<div class="ipsBox">
 						<div class="ipsBox_container ipsPad">
 							{$soldier['rank_long']} {$soldier['lastname']},<br />
-							<center><img id="img_demotion_image_{parse variable="demotion_counter"}"  /></center><br />
-							    {$this->lang->words['citation_demotion_punitive']} <span id="p_demotion_rank_{parse variable="demotion_counter"}" style="font-weight: bold;"></span>.<br /><br />
+							<center>
+								<img id="img_demotion_image_{parse variable="demotion_counter"}"  />
+							</center>
+							<br />
+							<if test="isset($entry['citation']) && strlen($entry['citation']) > 0">
+								{parse expression="sprintf($entry['citation'], $entry['rank'])"}
+							<else />
+								{parse expression="sprintf($this->lang->words['citation_demotion_punitive'], $entry['rank'])"}
+							</if>
+							<br />
+							<br />
 							<em>Signed,</em><br />
 							{$soldier['perscom_signing_soldier']['rank_long']} {$soldier['perscom_signing_soldier']['firstname']} {$soldier['perscom_signing_soldier']['lastname']}
 						</div>
@@ -3314,8 +3419,18 @@
 					{$soldier['rank_long']} {$soldier['lastname']},<br />
 					<br />
 					<br />
-					<center><img id="img_award_image_{parse variable="award_counter"}"  /></center><br /><br />
-					    {$this->lang->words['citation_award']} <span id="p_award_name_{parse variable="award_counter"}" style="font-weight: bold;"></span>.<br /><br />
+					<center>
+						<img id="img_award_image_{parse variable="award_counter"}"  />
+					</center>
+					<br />
+					<br />
+				    <if test="isset($entry['citation']) && strlen($entry['citation']) > 0">
+						{parse expression="sprintf($entry['citation'], $entry['award'])"}
+					<else />
+						{parse expression="sprintf($this->lang->words['citation_award'], $entry['award'])"}
+					</if>
+					<br />
+					<br />
 					<em>Signed,</em><br />
 					{$soldier['perscom_signing_soldier']['rank_long']} {$soldier['perscom_signing_soldier']['firstname']} {$soldier['perscom_signing_soldier']['lastname']}
 				</div>
