@@ -100,7 +100,7 @@
 	<p class="submit">
 		<input class="input_submit" type="submit" accesskey="s" value="{$this->lang->words['add_awards_and_commendations']}" name="dosubmit"> or <a href="{$this->settings['base_url']}" title="Cancel" id="close_filters" class="cancel">{$this->lang->words['cancel']}</a>
 	</p>
-</form>]]></template_content>
+</form<name />]]></template_content>
       <template_name>addAward</template_name>
       <template_data/>
       <template_removable>0</template_removable>
@@ -2371,7 +2371,7 @@ document.getElementById('grade').onchange = function() {
 				</td>
 				<td>
 					<a id="notify_link" href='{$this->settings['base_url']}app=perscom&module=basecamp&section=information'>
-						<img style="height: 60px; width: 60px; margin-top: 0px; background-image: url('');" src="{$this->settings['board_url']}/images/perscom/basecamp/operations_center.png" />
+						<img style="margin-top: 0px; background-image: url('');" src="{$this->settings['board_url']}/images/perscom/basecamp/operations_center.png" />
 						<if test="$administrator">
 							<if test="intval($notificationCount) > 0">
 								<span style="top: -21px; left: 50px" class="ipsHasNotifications">{parse expression="intval($notificationCount)"}</span>
