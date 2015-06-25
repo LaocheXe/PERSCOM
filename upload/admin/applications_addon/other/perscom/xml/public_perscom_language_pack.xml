@@ -591,6 +591,42 @@
     </lang>
     <lang>
       <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_add_ranks_and_insignia</word_key>
+      <word_default>You have successfully added a new rank!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>edit_ranks_and_insignia</word_key>
+      <word_default>Edit Rank</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>add_ranks_and_insignia</word_key>
+      <word_default>Add Rank</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>add_ranks_and_insignia_desc</word_key>
+      <word_default>Fill out the form to add a new rank.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>edit_ranks_and_insignia_desc</word_key>
+      <word_default>Fill out this form to edit the rank.</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
+      <word_pack>public_base_camp</word_pack>
+      <word_key>message_edit_ranks_and_insignia</word_key>
+      <word_default>You have successfully edited the rank!</word_default>
+    </lang>
+    <lang>
+      <word_app>perscom</word_app>
       <word_pack>public_citations</word_pack>
       <word_key>citation_assignment</word_key>
       <word_default><![CDATA[Assignment to a combat unit is a duty that comes with many responsibilities. The soldiers serving alongside you count on you to fulfill your obligations. Fulfillment of your obligations and responsibilities entails that you notify the unit of upcoming absences and request a leave of absence in advance; that you will serve as a committed soldier in combat operations; that you will respect the chain of command; that you will carry out your mission first and foremost and consider yourself and your statistics last; and that you not only reflect well on your combat unit, but on the {$this->settings['board_name']} as a whole. Much is expected from you, but we are confident that you will exceed those expectations.]]></word_default>

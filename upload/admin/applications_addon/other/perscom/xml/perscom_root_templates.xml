@@ -3,8 +3,7 @@
   <templategroup group="skin_perscom">
     <template>
       <template_group>skin_perscom</template_group>
-      <template_content><![CDATA[
-{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
+      <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
 <if test="$this->request['do'] == 'submit'">
 	<p class="message">{$this->lang->words['message_add_award_entry']}</p>
 	<br />
@@ -302,6 +301,108 @@
       <template_group>skin_perscom</template_group>
       <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
 <if test="$this->request['do'] == 'submit'">
+	<p class="message">{$this->lang->words['message_add_ranks_and_insignia']}</p>
+	<br />
+</if>
+<div class="ipbfs_titlebox">
+	<h1 class="ipsType_pagetitle">{$this->lang->words['add_ranks_and_insignia']}</h1>
+	<div class="ipsType_pagedesc">{$this->lang->words['add_ranks_and_insignia_desc']}</div>
+</div>
+<br />
+<form action="" method="post" enctype="multipart/form-data" name="add_rank" onsubmit="return validateAddRank()">
+	<input type='hidden' name='app' value='perscom' />
+	<input type='hidden' name='module' value='ranks' />
+	<input type='hidden' name='section' value='view' />
+	<input type='hidden' name='do' value='submit' />
+	
+	<div class="maintitle">Rank Information</div>
+	<div class="ipsBox">
+		<div class="ipsBox_container ipsPad">
+			<ul class="ipsForm_horizontal ipsPad">
+    			<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Rank</label>
+					<div class="ipsField_content">
+						<input id="title" class="input_text" type="text" size="20" placeholder="Private" name="title">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the rank's name.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Pay Grade</label>
+					<div class="ipsField_content">
+						<input id="pay_grade" class="input_text" type="text" size="20" placeholder="E-1" name="pay_grade">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the rank's pay grade.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Appreviation</label>
+					<div class="ipsField_content">
+						<input id="abbreviation" class="input_text" type="text" size="20" placeholder="PVT" name="abbreviation">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the rank's abbreviation. The abbreviation must be the same name as the image file name for the rank. For example: PVT = PVT.jpg.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Description</label>
+					<div class="ipsField_content">
+						<textarea id="description" class="input_text" type="text" value="" rows="8" cols="50" name="description"></textarea>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter a brief description of the rank.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Prerequisites</label>
+					<div class="ipsField_content">
+						<textarea id="prerequisites" class="input_text" type="text" value="" rows="8" cols="50" name="prerequisites"></textarea>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the requirements for promoting to this rank.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Order</label>
+					<div class="ipsField_content">
+						<input id="order" class="input_text" type="text" size="5" name="order">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the display order for the rank. The higher the number, the higher on the list. Integers only.
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<br />
+	<p class="submit">
+		<input class="input_submit" type="submit" accesskey="s" value="{$this->lang->words['add_ranks_and_insignia']}" name="dosubmit"> or <a href="{$this->settings['base_url']}" title="Cancel" id="close_filters" class="cancel">{$this->lang->words['cancel']}</a>
+	</p>
+</form>]]></template_content>
+      <template_name>addRank</template_name>
+      <template_data/>
+      <template_removable>0</template_removable>
+      <template_user_added>0</template_user_added>
+      <template_user_edited>0</template_user_edited>
+      <template_master_key>root</template_master_key>
+    </template>
+    <template>
+      <template_group>skin_perscom</template_group>
+      <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
+<if test="$this->request['do'] == 'submit'">
 	<p class="message">{$this->lang->words['message_add_soldier']}</p>
 	<br />
 </if>
@@ -514,6 +615,119 @@
 </form>]]></template_content>
       <template_name>addSoldier</template_name>
       <template_data>$ranks, $units, $weapons, $personnel</template_data>
+      <template_removable>0</template_removable>
+      <template_user_added>0</template_user_added>
+      <template_user_edited>0</template_user_edited>
+      <template_master_key>root</template_master_key>
+    </template>
+    <template>
+      <template_group>skin_perscom</template_group>
+      <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
+<if test="$this->request['do'] == 'submit'">
+	<p class="message">{$this->lang->words['message_edit_ranks_and_insignia']}</p>
+	<br />
+</if>
+<div class="ipbfs_titlebox">
+	<table>
+		<tr>
+			<td style="padding: 0px;">
+				<h1 class="ipsType_pagetitle">{$this->lang->words['edit_ranks_and_insignia']}</h1>
+				<div class="ipsType_pagedesc">{$this->lang->words['edit_ranks_and_insignia_desc']}</div>
+			</td>
+			<td style="padding: 0px;">
+				<span class="right">
+					<a href="{$this->settings['base_url']}app=perscom&module=ranks&action=delete&id={$rank['primary_id_field']}" class="ipsButton_secondary" onclick="return confirm('Are you sure you want to delete this rank?');">Delete Rank</a>
+				</span>
+			</td>
+		</tr>
+	</table>
+</div>
+<br />
+<form action="" method="post" enctype="multipart/form-data" name="add_rank" onsubmit="return validateAddRank()">
+	<input type='hidden' name='app' value='perscom' />
+	<input type='hidden' name='module' value='ranks' />
+	<input type='hidden' name='section' value='view' />
+	<input type='hidden' name='do' value='submit' />
+	
+	<div class="maintitle">Rank Information</div>
+	<div class="ipsBox">
+		<div class="ipsBox_container ipsPad">
+			<ul class="ipsForm_horizontal ipsPad">
+    			<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Rank</label>
+					<div class="ipsField_content">
+						<input id="title" class="input_text" type="text" size="20" placeholder="Private" value="{$rank['title']}" name="title">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the rank's name.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Pay Grade</label>
+					<div class="ipsField_content">
+						<input id="pay_grade" class="input_text" type="text" size="20" placeholder="E-1" value="{$rank['pay_grade']}" name="pay_grade">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the rank's pay grade.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Appreviation</label>
+					<div class="ipsField_content">
+						<input id="abbreviation" class="input_text" type="text" size="20" placeholder="PVT" value="{$rank['abbreviation']}" name="abbreviation">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the rank's abbreviation. The abbreviation must be the same name as the image file name for the rank. For example: PVT = PVT.jpg.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Description</label>
+					<div class="ipsField_content">
+						<textarea id="description" class="input_text" type="text" value="" rows="8" cols="50" name="description">{$rank['description']}</textarea>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter a brief description of the rank.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Prerequisites</label>
+					<div class="ipsField_content">
+						<textarea id="prerequisites" class="input_text" type="text" value="" rows="8" cols="50" name="prerequisites">{$rank['prerequisites']}</textarea>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the requirements for promoting to this rank.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Order</label>
+					<div class="ipsField_content">
+						<input id="order" class="input_text" type="text" size="5" value="{$rank['order']}" name="order">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the display order for the rank. The higher the number, the higher on the list. Integers only.
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<br />
+	<p class="submit">
+		<input class="input_submit" type="submit" accesskey="s" value="{$this->lang->words['edit_ranks_and_insignia']}" name="dosubmit"> or <a href="{$this->settings['base_url']}" title="Cancel" id="close_filters" class="cancel">{$this->lang->words['cancel']}</a>
+	</p>
+</form>]]></template_content>
+      <template_name>editRank</template_name>
+      <template_data/>
       <template_removable>0</template_removable>
       <template_user_added>0</template_user_added>
       <template_user_edited>0</template_user_edited>
@@ -1829,8 +2043,21 @@ document.getElementById('grade').onchange = function() {
     <template>
       <template_group>skin_perscom</template_group>
       <template_content><![CDATA[<div class="ipbfs_titlebox">
-	<h1 class="ipsType_pagetitle">{$this->lang->words['awards_and_commendations']}</h1>
-	<div class="ipsType_pagedesc">{$this->lang->words['awards_and_commendations_desc']}</div>
+	<table>
+		<tr>
+			<td style="padding: 0px;">
+				<h1 class="ipsType_pagetitle">{$this->lang->words['awards_and_commendations']}</h1>
+				<div class="ipsType_pagedesc">{$this->lang->words['awards_and_commendations_desc']}</div>
+			</td>
+			<if test="$allowEdit">
+				<td style="padding: 0px;">
+					<span class="right">
+						<a href="{$this->settings['base_url']}app=perscom&module=awards&do=add" class="ipsButton_secondary">Add Award</a>
+					</span>
+				</td>	
+			</if>
+		</tr>
+	</table>
 </div>
 <br />
 <div class="ipsBox">
@@ -1850,7 +2077,12 @@ document.getElementById('grade').onchange = function() {
 					<tr>
 						<td rowspan=4 style="width: 10%; padding: 2px; text-align: center;">
 							<img style="max-width: 150px;" src="{$this->settings['board_url']}/images/perscom/medals/medal_ribbon/{$award['award_image']}" />
-					</td>
+							<if test="$allowEdit">
+								<br />
+								<br />
+								<a href="{$this->settings['base_url']}app=perscom&module=awards&do=edit&id={$award['primary_id_field']}" class="ipsButton_secondary">Edit Award</a>
+							</if>
+						</td>
 						<td style="width: 90%; text-align: left; padding: 6px; border-bottom: 1px solid #f3f3f3; font-weight: bold;" >{$this->lang->words['history']}</td>
 					</tr>
 					<tr>
@@ -2754,6 +2986,7 @@ document.getElementById('grade').onchange = function() {
     <h1 class="ipsType_pagetitle">{$this->lang->words['personnel_files']}</h1>
     <div class="ipsType_pagedesc">{$this->lang->words['personnel_files_desc']}</div>
 </div>
+<br />
 <div class="ipsBox">
     <div class="ipsBox_container ipsPad">
         <table class="information" id="personnel">
@@ -2874,22 +3107,44 @@ document.getElementById('grade').onchange = function() {
     <template>
       <template_group>skin_perscom</template_group>
       <template_content><![CDATA[<div class="ipbfs_titlebox">
-	<h1 class="ipsType_pagetitle">{$this->lang->words['ranks_and_insignia']}</h1>
-	<div class="ipsType_pagedesc">{$this->lang->words['ranks_and_insignia_desc']}</div>
+	<table>
+		<tr>
+			<td style="padding: 0px;">
+				<h1 class="ipsType_pagetitle">{$this->lang->words['ranks_and_insignia']}</h1>
+				<div class="ipsType_pagedesc">{$this->lang->words['ranks_and_insignia_desc']}</div>
+			</td>
+			<if test="$allowEdit">
+				<td style="padding: 0px;">
+					<span class="right">
+						<a href="{$this->settings['base_url']}app=perscom&module=ranks&action=add" class="ipsButton_secondary">Add Rank</a>
+					</span>
+				</td>
+			</if>
+		</tr>
+	</table>
 </div>
+<br />
 <div class="ipsBox">
 	<div class="ipsBox_container ipsPad">
 		<table class="information">
 			<if test="count($ranks) > 0">
 				<foreach loop="$ranks as $rank">
 					<thead>
-						<th colspan=2><div class="maintitle">{$rank['title']}</div></th>
+						<th colspan=2>
+							<div class="maintitle">
+								{$rank['title']}
+							</div>
+						</th>
 					</thead>
 					<tr>
 						<td rowspan=4 style="width: 10%; padding: 2px; text-align: center;">
 							<img src="{$this->settings['board_url']}/images/perscom/insignia/large/multicam_background/{$rank['abbreviation']}.jpg" /></br>
 							<br />
 							<p class="center" style="font-weight: bold;">{$rank['abbreviation']}, {$rank['pay_grade']}</p>
+							<if test="$allowEdit">
+								<br />
+								<a href="{$this->settings['base_url']}app=perscom&module=ranks&action=edit&id={$rank['primary_id_field']}" class="ipsButton_secondary">Edit Rank</a>
+							</if>
 						</td>
 						<td style="width: 90%; text-align: left; padding: 6px; border-bottom: 1px solid #f3f3f3; font-weight: bold;" >{$this->lang->words['description']}</td>
 					</tr>

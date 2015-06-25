@@ -17,7 +17,7 @@ var dateRegex = /^(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d
 function confirmSubmission() {
 
 	// Display confirmation message
-	return confirm ('Have you checked to make sure all the information is correct?');
+	return confirm('Have you checked to make sure all the information is correct?');
 }
 
 function validateAddAwardEntry() {
@@ -667,6 +667,90 @@ function validateAddSoldier() {
         }       
     }
 
+    // If the user cancel's submission
+    if (confirmSubmission() == false) {
+
+        // Stop the form from being submitted
+        return false;
+    }
+}
+
+function validateAddRank() {
+
+    // Get title
+    var title = document.forms["add_rank"]["title"].value;
+
+    // Make sure it is set and not null
+    if (title==null || title=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please enter in a name for the rank.");
+        return false;
+    }
+
+    // Get pay grade
+    var pay_grade = document.forms["add_rank"]["pay_grade"].value;
+
+    // Make sure it is set and not null
+    if (pay_grade==null || pay_grade=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please enter in a pay grade for the rank.");
+        return false;
+    }
+
+    // Get abbreviation
+    var abbreviation = document.forms["add_rank"]["abbreviation"].value;
+
+    // Make sure it is set and not null
+    if (abbreviation==null || abbreviation=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please enter in a abbreviation for the rank.");
+        return false;
+    }
+
+    // Get description
+    var description = document.forms["add_rank"]["description"].value;
+
+    // Make sure it is set and not null
+    if (description==null || description=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please enter in a description for the rank.");
+        return false;
+    }
+
+    // Get prerequisites
+    var prerequisites = document.forms["add_rank"]["prerequisites"].value;
+
+    // Make sure it is set and not null
+    if (prerequisites==null || prerequisites=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please enter in prerequisites for the rank.");
+        return false;
+    }
+
+    // Get order
+    var order = document.forms["add_rank"]["order"].value;
+
+    // Make sure it is set and not null
+    if (order==null || order=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please enter in a display order for the rank.");
+        return false;
+    }
+
+    // Make sure the order is a number
+    if (isNaN(order)) {
+
+        // If it is string, stop form submission
+        alert("Please enter in an integer for the display order.");
+        return false;
+    };
+    
     // If the user cancel's submission
     if (confirmSubmission() == false) {
 

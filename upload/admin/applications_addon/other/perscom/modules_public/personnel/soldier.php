@@ -41,9 +41,15 @@ class public_perscom_personnel_soldier extends ipsCommand
 
 		// Check if user is in admin group or BMO group to edit user.
 		if ( IPSMember::isInGroup( $this->memberData, $this->settings['perscom_administrative_usergroup'] , true ) ) {
+
+			// Set allow edit to TRUE
 			$this->allowEdit = TRUE;
 		}
+
+		// Check if in the BMO group
 		else if ( IPSMember::isInGroup( $this->memberData, $this->settings['perscom_bmo_usergroup'] , true ) ) {
+
+			// Set allow edit to TRUE
 			$this->allowEdit = TRUE;			
 		}
 
