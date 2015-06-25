@@ -229,7 +229,7 @@
     </setting>
     <setting>
       <conf_title>Recruiting and Retention Group</conf_title>
-      <conf_description>This is the user group that every member must be apart of to access the enlistment applications, soldier processing and adding a soldier features of PERSCOM.	</conf_description>
+      <conf_description>This is the user group that every member must be apart of to access and manage the enlistment applications, soldier processing and the adding of a soldier feature in PERSCOM.	</conf_description>
       <conf_type>dropdown</conf_type>
       <conf_key>perscom_recruiting_and_retention_group</conf_key>
       <conf_default/>
@@ -245,7 +245,7 @@
     </setting>
     <setting>
       <conf_title>Supported Games</conf_title>
-      <conf_description>All games supported by the unit. These games will be listed in the dropdown menu of the enlistment application. Separate by a COMMA.</conf_description>
+      <conf_description>All games supported by the unit. These games will be listed in the dropdown menu of the enlistment application. Separate by a COMMA. No line breaks.</conf_description>
       <conf_type>textarea</conf_type>
       <conf_key>perscom_supported_games</conf_key>
       <conf_default/>
@@ -431,7 +431,7 @@ if ( $show == 1 )
     </setting>
     <setting>
       <conf_title>Base Maintenance Opetations Usergroup</conf_title>
-      <conf_description>This is the user group that every member must be apart of to access the service records, combat records, award records and assignment features of PERSCOM.</conf_description>
+      <conf_description>This is the user group that every member must be apart of to access and manage the service records, combat records, award records and assignment features of PERSCOM.</conf_description>
       <conf_type>dropdown</conf_type>
       <conf_key>perscom_bmo_usergroup</conf_key>
       <conf_default/>

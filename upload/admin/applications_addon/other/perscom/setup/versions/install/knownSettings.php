@@ -35,6 +35,7 @@ $knownSettings = array(
 	'perscom_bmo_usergroup'					=> '4',
 	'perscom_civilian_usergroup'			=> '3',
 	'perscom_retired_usergroup'				=> '4',
+	'perscom_application_submission_group'	=> '3',
 
 	// Miscellaneous Settings
 	'perscom_tpr_expiration'				=> '3',
