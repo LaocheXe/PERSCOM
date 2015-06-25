@@ -6,7 +6,7 @@ PERSCOM is a versatile soldier management tool built by the 3rd Infantry Divisio
 Requirements
 -
 
-* Invision Power Board
+* Invision Power Board 3.4.x
 * Apache, MySQL and PHP
 * A valid license key
 * FTP access to the root IPB folder
