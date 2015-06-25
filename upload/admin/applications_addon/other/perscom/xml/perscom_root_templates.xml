@@ -1,6 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates application="perscom" templategroups="a:1:{s:12:&quot;skin_perscom&quot;;s:8:&quot;contains&quot;;}">
   <templategroup group="skin_perscom">
+  	<template>
+      <template_group>skin_perscom</template_group>
+      <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
+<if test="$this->request['do'] == 'submit'">
+	<p class="message">{$this->lang->words['message_add_awards_and_commendations']}</p>
+	<br />
+</if>
+<div class="ipbfs_titlebox">
+	<h1 class="ipsType_pagetitle">{$this->lang->words['add_awards_and_commendations']}</h1>
+	<div class="ipsType_pagedesc">{$this->lang->words['add_awards_and_commendations_desc']}</div>
+</div>
+<br />
+<form action="" method="post" enctype="multipart/form-data" name="add_award" onsubmit="return validateAddAward()">
+	<input type='hidden' name='app' value='perscom' />
+	<input type='hidden' name='module' value='awards' />
+	<input type='hidden' name='section' value='view' />
+	<input type='hidden' name='do' value='submit' />
+	
+	<div class="maintitle">Award Information</div>
+	<div class="ipsBox">
+		<div class="ipsBox_container ipsPad">
+			<ul class="ipsForm_horizontal ipsPad">
+    			<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Award</label>
+					<div class="ipsField_content">
+						<input id="title" class="input_text" type="text" size="20" name="title">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the award's name.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Image</label>
+					<div class="ipsField_content">
+						<input id="award_image" class="input_text" type="text" size="20" placeholder="MOH.png" name="award_image">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter award's image file name.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">History</label>
+					<div class="ipsField_content">
+						<textarea id="history" class="input_text" type="text" value="" rows="8" cols="50" name="history"></textarea>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter a brief history on the award.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Prerequisites</label>
+					<div class="ipsField_content">
+						<textarea id="prerequisites" class="input_text" type="text" value="" rows="8" cols="50" name="prerequisites"></textarea>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the requirements for earning the award or commendation.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Type</label>
+					<div class="ipsField_content">
+						<select id="type" class="input_select" tabindex="1" name="type">
+							<option value="Medal">Medal</option>
+							<option value="Ribbon">Ribbon</option>
+							<option value="Citation">Citation</option>
+							<option value="Badge">Badge</option>
+						</select>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please select the type of award or commendation.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Order</label>
+					<div class="ipsField_content">
+						<input id="order" class="input_text" type="text" size="5" name="order">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the display order for the award. The higher the number, the higher on the list. Integers only.
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<br />
+	<p class="submit">
+		<input class="input_submit" type="submit" accesskey="s" value="{$this->lang->words['add_awards_and_commendations']}" name="dosubmit"> or <a href="{$this->settings['base_url']}" title="Cancel" id="close_filters" class="cancel">{$this->lang->words['cancel']}</a>
+	</p>
+</form>]]></template_content>
+      <template_name>addAward</template_name>
+      <template_data/>
+      <template_removable>0</template_removable>
+      <template_user_added>0</template_user_added>
+      <template_user_edited>0</template_user_edited>
+      <template_master_key>root</template_master_key>
+    </template>
     <template>
       <template_group>skin_perscom</template_group>
       <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
@@ -615,6 +722,124 @@
 </form>]]></template_content>
       <template_name>addSoldier</template_name>
       <template_data>$ranks, $units, $weapons, $personnel</template_data>
+      <template_removable>0</template_removable>
+      <template_user_added>0</template_user_added>
+      <template_user_edited>0</template_user_edited>
+      <template_master_key>root</template_master_key>
+    </template>
+    <template>
+      <template_group>skin_perscom</template_group>
+      <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.js" type="javascript"}
+<if test="$this->request['do'] == 'submit'">
+	<p class="message">{$this->lang->words['message_edit_awards_and_commendations']}</p>
+	<br />
+</if>
+<div class="ipbfs_titlebox">
+	<table>
+		<tr>
+			<td style="padding: 0px;">
+				<h1 class="ipsType_pagetitle">{$this->lang->words['edit_awards_and_commendations']}</h1>
+				<div class="ipsType_pagedesc">{$this->lang->words['edit_awards_and_commendations_desc']}</div>
+			</td>
+			<td style="padding: 0px;">
+				<span class="right">
+					<a href="{$this->settings['base_url']}app=perscom&module=awards&action=delete&id={$award['primary_id_field']}" class="ipsButton_secondary" onclick="return confirm('Are you sure you want to delete this award?');">Delete Award</a>
+				</span>
+			</td>
+		</tr>
+	</table>
+</div>
+<br />
+<form action="" method="post" enctype="multipart/form-data" name="add_award" onsubmit="return validateAddAward()">
+	<input type='hidden' name='app' value='perscom' />
+	<input type='hidden' name='module' value='awards' />
+	<input type='hidden' name='section' value='view' />
+	<input type='hidden' name='do' value='submit' />
+	
+	<div class="maintitle">Award Information</div>
+	<div class="ipsBox">
+		<div class="ipsBox_container ipsPad">
+			<ul class="ipsForm_horizontal ipsPad">
+    			<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Award</label>
+					<div class="ipsField_content">
+						<input id="title" class="input_text" type="text" size="20" value="{$award['title']}" name="title">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the award's name.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Image</label>
+					<div class="ipsField_content">
+						<input id="award_image" class="input_text" type="text" size="20" placeholder="MOH.png" value="{$award['award_image']}" name="award_image">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter award's image file name.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">History</label>
+					<div class="ipsField_content">
+						<textarea id="history" class="input_text" type="text" value="" rows="8" cols="50" name="history">{$award['history']}</textarea>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter a brief history on the award.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Prerequisites</label>
+					<div class="ipsField_content">
+						<textarea id="prerequisites" class="input_text" type="text" value="" rows="8" cols="50" name="prerequisites">{$award['prerequisites']}</textarea>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the requirements for earning the award or commendation.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Type</label>
+					<div class="ipsField_content">
+						<select id="type" class="input_select" tabindex="1" name="type">
+							<option <if test="$award['type'] == 'Medal'">selected</if> value="Medal">Medal</option>
+							<option <if test="$award['type'] == 'Ribbon'">selected</if> value="Ribbon">Ribbon</option>
+							<option <if test="$award['type'] == 'Citation'">selected</if> value="Citation">Citation</option>
+							<option <if test="$award['type'] == 'Badge'">selected</if> value="Badge">Badge</option>
+						</select>
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please select the type of award or commendation.
+					</div>
+				</li>
+				<br />
+				<li class="ipsField clear" style="margin-bottom: 0px;">
+					<label class="ipsField_title" for="file_name">Order</label>
+					<div class="ipsField_content">
+						<input id="order" class="input_text" type="text" size="5" value="{$award['order']}" name="order">
+					</div>
+					<br />
+					<div class="ipsField_content">
+						Please enter the display order for the award. The higher the number, the higher on the list. Integers only.
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<br />
+	<p class="submit">
+		<input class="input_submit" type="submit" accesskey="s" value="{$this->lang->words['edit_awards_and_commendations']}" name="dosubmit"> or <a href="{$this->settings['base_url']}" title="Cancel" id="close_filters" class="cancel">{$this->lang->words['cancel']}</a>
+	</p>
+</form>]]></template_content>
+      <template_name>editAward</template_name>
+      <template_data>$award</template_data>
       <template_removable>0</template_removable>
       <template_user_added>0</template_user_added>
       <template_user_edited>0</template_user_edited>
@@ -2052,7 +2277,7 @@ document.getElementById('grade').onchange = function() {
 			<if test="$allowEdit">
 				<td style="padding: 0px;">
 					<span class="right">
-						<a href="{$this->settings['base_url']}app=perscom&module=awards&do=add" class="ipsButton_secondary">Add Award</a>
+						<a href="{$this->settings['base_url']}app=perscom&module=awards&action=add" class="ipsButton_secondary">Add Award</a>
 					</span>
 				</td>	
 			</if>
@@ -2062,7 +2287,10 @@ document.getElementById('grade').onchange = function() {
 <br />
 <div class="ipsBox">
 	<div class="ipsBox_container ipsPad" style="text-align: center;">
-		<a class="ipsButton_secondary" href="{$this->settings['base_url']}app=perscom&module=awards&section=view&type=medal">{$this->lang->words['medals']}</a> | <a class="ipsButton_secondary" href="{$this->settings['base_url']}app=perscom&module=awards&section=view&type=ribbon">{$this->lang->words['ribbons']}</a> | <a class="ipsButton_secondary" href="{$this->settings['base_url']}app=perscom&module=awards&section=view&type=citation">{$this->lang->words['citations']}</a> | <a class="ipsButton_secondary" href="{$this->settings['base_url']}app=perscom&module=awards&section=view&type=badge">{$this->lang->words['badges']}</a>
+		<a class="ipsButton_secondary" href="{$this->settings['base_url']}app=perscom&module=awards&section=view&type=medal">{$this->lang->words['medals']}</a> | 
+		<a class="ipsButton_secondary" href="{$this->settings['base_url']}app=perscom&module=awards&section=view&type=ribbon">{$this->lang->words['ribbons']}</a> | 
+		<a class="ipsButton_secondary" href="{$this->settings['base_url']}app=perscom&module=awards&section=view&type=citation">{$this->lang->words['citations']}</a> | 
+		<a class="ipsButton_secondary" href="{$this->settings['base_url']}app=perscom&module=awards&section=view&type=badge">{$this->lang->words['badges']}</a>
 	</div>
 </div>
 <br />
@@ -2080,7 +2308,7 @@ document.getElementById('grade').onchange = function() {
 							<if test="$allowEdit">
 								<br />
 								<br />
-								<a href="{$this->settings['base_url']}app=perscom&module=awards&do=edit&id={$award['primary_id_field']}" class="ipsButton_secondary">Edit Award</a>
+								<a href="{$this->settings['base_url']}app=perscom&module=awards&action=edit&id={$award['primary_id_field']}" class="ipsButton_secondary">Edit Award</a>
 							</if>
 						</td>
 						<td style="width: 90%; text-align: left; padding: 6px; border-bottom: 1px solid #f3f3f3; font-weight: bold;" >{$this->lang->words['history']}</td>

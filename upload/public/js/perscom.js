@@ -758,3 +758,76 @@ function validateAddRank() {
         return false;
     }
 }
+
+function validateAddAward() {
+
+    // Get title
+    var title = document.forms["add_award"]["title"].value;
+
+    // Make sure it is set and not null
+    if (title==null || title=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please enter in a name for the award.");
+        return false;
+    }
+
+    // Get award image
+    var award_image = document.forms["add_award"]["award_image"].value;
+
+    // Make sure it is set and not null
+    if (award_image==null || award_image=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please enter in an image for the award.");
+        return false;
+    }
+
+    // Get history
+    var history = document.forms["add_award"]["history"].value;
+
+    // Make sure it is set and not null
+    if (history==null || history=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please enter in some history about the award.");
+        return false;
+    }
+
+    // Get prerequisites
+    var prerequisites = document.forms["add_award"]["prerequisites"].value;
+
+    // Make sure it is set and not null
+    if (prerequisites==null || prerequisites=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please enter in prerequisites for the award.");
+        return false;
+    }
+
+    // Get order
+    var order = document.forms["add_award"]["order"].value;
+
+    // Make sure it is set and not null
+    if (order==null || order=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please enter in a display order for the award.");
+        return false;
+    }
+
+    // Make sure the order is a number
+    if (isNaN(order)) {
+
+        // If it is string, stop form submission
+        alert("Please enter in an integer for the display order.");
+        return false;
+    };
+    
+    // If the user cancel's submission
+    if (confirmSubmission() == false) {
+
+        // Stop the form from being submitted
+        return false;
+    }
+}
