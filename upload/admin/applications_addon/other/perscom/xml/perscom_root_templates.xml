@@ -727,7 +727,7 @@
 	</p>
 </form>]]></template_content>
       <template_name>editRank</template_name>
-      <template_data/>
+      <template_data>$rank</template_data>
       <template_removable>0</template_removable>
       <template_user_added>0</template_user_added>
       <template_user_edited>0</template_user_edited>
