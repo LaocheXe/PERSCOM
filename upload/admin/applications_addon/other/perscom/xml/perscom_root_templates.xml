@@ -2104,7 +2104,7 @@ document.getElementById('grade').onchange = function() {
 	</div>
 </div>]]></template_content>
       <template_name>viewAwards</template_name>
-      <template_data>$awards</template_data>
+      <template_data>$awards, $allowEdit = false</template_data>
       <template_removable>0</template_removable>
       <template_user_added>0</template_user_added>
       <template_user_edited>0</template_user_edited>
@@ -3167,7 +3167,7 @@ document.getElementById('grade').onchange = function() {
 	</div>
 </div>]]></template_content>
       <template_name>viewRanks</template_name>
-      <template_data>$ranks</template_data>
+      <template_data>$ranks, $allowEdit = false</template_data>
       <template_removable>0</template_removable>
       <template_user_added>0</template_user_added>
       <template_user_edited>0</template_user_edited>
