@@ -38,10 +38,10 @@ Installation
 2. Login to your IPB Admin CP and click on <i>Manage Applications & Modules</i> on the left hand side.
 3. Click <i>Install</i> on the right hand side to install PERSCOM. Click <i>Continue</i> to proceed with the installation.
 4. Once the application has finished installing, proceed to the application settings. Click on the PERSCOM tab under System Settings. Click on <i>General Settings</i>.
-5. Enter your license key that you received with the purchase of PERSCOM. Click <i>Save</i> when you are done editing the settings. You can find your license key under the <i>Client Area</i> of the <a href="http://www.3rdinf.us">3rd Infantry Division</a> website.
+5. Enter your license key that you received with the purchase of PERSCOM. Click <i>Save</i> when you are done editing the settings. You can find your license key under the <a href="http://www.3rdinf.us/index.php?app=nexus&module=clients&section=purchases"><i>Client Area - Purchases</i></a> of the <a href="http://www.3rdinf.us">3rd Infantry Division</a> website.
 6. PERSCOM is successfully installed. Proceed to your homepage and click on the PERSCOM tab to enter the application.
 
 Support
 -
 
-Support can be found by proceeding to the the <i>Client Area</i> of the <a href="http://www.3rdinf.us">3rd Infantry Division</a> website and clicking on <i>Purchases</i> on the left hand side. You may then request support by filling out the form under "Support Request" and clicking Submit.
+Support can be found by proceeding to the the <a href="http://www.3rdinf.us/index.php?app=nexus&module=support"><i>Client Area - Support</i></a> of the <a href="http://www.3rdinf.us">3rd Infantry Division</a> website and clicking on <i>Purchases</i> on the left hand side. You may then request support by filling out the form under "Support Request" and clicking Submit.
