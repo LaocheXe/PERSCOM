@@ -1,9 +1,16 @@
-<?php /*
-+-------------------------------------------------------------------------- |
-PERSCOM v1.0 |   ============================================= |   by 3rd
-Infantry Division (Erickson) |   Copyright 2014-2015 Third Infantry Division |
-http://www.3rdinf.us
-+-------------------------------------------------------------------------- */
+<?php 
+/*
++--------------------------------------------------------------------------
+|   PERSCOM v1.0
+|   =============================================
+|   by 3rd Infantry Division (Erickson)
+|   Copyright 2014-2015 Third Infantry Division
+|   http://www.3rdinf.us
++--------------------------------------------------------------------------
+*/
+
+
+include 'conf_global.php';
 
 $TABLE[] = "CREATE TABLE `perscom_admin_units` (
   `primary_id_field` int(11) NOT NULL auto_increment,
