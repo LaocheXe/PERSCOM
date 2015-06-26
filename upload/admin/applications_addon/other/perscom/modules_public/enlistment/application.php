@@ -30,6 +30,8 @@ class public_perscom_enlistment_application extends ipsCommand
 
 		// Check to make sure the member is logged in
 		$member = $this->registry->member()->fetchMemberData();
+
+		// If the member does not have an ID
 		if ($member['member_id'] == '0') {
 			
 			// Throw login error
@@ -48,11 +50,17 @@ class public_perscom_enlistment_application extends ipsCommand
 		switch ( $this->request['do'] )
 		{
 			case 'submit':
+
+				// Submit the application
 				$this->submitEnlistmentApplication();
+
 			break;
 
 			default:
+
+				// Bring  up a new application
 				$this->newEnlistmentApplication();
+
 			break;
 		}
 
@@ -88,20 +96,31 @@ class public_perscom_enlistment_application extends ipsCommand
 			// Post application to forum
 			$topic_id = $this->postApplicationToForum();
 
-			// Send Private Message
-			$this->sendPrivateMessage();
-			
-			// Send Private Message to RRO Staff
-			$this->sendPrivateMessageToStaff( $topic_id );
+			// Make sure we get a topic id
+			if (!isset($topic_id) || $topic_id == '') {
+				
+				// Throw error
+				$this->registry->output->showError( 'The application was not able to successfully submit. Please make sure you have selected a valid forum in PERSCOM settings.', 000123, false, '', 403 );
+			}
 
-			// Add user to Enlistees group
-			$this->addToEnlisteesGroup();
+			// We got a valid topic id
+			else {
 
-			// Add the personnel file
-			$this->createPersonnelFile();
+				// Send Private Message
+				$this->sendPrivateMessage();
+				
+				// Send Private Message to RRO Staff
+				$this->sendPrivateMessageToStaff( $topic_id );
 
-			// Update the enlistment statistics
-			$this->updateEnlistmentStatistics();	
+				// Add user to Enlistees group
+				$this->addToEnlisteesGroup();
+
+				// Add the personnel file
+				$this->createPersonnelFile();
+
+				// Update the enlistment statistics
+				$this->updateEnlistmentStatistics();	
+			}
 		}
 
 		// The user submitting the app already has a personnel file
@@ -171,8 +190,9 @@ class public_perscom_enlistment_application extends ipsCommand
 					<p><strong>Reasons for joining: </strong>" . $this->request['two_reasons'] . "</p>
 					<p><strong>How did they hear about us: </strong>" . $this->request['hear_about_us'] . "</p>";
 
-		try
-		{
+		// Try and post the topic
+		try {
+
 			// Set post settings
     		$this->post->setBypassPermissionCheck( true );
    			$this->post->setIsAjax( false );
@@ -187,10 +207,7 @@ class public_perscom_enlistment_application extends ipsCommand
                               				 'enableTracker' => 1 ) );
 
 			// Post the topic and print if we get an error
-   			if( $this->post->addTopic() === false )
-			{
-				// Print the error response
-        		print_r( $this->post->getPostError() );
+   			if ($this->post->addTopic() === false) {
 
 				// Return false
        			return false;
@@ -212,10 +229,9 @@ class public_perscom_enlistment_application extends ipsCommand
 			// Return the topic ID
 			return $topic['tid'];
 		}
-		catch( Exception $e )
-		{
-			// Print the error message
-    		print $e->getMessage();
+		
+		// Catch the exception
+		catch( Exception $e ) {
 
 			// Return false
     		return false;
