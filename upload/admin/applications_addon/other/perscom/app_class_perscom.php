@@ -20,8 +20,12 @@ if ( ! defined( 'IN_IPB' ) )
 define( 'IPS_XML_RPC_DEBUG_ON'  , 0 );
 define( 'IPS_XML_RPC_DEBUG_FILE', '' );
 
-// Adjust this path as needed
-require_once( "ips_kernel/classXmlRpc.php" );
+// If no in ACP
+if (!IN_ACP) {
+	
+	// Adjust this path as needed
+	require_once( "ips_kernel/classXmlRpc.php" );
+}
 
 class app_class_perscom
 {
