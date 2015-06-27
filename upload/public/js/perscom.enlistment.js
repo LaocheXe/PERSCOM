@@ -128,17 +128,6 @@ function validateEnlistmentApplication() {
         return false;
     }
 
-    // Get the user's steam ID
-    var steam_id = document.forms["enlistment_application"]["steam_id"].value;
-
-    // If the value is null or empty
-    if (steam_id==null || steam_id=="") {
-
-    	// Prompt the user to fill in the field
-        alert("Please fill out your Steam ID. You may utilize this website for help: http://steamidfinder.com/");
-        return false;
-    }
-
     // Get the user's player ID
     var player_id = document.forms["enlistment_application"]["player_id"].value;
 

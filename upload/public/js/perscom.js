@@ -573,17 +573,6 @@ function validateAddSoldier() {
         return false;
     }
 
-    // Get th steam ID
-    var steam_id = document.forms["add_soldier"]["steam_id"].value;
-
-    // Make sure it is set and not null
-    if (steam_id==null || steam_id=="") {
-
-        // If it is, return alert and stop form submission
-        alert("Please provide a Steam ID.");
-        return false;
-    }
-
     // If we are bypassing
     if (document.getElementById('bypass').checked) {
 

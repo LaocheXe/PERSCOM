@@ -42,4 +42,5 @@ $knownSettings = array(
 	'perscom_disable_avatar'				=> '1',
 	'perscom_enable_muster'					=> '1',
 	'perscom_enable_profile_pfile'			=> '1',
+	'perscom_enable_steam'					=> '1',
 );
