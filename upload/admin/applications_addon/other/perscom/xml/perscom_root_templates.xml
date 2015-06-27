@@ -2302,7 +2302,9 @@ document.getElementById('grade').onchange = function() {
 			<if test="count($awards) > 0">
 				<foreach loop="$awards as $award">
 					<thead>
-						<th colspan=2><div class="maintitle">{$award['title']}</div></th>
+						<th colspan=2 style="border-bottom: 0px">
+							<div class="maintitle">{$award['title']}</div>
+						</th>
 					</thead>
 					<tr>
 						<td rowspan=4 style="width: 10%; padding: 2px; text-align: center;">
@@ -3225,7 +3227,9 @@ document.getElementById('grade').onchange = function() {
             <if test="count($personnel) > 0">
                 <foreach loop="$personnel as $unit => $soldiers">
                     <thead>
-                        <th colspan=8><div class="maintitle">{$unit}</div></th>
+                        <th colspan=8 style="border-bottom: 0px">
+                            <div class="maintitle">{$unit}</div>
+                        </th>
                     </thead>
                     <foreach loop="$soldiers as $soldier">
                         <tr>
@@ -3364,7 +3368,7 @@ document.getElementById('grade').onchange = function() {
 			<if test="count($ranks) > 0">
 				<foreach loop="$ranks as $rank">
 					<thead>
-						<th colspan=2>
+						<th colspan=2 style="border-bottom: 0px">
 							<div class="maintitle">
 								{$rank['title']}
 							</div>
