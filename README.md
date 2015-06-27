@@ -38,8 +38,20 @@ Installation
 2. Login to your IPB Admin CP and click on <i>Manage Applications & Modules</i> on the left hand side.
 3. Click <i>Install</i> on the right hand side to install PERSCOM. Click <i>Continue</i> to proceed with the installation.
 4. Once the application has finished installing, proceed to the application settings. Click on the PERSCOM tab under System Settings. Click on <i>General Settings</i>.
-5. Enter your license key that you received with the purchase of PERSCOM. Click <i>Save</i> when you are done editing the settings. You can find your license key under the <a href="http://www.3rdinf.us/index.php?app=nexus&module=clients&section=purchases"><i>Client Area - Purchases</i></a> section of the <a href="http://www.3rdinf.us">3rd Infantry Division</a> website.
+5. Enter your license key that you received with the purchase of PERSCOM. Click <i>Save</i> when you are done editing the settings. You can find your license key under the <a href="http://www.3rdinf.us/index.php?app=nexus&module=clients&section=purchases">Client Area - Purchases</a> section of the <a href="http://www.3rdinf.us">3rd Infantry Division</a> website.
 6. PERSCOM is successfully installed. Proceed to your homepage and click on the PERSCOM tab to enter the application.
+
+Upgrading
+-
+
+If you are upgrading your current version of PERSCOM, follow the step-by-step directions below to update your copy.
+
+1. Visit the <a href="http://3rdinf.us/index.php?/files/">Downloads</a> portion of the 3rd Infantry Division website to download the latest version of PERSCOM.
+2. After your download has finished, upload the contents of the <i>/upload</i> folder to the root folder of your IPB installation.
+3. Once the upload has completed, proceed to the Admin Control Panel of your website. You will be prompted by an upgrade screen.
+4. Login and follow the instructions to perform the upgrade. Once the upgrade is complete, you will be returned to your website.
+
+* Please note, upgrading your copy of PERSCOM will update the template and skin files on your website. If you have made changes to your template via the Admin CP, the changes will not be seen unless you revert the template to it's original. Original templates have a black dot next to them. Modified templates have a red dot next to them. If you would like to see the changes from the upgrade, click "Revert" on all templates with a red dot.
 
 Support
 -
