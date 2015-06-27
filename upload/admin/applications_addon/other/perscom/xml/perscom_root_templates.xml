@@ -3579,217 +3579,223 @@ document.getElementById('grade').onchange = function() {
     <div id='view_edit_soldier' style='display:none;'>
         <h3>Edit Soldier</h3>
         <div class='fixed_inner'>
-            <div class="ipsBox">
-                <div class="ipsBox_container ipsPad">
-                    <form action="{$this->settings['base_url']}app=perscom&module=personnel&section=soldier&id={$soldier['member_id']}" method="post" enctype="multipart/form-data" name="edit_soldier" onsubmit="return validateForm()">
-                        <input type='hidden' name='soldierID' value='{$this->request['soldierID']}' />
-                        <input type="hidden" name="memberID" value='{$this->request['memberID']}' /> 
-                        <input type='hidden' name='do' value='submit' />
-                        <div class="maintitle">Website Information</div>
-                        <br />
-                        <if test="!$soldier['member_id']">
-                            <p class="message error">Please enter the User ID and save. Then you may alter the forum name, title and avatar!</p>
+            <div class="ipsBox_container ipsPad">
+                <form action="{$this->settings['base_url']}app=perscom&module=personnel&section=soldier&id={$soldier['member_id']}" method="post" enctype="multipart/form-data" name="edit_soldier" onsubmit="return validateForm()">
+                    <input type='hidden' name='soldierID' value='{$this->request['soldierID']}' />
+                    <input type="hidden" name="memberID" value='{$this->request['memberID']}' /> 
+                    <input type='hidden' name='do' value='submit' />
+                    <div class="maintitle">Website Information</div>
+                    <div class="ipsBox">
+                        <div class="ipsBox_container ipsPad">
                             <br />
-                        </if>
-                        <if test="$error">
-                            <p class="message error">{$error}</p>
-                            <br />
-                        </if>
-                        
-                        <ul class="ipsForm_horizontal ipsPad">
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Member ID</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="member_id" class="input_text" type="text" <if test="$soldier['member_id']">value="{$soldier['member_id']}"</if> placeholder="User ID" size="50" name="member_id">
-                                </div>
-                            </li>
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Forum Name</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="forum_name" class="input_text" type="text" <if test="$soldier['forum_name']">value="{$soldier['forum_name']}"</if>  size="50" name="forum_name" <if test="!$soldier['member_id']">disabled placeholder="Please enter the User ID"<else />placeholder="RNK F.Lastname"</if>>
-                                </div>
-                            </li>
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Forum Title</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="title" class="input_text" type="text" <if test="$soldier['title']">value="{$soldier['title']}"</if> size="50" name="title" <if test="!$soldier['member_id']">disabled placeholder="Please enter the User ID"<else />placeholder="Full Rank Name (Example: Private)"</if>>
-                                </div>
-                            </li>
-                            <li class="ipsField ipsField_select">
-                                <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Avatar Image</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <select id="avatar" class="input_select" tabindex="1" name="avatar" <if test="!$soldier['member_id']">disabled</if>>
-                                        <if test="count($ranks) > 0">
-                                            <foreach loop="$ranks as $rank">
-                                                <option value="{$rank['abbreviation']}" <if test="$rank['abbreviation'] == $soldier['rank_short']">selected</if>>{$rank['order']} - {$rank['title']}</option>
-                                            </foreach>
-                                        <else />
-                                            <option value="">No Ranks Available</option>
-                                        </if>
-                                    </select>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="maintitle">Personnel File Information</div>
-                        <br />
-                        <ul class="ipsForm_horizontal ipsPad">
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">First Name</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="first" class="input_text" type="text" <if test="$soldier['firstname'] != ''">value="{$soldier['firstname']}"</if> placeholder="First Name" size="50" name="first">
-                                </div>
-                            </li>
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Last Name</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="last" class="input_text" type="text" <if test="$soldier['lastname'] != ''">value="{$soldier['lastname']}"</if> placeholder="Last Name" size="50" name="last">
-                                </div>
-                            </li>
-                            <li class="ipsField ipsField_select">
-                                <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Status</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <select id="status" class="input_select" tabindex="1" name="status">
-                                        <if test="count($status) > 0">
-                                            <foreach loop="$status as $value">
-                                                <option value="{$value['primary_id_field']}" <if test="$value['primary_id_field'] == $soldier['status_id']">selected</if>>{$value['status']}</option>
-                                            </foreach>
-                                        <else />
-                                            <option value="">No Status' Available</option>
-                                        </if>
-                                    </select>
-                                </div>
-                            </li>
-                            <li class="ipsField ipsField_select">
-                                <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Weapon</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <select id="weapon" class="input_select" tabindex="1" name="weapon">
-                                        <if test="count($weapons) > 0">
-                                            <foreach loop="$weapons as $weapon">
-                                                <option value="{$weapon['primary_id_field']}" <if test="$weapon['primary_id_field'] == $soldier['weapon_id']">selected</if>>{$weapon['make_and_model']}</option>
-                                            </foreach>
-                                        <else />
-                                            <option value="">No Weapons Available</option>
-                                        </if>
-                                    </select>
-                                </div>
-                            </li>
-                            <li class="ipsField ipsField_select">
-                                <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Duty MOS</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <select id="dmos[]" class="dropdown" multiple="multiple" size="5" name="dmos[]">
-                                        <if test="count($admin_units) > 0">
-                                            <foreach loop="$admin_units as $dmos">
-                                                <option value="{$dmos['primary_id_field']}" <if test="in_array($dmos['primary_id_field'], explode(',', $soldier['admin_unit']))">selected</if>>{$dmos['name']}</option>
-                                            </foreach>
-                                        <else />
-                                            <option value="">No Duty MOS' Available</option>
-                                        </if>
-                                    </select>
-                                </div>
-                            </li>
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Combat MOS</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="mos" class="input_text" type="text" <if test="$soldier['mos'] != ''">value="{$soldier['mos']}"</if> placeholder="Example: 11B" size="50" name="mos">
-                                </div>
-                            </li>
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Combat Position</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="position" class="input_text" type="text" <if test="$soldier['position'] != ''">value="{$soldier['position']}"</if> placeholder="Combat Position (Example: Fireteam Leader)" size="50" name="position">
-                                </div>
-                            </li>
-                            <li class="ipsField ipsField_select">
-                                <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Combat Unit</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <select id="combat_unit" class="input_select" tabindex="1" name="combat_unit">
-                                        <if test="count($combat_units) > 0">
-                                            <foreach loop="$combat_units as $combat_unit">
-                                                <option value="{$combat_unit['primary_id_field']}" <if test="$combat_unit['primary_id_field'] == $soldier['combat_unit']">selected</if>>{$combat_unit['name']}</option>
-                                            </foreach>
-                                        <else />
-                                            <option value="">No Combat Units Available</option>
-                                        </if>
-                                    </select>
-                                </div>
-                            </li>   
-                            <li class="ipsField ipsField_select">
-                                <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Supervisor</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <select id="supervisor" class="input_select" tabindex="1" name="supervisor">
-                                        <option value="0" <if test="$soldier['supervisor'] == 0">selected</if>>No Supervisor Selected</option>
-                                        <foreach loop="$personnel as $supervisor">
-                                            <option value="{$supervisor['member_id']}" <if test="$supervisor['member_id'] == $soldier['supervisor']">selected</if>>{parse expression="strtoupper($supervisor['lastname'])"}, {$supervisor['firstname']} ({$supervisor['member_id']})</option>
-                                        </foreach>
-                                    </select>
-                                </div>
-                            </li>
-                            <li class="ipsField ipsField_select">
-                                <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Recruiter</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <select id="recruiter" class="input_select" tabindex="1" name="recruiter">
-                                        <option value="0" <if test="$soldier['recruiter'] == 0">selected</if>>No Recruiter Selected</option>
-                                        <foreach loop="$personnel as $recruiter">
-                                            <option value="{$recruiter['member_id']}" <if test="$recruiter['member_id'] == $soldier['recruiter']">selected</if>>{parse expression="strtoupper($recruiter['lastname'])"}, {$recruiter['firstname']} ({$recruiter['member_id']})</option>
-                                        </foreach>
-                                    </select>
-                                </div>
-                            </li>                        
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Enlistment Date</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="enlistment" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['enlistment_date'] != ''">value="{parse expression="date('m-d-Y', $soldier['enlistment_date'])"}"</if> size="50" name="enlistment">
-                                </div>
-                            </li>
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Induction Date</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="induction" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['induction_date'] != ''">value="{parse expression="date('m-d-Y', $soldier['induction_date'])"}"</if> size="50" name="induction">
-                                </div>
-                            </li>
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Promotion Date</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="promotion" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['promotion_date'] != ''">value="{parse expression="date('m-d-Y', $soldier['promotion_date'])"}"</if> size="50" name="promotion">
-                                </div>
-                            </li>
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Email</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="email" class="input_text" type="text" <if test="$soldier['email'] != ''">value="{$soldier['email']}"</if> size="50" name="email">
-                                </div>
-                            </li>
-                            <if test="$this->settings['perscom_enable_steam']">
+                            <if test="!$soldier['member_id']">
+                                <p class="message error">Please enter the User ID and save. Then you may alter the forum name, title and avatar!</p>
+                                <br />
+                            </if>
+                            <if test="$error">
+                                <p class="message error">{$error}</p>
+                                <br />
+                            </if>
+                            
+                            <ul class="ipsForm_horizontal ipsPad">
                                 <li class="ipsField clear">
-                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Steam</label>
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Member ID</label>
                                     <div class="ipsField_content" style="margin-left: 120px;">
-                                        <input id="steam" class="input_text" type="text" <if test="$soldier['steam'] != ''">value="{$soldier['steam']}"</if> size="50" name="steam">
+                                        <input id="member_id" class="input_text" type="text" <if test="$soldier['member_id']">value="{$soldier['member_id']}"</if> placeholder="User ID" size="50" name="member_id">
                                     </div>
                                 </li>
-                            </if>
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Timezone</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="timezone" class="input_text" type="text" <if test="$soldier['timezone'] != ''">value="{$soldier['timezone']}"</if> size="50" name="timezone">
-                                </div>
-                            </li>
-                            <li class="ipsField clear">
-                                <label class="ipsField_title" for="file_name" style="width: 100px;">Country</label>
-                                <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="country" class="input_text" type="text" <if test="$soldier['country'] != ''">value="{$soldier['country']}"</if> placeholder="ISO Country Code (Example: US)" size="50" name="country">
-                                </div>
-                            </li>
-                        </ul>
-                        <br />
-                        <p class="submit">
-                            <input class="input_submit" type="submit" accesskey="s" value="Save Soldier" name="dosubmit">
-                        </p>
-                    </form>
-                    <br />
-                    <p class="submit"> 
-                        <a href="{$this->settings['base_url']}app=perscom&module=personnel&section=soldier&do=delete&id={$soldier['member_id']}" class="ipsButton_secondary" onclick="return deleteSoldierConfirmation()">Delete Soldier</a>
-                    </p>
-                </div>
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Forum Name</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="forum_name" class="input_text" type="text" <if test="$soldier['forum_name']">value="{$soldier['forum_name']}"</if>  size="50" name="forum_name" <if test="!$soldier['member_id']">disabled placeholder="Please enter the User ID"<else />placeholder="RNK F.Lastname"</if>>
+                                    </div>
+                                </li>
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Forum Title</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="title" class="input_text" type="text" <if test="$soldier['title']">value="{$soldier['title']}"</if> size="50" name="title" <if test="!$soldier['member_id']">disabled placeholder="Please enter the User ID"<else />placeholder="Full Rank Name (Example: Private)"</if>>
+                                    </div>
+                                </li>
+                                <li class="ipsField ipsField_select">
+                                    <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Avatar Image</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <select id="avatar" class="input_select" tabindex="1" name="avatar" <if test="!$soldier['member_id']">disabled</if>>
+                                            <if test="count($ranks) > 0">
+                                                <foreach loop="$ranks as $rank">
+                                                    <option value="{$rank['abbreviation']}" <if test="$rank['abbreviation'] == $soldier['rank_short']">selected</if>>{$rank['order']} - {$rank['title']}</option>
+                                                </foreach>
+                                            <else />
+                                                <option value="">No Ranks Available</option>
+                                            </if>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="maintitle">Personnel File Information</div>
+                    <div class="ipsBox">
+                        <div class="ipsBox_container ipsPad">
+                            <br />
+                            <ul class="ipsForm_horizontal ipsPad">
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">First Name</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="first" class="input_text" type="text" <if test="$soldier['firstname'] != ''">value="{$soldier['firstname']}"</if> placeholder="First Name" size="50" name="first">
+                                    </div>
+                                </li>
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Last Name</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="last" class="input_text" type="text" <if test="$soldier['lastname'] != ''">value="{$soldier['lastname']}"</if> placeholder="Last Name" size="50" name="last">
+                                    </div>
+                                </li>
+                                <li class="ipsField ipsField_select">
+                                    <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Status</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <select id="status" class="input_select" tabindex="1" name="status">
+                                            <if test="count($status) > 0">
+                                                <foreach loop="$status as $value">
+                                                    <option value="{$value['primary_id_field']}" <if test="$value['primary_id_field'] == $soldier['status_id']">selected</if>>{$value['status']}</option>
+                                                </foreach>
+                                            <else />
+                                                <option value="">No Status' Available</option>
+                                            </if>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li class="ipsField ipsField_select">
+                                    <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Weapon</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <select id="weapon" class="input_select" tabindex="1" name="weapon">
+                                            <if test="count($weapons) > 0">
+                                                <foreach loop="$weapons as $weapon">
+                                                    <option value="{$weapon['primary_id_field']}" <if test="$weapon['primary_id_field'] == $soldier['weapon_id']">selected</if>>{$weapon['make_and_model']}</option>
+                                                </foreach>
+                                            <else />
+                                                <option value="">No Weapons Available</option>
+                                            </if>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li class="ipsField ipsField_select">
+                                    <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Duty MOS</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <select id="dmos[]" class="dropdown" multiple="multiple" size="5" name="dmos[]">
+                                            <if test="count($admin_units) > 0">
+                                                <foreach loop="$admin_units as $dmos">
+                                                    <option value="{$dmos['primary_id_field']}" <if test="in_array($dmos['primary_id_field'], explode(',', $soldier['admin_unit']))">selected</if>>{$dmos['name']}</option>
+                                                </foreach>
+                                            <else />
+                                                <option value="">No Duty MOS' Available</option>
+                                            </if>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Combat MOS</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="mos" class="input_text" type="text" <if test="$soldier['mos'] != ''">value="{$soldier['mos']}"</if> placeholder="Example: 11B" size="50" name="mos">
+                                    </div>
+                                </li>
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Combat Position</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="position" class="input_text" type="text" <if test="$soldier['position'] != ''">value="{$soldier['position']}"</if> placeholder="Combat Position (Example: Fireteam Leader)" size="50" name="position">
+                                    </div>
+                                </li>
+                                <li class="ipsField ipsField_select">
+                                    <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Combat Unit</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <select id="combat_unit" class="input_select" tabindex="1" name="combat_unit">
+                                            <if test="count($combat_units) > 0">
+                                                <foreach loop="$combat_units as $combat_unit">
+                                                    <option value="{$combat_unit['primary_id_field']}" <if test="$combat_unit['primary_id_field'] == $soldier['combat_unit']">selected</if>>{$combat_unit['name']}</option>
+                                                </foreach>
+                                            <else />
+                                                <option value="">No Combat Units Available</option>
+                                            </if>
+                                        </select>
+                                    </div>
+                                </li>   
+                                <li class="ipsField ipsField_select">
+                                    <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Supervisor</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <select id="supervisor" class="input_select" tabindex="1" name="supervisor">
+                                            <option value="0" <if test="$soldier['supervisor'] == 0">selected</if>>No Supervisor Selected</option>
+                                            <foreach loop="$personnel as $supervisor">
+                                                <option value="{$supervisor['member_id']}" <if test="$supervisor['member_id'] == $soldier['supervisor']">selected</if>>{parse expression="strtoupper($supervisor['lastname'])"}, {$supervisor['firstname']} ({$supervisor['member_id']})</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li class="ipsField ipsField_select">
+                                    <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Recruiter</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <select id="recruiter" class="input_select" tabindex="1" name="recruiter">
+                                            <option value="0" <if test="$soldier['recruiter'] == 0">selected</if>>No Recruiter Selected</option>
+                                            <foreach loop="$personnel as $recruiter">
+                                                <option value="{$recruiter['member_id']}" <if test="$recruiter['member_id'] == $soldier['recruiter']">selected</if>>{parse expression="strtoupper($recruiter['lastname'])"}, {$recruiter['firstname']} ({$recruiter['member_id']})</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </li>                        
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Enlistment Date</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="enlistment" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['enlistment_date'] != ''">value="{parse expression="date('m-d-Y', $soldier['enlistment_date'])"}"</if> size="50" name="enlistment">
+                                    </div>
+                                </li>
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Induction Date</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="induction" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['induction_date'] != ''">value="{parse expression="date('m-d-Y', $soldier['induction_date'])"}"</if> size="50" name="induction">
+                                    </div>
+                                </li>
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Promotion Date</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="promotion" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['promotion_date'] != ''">value="{parse expression="date('m-d-Y', $soldier['promotion_date'])"}"</if> size="50" name="promotion">
+                                    </div>
+                                </li>
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Email</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="email" class="input_text" type="text" <if test="$soldier['email'] != ''">value="{$soldier['email']}"</if> size="50" name="email">
+                                    </div>
+                                </li>
+                                <if test="$this->settings['perscom_enable_steam']">
+                                    <li class="ipsField clear">
+                                        <label class="ipsField_title" for="file_name" style="width: 100px;">Steam</label>
+                                        <div class="ipsField_content" style="margin-left: 120px;">
+                                            <input id="steam" class="input_text" type="text" <if test="$soldier['steam'] != ''">value="{$soldier['steam']}"</if> size="50" name="steam">
+                                        </div>
+                                    </li>
+                                </if>
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Timezone</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="timezone" class="input_text" type="text" <if test="$soldier['timezone'] != ''">value="{$soldier['timezone']}"</if> size="50" name="timezone">
+                                    </div>
+                                </li>
+                                <li class="ipsField clear">
+                                    <label class="ipsField_title" for="file_name" style="width: 100px;">Country</label>
+                                    <div class="ipsField_content" style="margin-left: 120px;">
+                                        <input id="country" class="input_text" type="text" <if test="$soldier['country'] != ''">value="{$soldier['country']}"</if> placeholder="ISO Country Code (Example: US)" size="50" name="country">
+                                    </div>
+                                </li>
+                            </ul>
+                            <br />
+                            <p class="submit">
+                                <input class="input_submit" type="submit" accesskey="s" value="Save Soldier" name="dosubmit">
+                            </p>
+                            <br />
+                            <p class="submit"> 
+                                <a href="{$this->settings['base_url']}app=perscom&module=personnel&section=soldier&do=delete&id={$soldier['member_id']}" class="ipsButton_secondary" onclick="return deleteSoldierConfirmation()">Delete Soldier</a>
+                            </p>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
