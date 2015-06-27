@@ -496,7 +496,7 @@ if ( $show == 1 )
     </setting>
     <setting>
       <conf_title>PERSCOM Signing Soldier ID</conf_title>
-      <conf_description>The member ID of the soldier is responsible for signing all award, promotion and demotion citations. Integers ONLY.</conf_description>
+      <conf_description>The member ID of the soldier that is responsible for signing all award, promotion and demotion citations. Integers ONLY.</conf_description>
       <conf_type>input</conf_type>
       <conf_key>perscom_signing_soldier</conf_key>
       <conf_default/>
