@@ -612,7 +612,7 @@ if ( $show == 1 )
       <conf_title>Enable Uniform</conf_title>
       <conf_description><![CDATA[Displays's the user's uniform in their personnel profile.]]></conf_description>
       <conf_type>yes_no</conf_type>
-      <conf_key>perscom_enable_muster</conf_key>
+      <conf_key>perscom_enable_uniform</conf_key>
       <conf_default>1</conf_default>
       <conf_extra/>
       <conf_evalphp/>
