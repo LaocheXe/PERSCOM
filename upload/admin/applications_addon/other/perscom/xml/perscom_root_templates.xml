@@ -162,7 +162,7 @@
 									<option value="{$award['title']}">{$award['title']}</option>
 								</foreach>
 							<else />
-								<option>No Awards or Commendations Available</option>
+								<option value="">No Awards or Commendations Available</option>
 							</if>
 						</select>
 					</div>

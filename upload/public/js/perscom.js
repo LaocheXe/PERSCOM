@@ -22,6 +22,28 @@ function confirmSubmission() {
 
 function validateAddAwardEntry() {
 
+    // Get soldier
+    var soldier = document.forms["add_award"]["soldier"].value;
+
+    // Make sure it is set and not null
+    if (soldier==null || soldier=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some soldiers and select a valid one before submitting this form.");
+        return false;
+    }
+
+    // Get award
+    var award = document.forms["add_award"]["award"].value;
+
+    // Make sure it is set and not null
+    if (award==null || award=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some awards and select a valid one before submitting this form.");
+        return false;
+    }
+
 	// Get award date
     var award_date = document.forms["add_award"]["date"].value;
 
@@ -50,6 +72,17 @@ function validateAddAwardEntry() {
 }
 
 function validateCombatRecordEntry() {
+
+    // Get soldier
+    var soldier = document.forms["add_combat_record_entry"]["soldier"].value;
+
+    // Make sure it is set and not null
+    if (soldier==null || soldier=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some soldiers and select a valid one before submitting this form.");
+        return false;
+    }
 
     // Get the combat entry
     var combat_entry = document.forms["add_combat_record_entry"]["combat_entry"].value;
@@ -91,6 +124,17 @@ function validateCombatRecordEntry() {
 
 function validateServiceRecordEntry() {
 
+    // Get soldier
+    var soldier = document.forms["add_service_record_entry"]["soldier"].value;
+
+    // Make sure it is set and not null
+    if (soldier==null || soldier=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some soldiers and select a valid one before submitting this form.");
+        return false;
+    }
+
     // Get the record entry
     var record_entry = document.forms["add_service_record_entry"]["service_record_entry"].value;
 
@@ -131,10 +175,30 @@ function validateServiceRecordEntry() {
 
 function validateAssignmentEntry() {
 
+    // Get soldier
+    var soldier = document.forms["add_assignment"]["soldier"].value;
+
+    // Make sure it is set and not null
+    if (soldier==null || soldier=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some soldiers and select a valid one before submitting this form.");
+        return false;
+    }
+
+    // Get combat unit
+    var unit = document.forms["add_assignment"]["unit"].value;
+
+    // Make sure it is set and not null
+    if (unit==null || unit=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some combat units and select a valid one before submitting this form.");
+        return false;
+    }
+
     // Get the soldier's position and unit
     var position = document.forms["add_assignment"]["position"].value;
-    var unit = document.forms["add_assignment"]["unit"].value;
-    var unit_formatted = unit.split('x');
 
     // Make sure it is set and not null
     if (position==null || position=="") {
@@ -172,6 +236,28 @@ function validateAssignmentEntry() {
 }
 
 function vaidatePromotion() {
+
+    // Get soldier
+    var soldier = document.forms["file_promotion"]["soldier"].value;
+
+    // Make sure it is set and not null
+    if (soldier==null || soldier=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some soldiers and select a valid one before submitting this form.");
+        return false;
+    }
+
+    // Get rank
+    var rank = document.forms["file_promotion"]["rank"].value;
+
+    // Make sure it is set and not null
+    if (rank==null || rank=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some ranks and select a valid one before submitting this form.");
+        return false;
+    }
 
     // Get the promotion date
     var promotion_date = document.forms["file_promotion"]["date"].value;
@@ -213,6 +299,29 @@ function vaidatePromotion() {
 
 function vaidateDemotion() {
 
+    // Get soldier
+    var soldier = document.forms["file_demotion"]["soldier"].value;
+
+    // Make sure it is set and not null
+    if (soldier==null || soldier=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some soldiers and select a valid one before submitting this form.");
+        return false;
+    }
+
+    // Get rank
+    var rank = document.forms["file_demotion"]["rank"].value;
+
+    // Make sure it is set and not null
+    if (rank==null || rank=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some ranks and select a valid one before submitting this form.");
+        return false;
+    }
+
+
     // Get the demotion date
     var demotion_date = document.forms["file_demotion"]["date"].value;
 
@@ -252,6 +361,17 @@ function vaidateDemotion() {
 }
 
 function validateDischarge() {
+
+    // Get soldier
+    var soldier = document.forms["file_discharge"]["soldier"].value;
+
+    // Make sure it is set and not null
+    if (soldier==null || soldier=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some soldiers and select a valid one before submitting this form.");
+        return false;
+    }
 
     // Get the discharge date
     var discharge_date = document.forms["file_discharge"]["date"].value;
@@ -485,7 +605,7 @@ function validateProcessApplicant() {
     if (rank==null || rank=="") {
 
         // If it is, return alert and stop form submission
-        alert("Please add some ranks and select a valid rank before submitting this form.");
+        alert("Please add some ranks and select a valid one before submitting this form.");
         return false;
     }
 
@@ -496,7 +616,7 @@ function validateProcessApplicant() {
     if (unit==null || unit=="") {
 
         // If it is, return alert and stop form submission
-        alert("Please add some combat units and select a valid unit before submitting this form.");
+        alert("Please add some combat units and select a valid one before submitting this form.");
         return false;
     }
 
@@ -605,7 +725,7 @@ function validateAddSoldier() {
         if (rank==null || rank=="") {
 
             // If it is, return alert and stop form submission
-            alert("Please add some ranks and select a valid rank before submitting this form.");
+            alert("Please add some ranks and select a valid one before submitting this form.");
             return false;
         }
 
@@ -616,7 +736,7 @@ function validateAddSoldier() {
         if (unit==null || unit=="") {
 
             // If it is, return alert and stop form submission
-            alert("Please add some combat units and select a valid unit before submitting this form.");
+            alert("Please add some combat units and select a valid one before submitting this form.");
             return false;
         }
 

@@ -68,7 +68,7 @@ function validateForm() {
     if (combat_unit==null || combat_unit=="") {
 
     	// If it is, return alert and stop form submission
-        alert("Please add some combat units and select a valid unit before submitting this form.");
+        alert("Please add some combat units and select a valid one before submitting this form.");
         return false;
     }
 
