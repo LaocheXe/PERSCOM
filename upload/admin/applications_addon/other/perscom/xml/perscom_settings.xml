@@ -98,7 +98,7 @@
       <conf_default>perscom_admin_units</conf_default>
       <conf_extra/>
       <conf_evalphp/>
-      <conf_protected>0</conf_protected>
+      <conf_protected>1</conf_protected>
       <conf_position>6</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
@@ -210,7 +210,7 @@
       <conf_default>perscom_settings</conf_default>
       <conf_extra/>
       <conf_evalphp/>
-      <conf_protected>0</conf_protected>
+      <conf_protected>1</conf_protected>
       <conf_position>13</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
@@ -324,7 +324,7 @@
       <conf_default/>
       <conf_extra/>
       <conf_evalphp/>
-      <conf_protected>0</conf_protected>
+      <conf_protected>1</conf_protected>
       <conf_position>1</conf_position>
       <conf_start_group>License Key</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
@@ -340,7 +340,7 @@
       <conf_default>0</conf_default>
       <conf_extra/>
       <conf_evalphp/>
-      <conf_protected>0</conf_protected>
+      <conf_protected>1</conf_protected>
       <conf_position>2</conf_position>
       <conf_start_group>Access Settings</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
@@ -356,7 +356,7 @@
       <conf_default/>
       <conf_extra/>
       <conf_evalphp/>
-      <conf_protected>0</conf_protected>
+      <conf_protected>1</conf_protected>
       <conf_position>3</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
@@ -389,7 +389,7 @@ if ( $show == 1 )
 {
 	$key = 'perscom_offline_access_groups[]';
 }]]></conf_evalphp>
-      <conf_protected>0</conf_protected>
+      <conf_protected>1</conf_protected>
       <conf_position>4</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
@@ -470,7 +470,7 @@ if ( $show == 1 )
       <conf_default>4</conf_default>
       <conf_extra>#show_groups#</conf_extra>
       <conf_evalphp/>
-      <conf_protected>0</conf_protected>
+      <conf_protected>1</conf_protected>
       <conf_position>9</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
@@ -519,7 +519,7 @@ if ( $show == 1 )
 {
 	$key = 'perscom_signing_soldier';
 }]]></conf_evalphp>
-      <conf_protected>0</conf_protected>
+      <conf_protected>1</conf_protected>
       <conf_position>11</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
@@ -584,7 +584,7 @@ if ( $show == 1 )
       <conf_default>1</conf_default>
       <conf_extra/>
       <conf_evalphp/>
-      <conf_protected>0</conf_protected>
+      <conf_protected>1</conf_protected>
       <conf_position>14</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
@@ -600,7 +600,7 @@ if ( $show == 1 )
       <conf_default>1</conf_default>
       <conf_extra/>
       <conf_evalphp/>
-      <conf_protected>0</conf_protected>
+      <conf_protected>1</conf_protected>
       <conf_position>15</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
