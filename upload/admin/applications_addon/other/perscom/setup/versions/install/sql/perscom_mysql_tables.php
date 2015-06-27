@@ -9,9 +9,6 @@
 +--------------------------------------------------------------------------
 */
 
-
-include 'conf_global.php';
-
 $TABLE[] = "CREATE TABLE `perscom_admin_units` (
   `primary_id_field` int(11) NOT NULL auto_increment,
   `name` text,
