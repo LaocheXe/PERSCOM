@@ -3458,33 +3458,35 @@ document.getElementById('grade').onchange = function() {
     </table>
 </div>
 <br />
-<div class="maintitle">Uniform</div>
-<div class="ipsBox">
-    <div class="ipsBox_container ipsPad ipsType_textblock">
-        <div class="texture" style="text-align: center;">
-            <php>
-                /* Initiate curl request */
-                $img = $this->settings['board_url'] . '/images/perscom/uniforms/dress_blue/' . strtoupper(substr($soldier['firstname'], 0, 1)) . '.' . ucfirst(strtolower($soldier['lastname'])) . '.jpg';
-                $handle = curl_init($img);
-                curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
-                /* Get the HTML or whatever is linked in $url. */
-                $response = curl_exec($handle);
-                /* Check for 404 (file not found). */
-                $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-                if ($httpCode == 404) {
-                    
-                    /* Handle 404 here. */
-                    $img = $this->settings['board_url'] . "/images/perscom/uniforms/dress_blue/BlankUniform.jpg";
-                }
-                /* Close the request */
-                curl_close($handle);
-                /* Handle $response here. */                
-            </php>
-            <img src="{$img}" />
+<if test="$this->settings['perscom_enable_uniform']">
+    <div class="maintitle">Uniform</div>
+    <div class="ipsBox">
+        <div class="ipsBox_container ipsPad ipsType_textblock">
+            <div class="texture" style="text-align: center;">
+                <php>
+                    /* Initiate curl request */
+                    $img = $this->settings['board_url'] . '/images/perscom/uniforms/dress_blue/' . strtoupper(substr($soldier['firstname'], 0, 1)) . '.' . ucfirst(strtolower($soldier['lastname'])) . '.jpg';
+                    $handle = curl_init($img);
+                    curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+                    /* Get the HTML or whatever is linked in $url. */
+                    $response = curl_exec($handle);
+                    /* Check for 404 (file not found). */
+                    $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+                    if ($httpCode == 404) {
+                        
+                        /* Handle 404 here. */
+                        $img = $this->settings['board_url'] . "/images/perscom/uniforms/dress_blue/BlankUniform.jpg";
+                    }
+                    /* Close the request */
+                    curl_close($handle);
+                    /* Handle $response here. */                
+                </php>
+                <img src="{$img}" />
+            </div>
         </div>
     </div>
-</div>
-<br />
+    <br />
+</if>
 <div class="maintitle">Vital Statistics</div>
 <div class="ipsBox">
     <div class="ipsBox_container ipsPad ipsType_textblock" style="padding: 0px;">

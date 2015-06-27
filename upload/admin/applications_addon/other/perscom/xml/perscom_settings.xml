@@ -562,7 +562,7 @@ if ( $show == 1 )
     </setting>
     <setting>
       <conf_title>Enable Muster System</conf_title>
-      <conf_description><![CDATA[Switch on and off to enable PERSCOM's muster system]]></conf_description>
+      <conf_description><![CDATA[Switch on and off to enable the muster system]]></conf_description>
       <conf_type>yes_no</conf_type>
       <conf_key>perscom_enable_muster</conf_key>
       <conf_default>1</conf_default>
@@ -578,7 +578,7 @@ if ( $show == 1 )
     </setting>
     <setting>
       <conf_title>Enable Personnel Profile</conf_title>
-      <conf_description><![CDATA[Display the user's PERSCOM personnel file as a tab in their forum profile.]]></conf_description>
+      <conf_description><![CDATA[Display the user's personnel file as a tab in their forum profile.]]></conf_description>
       <conf_type>yes_no</conf_type>
       <conf_key>perscom_enable_profile_pfile</conf_key>
       <conf_default>1</conf_default>
@@ -594,7 +594,7 @@ if ( $show == 1 )
     </setting>
     <setting>
       <conf_title>Enable Steam Integration</conf_title>
-      <conf_description><![CDATA[Enabling steam allows soldier's to be tracked be their steam ID's.]]></conf_description>
+      <conf_description><![CDATA[Enabling steam allows soldier's to be tracked by their steam ID's.]]></conf_description>
       <conf_type>yes_no</conf_type>
       <conf_key>perscom_enable_steam</conf_key>
       <conf_default>1</conf_default>
@@ -603,6 +603,22 @@ if ( $show == 1 )
       <conf_protected>0</conf_protected>
       <conf_position>15</conf_position>
       <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Enable Uniform</conf_title>
+      <conf_description><![CDATA[Displays's the user's uniform in their personnel profile.]]></conf_description>
+      <conf_type>yes_no</conf_type>
+      <conf_key>perscom_enable_muster</conf_key>
+      <conf_default>1</conf_default>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>16</conf_position>
+      <conf_start_group>Personnel Profiles</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
       <conf_title_keyword>perscom_general_settings</conf_title_keyword>
