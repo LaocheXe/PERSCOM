@@ -3366,6 +3366,7 @@ document.getElementById('grade').onchange = function() {
 					</thead>
 					<tr>
 						<td rowspan=4 style="width: 10%; padding: 2px; text-align: center;">
+							<br />
 							<img src="{$this->settings['board_url']}/images/perscom/insignia/large/multicam_background/{$rank['abbreviation']}.jpg" /></br>
 							<br />
 							<p class="center" style="font-weight: bold;">{$rank['abbreviation']}, {$rank['pay_grade']}</p>
@@ -3433,7 +3434,7 @@ document.getElementById('grade').onchange = function() {
 			</td>
 			<td style="padding: 0px;">
 				<h1 class="ipsType_pagetitle">{$soldier['rank_long']} {$soldier['firstname']} {$soldier['lastname']} <img src="{$this->settings['board_url']}/images/perscom/flags/{parse expression="strtolower($soldier['country'])"}.png" /></h1>
-				<div class="ipsType_pagedesc" style="color: #333535;">{$soldier['position']}, {$soldier['unit_long']}, {$soldier['unit_short']}</div>
+				{$soldier['position']}, {$soldier['unit_long']}, {$soldier['unit_short']}
 			</td>
 			<td style="width: 100px; padding: 0px; text-align: center;">
 				<span class="right">
@@ -3441,6 +3442,11 @@ document.getElementById('grade').onchange = function() {
 					<br />
 					<br />
 					<a href="{$this->settings['base_url']}app=members&module=messaging&section=send&do=form&fromMemberID={$soldier['member_id']}" class="ipsButton_secondary">Private Message {$soldier['rank_short']} {$soldier['lastname']}</a>
+					<if test="$allowEdit">
+						<br />
+						<br />
+						<a href="#" id="edit_soldier" class="ipsButton_secondary">Edit Soldier</a>
+					</if>
 				</span>
 			</td>
 		</tr>
@@ -3474,16 +3480,7 @@ document.getElementById('grade').onchange = function() {
 	</div>
 </div>
 <br />
-<div class="maintitle" <if test="$allowEdit"> style="padding: 10px;" </if>>
-        <table><tr><td style="padding: 0px;">Vital Statistics</td>
-        <td style="padding: 0px;">
-        <if test="$allowEdit">
-                <span class="right">
-                        <a href="#" id="edit_soldier" class="ipsButton_secondary" style="color: #414141;">Edit Soldier</a>
-                </span>
-        </if>
-        </td></tr></table>
-</div>
+<div class="maintitle">Vital Statistics</div>
 <div class="ipsBox">
 	<div class="ipsBox_container ipsPad ipsType_textblock" style="padding: 0px;">
 		<table class="ipb_table table_overflow" style="table-layout: fixed;">
@@ -3608,7 +3605,7 @@ document.getElementById('grade').onchange = function() {
 								</div>
 							</li>
 							<li class="ipsField ipsField_select">
-								<label class="ipsField_title" for="file_cat" style="line-height: 10px; width: 100px;">Avatar Image</label>
+								<label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Avatar Image</label>
 								<div class="ipsField_content" style="margin-left: 120px;">
 									<select id="avatar" class="input_select" tabindex="1" name="avatar" <if test="!$soldier['member_id']">disabled</if>>
 										<if test="count($ranks) > 0">
@@ -3638,7 +3635,7 @@ document.getElementById('grade').onchange = function() {
 								</div>
 							</li>
 							<li class="ipsField ipsField_select">
-								<label class="ipsField_title" for="file_cat" style="line-height: 10px; width: 100px;">Status</label>
+								<label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Status</label>
 								<div class="ipsField_content" style="margin-left: 120px;">
 									<select id="status" class="input_select" tabindex="1" name="status">
 										<if test="count($status) > 0">
@@ -3652,7 +3649,7 @@ document.getElementById('grade').onchange = function() {
 								</div>
 							</li>
 							<li class="ipsField ipsField_select">
-								<label class="ipsField_title" for="file_cat" style="line-height: 10px; width: 100px;">Weapon</label>
+								<label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Weapon</label>
 								<div class="ipsField_content" style="margin-left: 120px;">
 									<select id="weapon" class="input_select" tabindex="1" name="weapon">
 										<if test="count($weapons) > 0">
@@ -3666,7 +3663,7 @@ document.getElementById('grade').onchange = function() {
 								</div>
 							</li>
 							<li class="ipsField ipsField_select">
-								<label class="ipsField_title" for="file_cat" style="line-height: 10px; width: 100px;">Duty MOS</label>
+								<label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Duty MOS</label>
 								<div class="ipsField_content" style="margin-left: 120px;">
 									<select id="dmos[]" class="dropdown" multiple="multiple" size="5" name="dmos[]">
 										<if test="count($admin_units) > 0">
@@ -3692,7 +3689,7 @@ document.getElementById('grade').onchange = function() {
 								</div>
 							</li>
 							<li class="ipsField ipsField_select">
-								<label class="ipsField_title" for="file_cat" style="line-height: 10px; width: 100px;">Combat Unit</label>
+								<label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Combat Unit</label>
 								<div class="ipsField_content" style="margin-left: 120px;">
 									<select id="combat_unit" class="input_select" tabindex="1" name="combat_unit">
 										<if test="count($combat_units) > 0">
@@ -3706,7 +3703,7 @@ document.getElementById('grade').onchange = function() {
 								</div>
 							</li>	
 							<li class="ipsField ipsField_select">
-								<label class="ipsField_title" for="file_cat" style="line-height: 10px; width: 100px;">Supervisor</label>
+								<label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Supervisor</label>
 								<div class="ipsField_content" style="margin-left: 120px;">
 									<select id="supervisor" class="input_select" tabindex="1" name="supervisor">
 										<option value="0" <if test="$soldier['supervisor'] == 0">selected</if>>No Supervisor Selected</option>
@@ -3717,7 +3714,7 @@ document.getElementById('grade').onchange = function() {
 								</div>
 							</li>
 							<li class="ipsField ipsField_select">
-								<label class="ipsField_title" for="file_cat" style="line-height: 10px; width: 100px;">Recruiter</label>
+								<label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Recruiter</label>
 								<div class="ipsField_content" style="margin-left: 120px;">
 									<select id="recruiter" class="input_select" tabindex="1" name="recruiter">
 										<option value="0" <if test="$soldier['recruiter'] == 0">selected</if>>No Recruiter Selected</option>
