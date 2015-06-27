@@ -39,6 +39,39 @@ jQuery(document).ready(function() {
 // Validate edit soldier file
 function validateForm() {
 
+	// Get title
+    var title = document.forms["edit_soldier"]["title"].value;
+
+    // Make sure it is set and not null
+    if (title==null || title=="") {
+
+    	// If it is, return alert and stop form submission
+        alert("Please enter in a forum title.");
+        return false;
+    }
+
+	// Get avatar_image
+    var avatar_image = document.forms["edit_soldier"]["avatar"].value;
+
+    // Make sure it is set and not null
+    if (avatar_image==null || avatar_image=="") {
+
+    	// If it is, return alert and stop form submission
+        alert("Please add some ranks and select a valid avatar image before submitting this form.");
+        return false;
+    }
+
+   	// Get combat unit
+    var combat_unit = document.forms["edit_soldier"]["combat_unit"].value;
+
+    // Make sure it is set and not null
+    if (combat_unit==null || combat_unit=="") {
+
+    	// If it is, return alert and stop form submission
+        alert("Please add some combat units and select a valid unit before submitting this form.");
+        return false;
+    }
+
 	// Validate date regex
 	var regex = /^(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d$/; 
 

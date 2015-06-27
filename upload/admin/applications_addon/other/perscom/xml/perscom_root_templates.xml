@@ -3585,7 +3585,7 @@ document.getElementById('grade').onchange = function() {
                         <input type='hidden' name='soldierID' value='{$this->request['soldierID']}' />
                         <input type="hidden" name="memberID" value='{$this->request['memberID']}' /> 
                         <input type='hidden' name='do' value='submit' />
-                        <h3 class="bar altbar">Website Information</h3>
+                        <div class="maintitle">Website Information</div>
                         <br />
                         <if test="!$soldier['member_id']">
                             <p class="message error">Please enter the User ID and save. Then you may alter the forum name, title and avatar!</p>
@@ -3630,7 +3630,7 @@ document.getElementById('grade').onchange = function() {
                                 </div>
                             </li>
                         </ul>
-                        <h3 class="bar altbar">Personnel File Information</h3>
+                        <div class="maintitle">Personnel File Information</div>
                         <br />
                         <ul class="ipsForm_horizontal ipsPad">
                             <li class="ipsField clear">
@@ -3734,26 +3734,23 @@ document.getElementById('grade').onchange = function() {
                                         </foreach>
                                     </select>
                                 </div>
-                            </li>                       
-                            
+                            </li>                        
                             <li class="ipsField clear">
                                 <label class="ipsField_title" for="file_name" style="width: 100px;">Enlistment Date</label>
                                 <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="enlistment" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['enlistment_date'] != ''">value="{parse date="$soldier['enlistment_date']" format="joined" relative="false"}"</if> size="50" name="enlistment">
+                                    <input id="enlistment" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['enlistment_date'] != ''">value="{parse expression="date('m-d-Y', $soldier['enlistment_date'])"}"</if> size="50" name="enlistment">
                                 </div>
                             </li>
-                            
                             <li class="ipsField clear">
                                 <label class="ipsField_title" for="file_name" style="width: 100px;">Induction Date</label>
                                 <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="induction" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['induction_date'] != ''">value="{parse date="$soldier['induction_date']" format="joined" relative="false"}"</if> size="50" name="induction">
+                                    <input id="induction" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['induction_date'] != ''">value="{parse expression="date('m-d-Y', $soldier['induction_date'])"}"</if> size="50" name="induction">
                                 </div>
                             </li>
-                            
                             <li class="ipsField clear">
                                 <label class="ipsField_title" for="file_name" style="width: 100px;">Promotion Date</label>
                                 <div class="ipsField_content" style="margin-left: 120px;">
-                                    <input id="promotion" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['promotion_date'] != ''">value="{parse date="$soldier['promotion_date']" format="joined" relative="false"}"</if> size="50" name="promotion">
+                                    <input id="promotion" class="input_text" type="text" placeholder="MM-DD-YYYY" <if test="$soldier['promotion_date'] != ''">value="{parse expression="date('m-d-Y', $soldier['promotion_date'])"}"</if> size="50" name="promotion">
                                 </div>
                             </li>
                             <li class="ipsField clear">

@@ -576,6 +576,28 @@ function validateAddSoldier() {
     // If we are bypassing
     if (document.getElementById('bypass').checked) {
 
+        // Get rank
+        var rank = document.forms["add_soldier"]["rank"].value;
+
+        // Make sure it is set and not null
+        if (rank==null || rank=="") {
+
+            // If it is, return alert and stop form submission
+            alert("Please add some ranks and select a valid rank before submitting this form.");
+            return false;
+        }
+
+        // Get combat unit
+        var unit = document.forms["add_soldier"]["unit"].value;
+
+        // Make sure it is set and not null
+        if (unit==null || unit=="") {
+
+            // If it is, return alert and stop form submission
+            alert("Please add some combat units and select a valid unit before submitting this form.");
+            return false;
+        }
+
         // Get the position
         var position = document.forms["add_soldier"]["position"].value;
 
