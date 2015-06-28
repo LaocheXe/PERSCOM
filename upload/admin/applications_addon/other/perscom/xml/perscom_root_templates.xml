@@ -829,7 +829,7 @@
 					</div>
 					<br />
 					<div class="ipsField_content">
-						Please enter the display order for the award. The lower the number, the higher on the list. Integers only.
+						Please enter the display order for the award. The higher the number, the higher the value of the award. Integers only.
 					</div>
 				</li>
 			</ul>
@@ -942,7 +942,7 @@
 					</div>
 					<br />
 					<div class="ipsField_content">
-						Please enter the display order for the rank. The higher the number, the higher on the list. Integers only.
+						Please enter the display order for the rank. The higher the number, the higher the pay grade. Integers only.
 					</div>
 				</li>
 			</ul>
