@@ -28,4 +28,8 @@
         <human>1.0.6</human>
         <long>10006</long>
     </version>
+    <version>
+        <human>1.0.7</human>
+        <long>10007</long>
+    </version>
 </versions>

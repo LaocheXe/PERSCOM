@@ -51,7 +51,7 @@ class perscom_model_personnel extends perscom_model_perscom {
 			'select'	=> 'p.*, p.member_id as personnel_member_id',
 			'from'		=> array( $this->settings['perscom_database_personnel_files'] => 'p' ),
 			'where'		=> 'p.combat_unit != "624"',
-			'order'		=> 'u.order ASC, r.order',
+			'order'		=> 'u.order ASC, r.order DESC',
 			'add_join'	=> array(
 							array(
 								'select'	=> 'r.*',

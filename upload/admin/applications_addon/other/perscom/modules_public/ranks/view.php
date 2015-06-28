@@ -59,7 +59,7 @@ class public_perscom_ranks_view extends ipsCommand
 
 			// Set HTML settings
 	        $this->registry->output->setTitle( $this->lang->words['ranks_and_insignia'] );		
-	        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->viewRanks( $this->ranks->loadRanks( '`order` DESC' ), $this->allowEdit ) );
+	        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->viewRanks( $this->ranks->loadRanks( '`order` ASC' ), $this->allowEdit ) );
 	       	$this->registry->output->sendOutput();
 
 			break;
