@@ -545,7 +545,7 @@
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
       <word_key>add_soldier_bypass_message</word_key>
-      <word_default><![CDATA[Do not fill in this information if you want the soldier's profile to go to the "Process Applicant" stage. If you would like to bypass this and add the soldier directly to PERSCOM, fill out the information below and make sure to select the checkbox at the bottom of the page.]]></word_default>
+      <word_default><![CDATA[Do not fill in the information below if you want the soldier's profile to go to the "Process Applicant" stage. If you would like to bypass this and add the soldier directly to PERSCOM system, fill out the information below and make sure to select the checkbox at the bottom of the page.]]></word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>
