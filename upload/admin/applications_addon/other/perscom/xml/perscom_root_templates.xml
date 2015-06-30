@@ -3242,7 +3242,7 @@ document.getElementById('grade').onchange = function() {
                             <td style="width: 25%; padding: 2px;">
                                 {$soldier['position']}, {$soldier['unit_position']}
                             </td>
-                            <td style="width: 14%; padding: 2px;">
+                            <td style="width: <if test="$this->settings['perscom_enable_steam']">14%<else />17%</if>; padding: 2px;">
                                 <a href="#" weapon="{$soldier['weapon_primary_id_field']}" class="weapon">{$soldier['make_and_model']}</a>
                             </td>
                             <td style="width: 14%; padding: 2px;">
