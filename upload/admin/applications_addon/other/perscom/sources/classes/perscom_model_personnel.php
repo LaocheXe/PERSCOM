@@ -220,7 +220,7 @@ class perscom_model_personnel extends perscom_model_perscom {
 						$promotion_count++;
 
 						// Add the citation to the award record
-						$r['html'] = '<a href="#" id="a_promotion_'.$promotion_count.'" rank="'.$r['rank'].'" count="'.$promotion_count.'" class="promotion" image="http://3rdinf.us/images/perscom/insignia/large/plain_background/'.$rank['rank'].'.png">Click to view Citation</a>';
+						$r['html'] = '<a href="#" id="a_promotion_'.$promotion_count.'" rank="'.$r['rank'].'" count="'.$promotion_count.'" class="promotion" image="'.$this->settings['board_url'].'/images/perscom/insignia/large/plain_background/'.$rank['rank'].'.png">Click to view Citation</a>';
 
 						// Set count
 						$r['count'] = $promotion_count;
@@ -230,7 +230,7 @@ class perscom_model_personnel extends perscom_model_perscom {
 						$demotion_count++;
 
 						// Add the citation to the award record
-						$r['html'] = '<a href="#" id="a_demotion_'.$demotion_count.'" grade="'.strtolower($r['discharge_grade']).'" count="'.$demotion_count.'" class="demotion" rank="'.$r['rank'].'" image="http://3rdinf.us/images/perscom/insignia/large/plain_background/'.$rank['rank'].'.png">Click to view Citation</a>';
+						$r['html'] = '<a href="#" id="a_demotion_'.$demotion_count.'" grade="'.strtolower($r['discharge_grade']).'" count="'.$demotion_count.'" class="demotion" rank="'.$r['rank'].'" image="'.$this->settings['board_url'].'/images/perscom/insignia/large/plain_background/'.$rank['rank'].'.png">Click to view Citation</a>';
 
 						// Set count
 						$r['count'] = $demotion_count;
