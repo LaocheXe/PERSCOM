@@ -1766,8 +1766,7 @@ document.getElementById('grade').onchange = function() {
     </template>
     <template>
       <template_group>skin_perscom</template_group>
-      <template_content><![CDATA[{parse addtohead="{$this->settings['public_dir']}js/perscom.datatables.min.js" type="javascript"}
-<div class="maintitle">Uniform</div>
+      <template_content><![CDATA[<div class="maintitle">Uniform</div>
 <div class="ipsBox">
 	<div class="ipsBox_container ipsPad ipsType_textblock">
 		<div class="texture" style="text-align: center;">
@@ -2257,7 +2256,7 @@ document.getElementById('grade').onchange = function() {
 		<br />
 		<h3 class="bar altar">Service Record</h3>
 		<br />
-		<table cellpadding="0" cellspacing="0" border="0" class="display" id="service_record"></table>
+		<table cellpadding="0" cellspacing="0" border="0" class="display ipb_table" id="service_record"></table>
 	</div>
 </div>]]></template_content>
       <template_name>viewApplications</template_name>
@@ -3069,7 +3068,7 @@ document.getElementById('grade').onchange = function() {
 	<div class="maintitle">Requests</div>
 	<div class="ipsBox">
 		<div class="ipsBox_container ipsPad">
-			<table cellpadding="0" cellspacing="0" border="0" class="display" id="requests"></table>
+			<table cellpadding="0" cellspacing="0" border="0" class="display ipb_table" id="requests"></table>
 		</div>
 	</div>
 </if>
@@ -3203,7 +3202,7 @@ document.getElementById('grade').onchange = function() {
 <div class="maintitle">{$this->lang->words['perscom_request_logs']}</div>
 <div class="ipsBox">
 	<div class="ipsBox_container ipsPad">
-		<table cellpadding="0" cellspacing="0" border="0" class="display" id="logs"></table>		
+		<table cellpadding="0" cellspacing="0" border="0" class="display ipb_table" id="logs"></table>		
 	</div>
 </div>]]></template_content>
       <template_name>viewLogs</template_name>
@@ -3558,21 +3557,21 @@ document.getElementById('grade').onchange = function() {
 <div class="maintitle">Service Record</div>
 <div class="ipsBox">
     <div class="ipsBox_container ipsPad ipsType_textblock">
-        <table cellpadding="0" cellspacing="0" border="0" class="display" id="service_record"></table>
+        <table cellpadding="0" cellspacing="0" border="0" class="display ipb_table" id="service_record"></table>
         </div>
 </div>
 <br />
 <div class="maintitle">Awards and Commendations</div>
 <div class="ipsBox">
     <div class="ipsBox_container ipsPad ipsType_textblock">
-        <table cellpadding="0" cellspacing="0" border="0" class="display" id="award_record"></table>
+        <table cellpadding="0" cellspacing="0" border="0" class="display ipb_table" id="award_record"></table>
         </div>
 </div>
 <br />
 <div class="maintitle">Combat Record</div>
 <div class="ipsBox">
     <div class="ipsBox_container ipsPad ipsType_textblock">
-        <table cellpadding="0" cellspacing="0" border="0" class="display" id="combat_record"></table>
+        <table cellpadding="0" cellspacing="0" border="0" class="display ipb_table" id="combat_record"></table>
         </div>
 </div>
 <if test="$allowEdit">
