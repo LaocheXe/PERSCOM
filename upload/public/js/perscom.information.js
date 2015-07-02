@@ -144,13 +144,6 @@ function populateRequestsDatatable(data) {
 			"render": function( data, type, full, meta) {
 				return '<button id="button_' + data + '" primary_id_field="' + data + '" class="save">Save</button>';
 			}
-		},
-		{
-			"targets": -3,
-			"data": 'description_link',
-			"render": function( data, type, full, meta) {
-				return '<div style="width: 725px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">' + data + '</div>';
-			}
 		} ],
 	});
 

@@ -39,7 +39,7 @@ class perscom_model_requests extends perscom_model_perscom {
 			$r['date'] = strftime($this->settings['clock_short2'], $r['date']);
 
 			// Format the description
-			$r['description_link'] = '<u><a href="#" id="request_'.$r['primary_id_field'].'" class="request" type="'.$r['type'].'" relational="'.$r['relational_primary_id_field'].'">'.$r['description'].'</a></u>';
+			$r['description_link'] = '<u><a href="#" id="request_'.$r['primary_id_field'].'" class="request" type="'.$r['type'].'" relational="'.$r['relational_primary_id_field'].'">View Request</a></u>';
 			
 			// Add the members on end of the array
 			array_push($rows, $r);
