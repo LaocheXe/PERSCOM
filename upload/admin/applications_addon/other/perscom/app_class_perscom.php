@@ -192,16 +192,24 @@ class app_class_perscom
 						// Some other error
 						else {
 
-							// Show an error
-							$registry->output->showError( 'License Key Error: ' . $classXmlRpc->errors[0] . '. Please make sure your license key is entered properly in the Admin CP PERSCOM Settings page.', 12345678, false, '', 401 );  
+							// If it is not a bad IP error
+							if ($classXmlRpc->errors[0] != 'BAD_IP') {
+							
+								// Show an error
+								$registry->output->showError( 'License Key Error: ' . $classXmlRpc->errors[0] . '. Please make sure your license key is entered properly in the Admin CP PERSCOM Settings page.', 12345678, false, '', 401 );	
+							}  
 						}
 					}
 
-					// Make sure the license key is still active
-					if ($classXmlRpc->xmlrpc_params[0]['STATUS'] != 'ACTIVE') {
+					// We have no errors
+					else {
 
-						// Show an error
-						$registry->output->showError( 'License Key Error: ' . $classXmlRpc->xmlrpc_params[0]['STATUS'] . '. Please contact the 3rd Infantry Division if this problem persists.', 12345678, false, '', 401 );
+						// Make sure the license key is still active
+						if ($classXmlRpc->xmlrpc_params[0]['STATUS'] != 'ACTIVE') {
+
+							// Show an error
+							$registry->output->showError( 'License Key Error: ' . $classXmlRpc->xmlrpc_params[0]['STATUS'] . '. Please contact the 3rd Infantry Division if this problem persists.', 12345678, false, '', 401 );
+						}
 					}
 				}
 			}	
