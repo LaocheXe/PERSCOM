@@ -44,4 +44,12 @@
         <human>2.0.0</human>
         <long>20000</long>
     </version>
+    <version>
+        <human>2.0.1</human>
+        <long>20001</long>
+    </version>
+    <version>
+        <human>2.0.2</human>
+        <long>20002</long>
+    </version>
 </versions>
