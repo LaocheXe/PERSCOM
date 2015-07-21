@@ -40,4 +40,12 @@ class perscom_model_weapons extends perscom_model_perscom {
 		// Return the result
 		return $rows;
 	}
+
+	public function loadWeaponInformation($id) {
+
+		// Query the DB to get the weapon
+		return $this->DB->buildAndFetch( array( 'select' => '*', 
+					'from' => $this->settings['perscom_database_weapons'], 
+					'where' => 'primary_id_field="' . $id . '"' ) );
+	}
 }

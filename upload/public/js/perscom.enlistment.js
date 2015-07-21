@@ -43,6 +43,14 @@ function validateEnlistmentApplication() {
         return false;
     }
 
+    // Check for non-english characters
+    if (/^[a-zA-Z0-9- ]*$/.test(first_name) == false) {
+        
+        // Prompt the user to fill in the field
+        alert("Your first name contains a special character. Please use only 0-9, a-z or A-Z. English characters only.");
+        return false;
+    }
+
     // Get the user's last name
     var last_name = document.forms["enlistment_application"]["last_name"].value;
 
@@ -51,6 +59,14 @@ function validateEnlistmentApplication() {
 
     	// Prompt the user to fill in the field
         alert("Please fill out your last name.");
+        return false;
+    }
+
+    // Check for non-english characters
+    if (/^[a-zA-Z0-9- ]*$/.test(last_name) == false) {
+        
+        // Prompt the user to fill in the field
+        alert("Your first name contains a special character. Please use only 0-9, a-z or A-Z. English characters only.");
         return false;
     }
 

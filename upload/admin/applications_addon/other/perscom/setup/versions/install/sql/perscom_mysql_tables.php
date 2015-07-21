@@ -87,6 +87,7 @@ $TABLE[] = "CREATE TABLE `perscom_personnel` (
   `induction_date` text,
   `promotion_date` text,
   `recruiter` int(11) NOT NULL DEFAULT '0',
+  `recruiting_medium` text,
   PRIMARY KEY(primary_id_field)
 );";
 

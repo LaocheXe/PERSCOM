@@ -120,6 +120,12 @@ class app_class_perscom
 				$registry->setClass( 'enlistment_applications', new $classToLoad( $registry ) );
 			}
 
+			// Load PERSCOM statistics class
+			if ( !ipsRegistry::isClassLoaded('statistics') ){
+				$classToLoad = IPSLib::loadLibrary( IPSLib::getAppDir('perscom') . '/sources/classes/perscom_model_statistics.php', 'perscom_model_statistics', 'statistics' );
+				$registry->setClass( 'statistics', new $classToLoad( $registry ) );
+			}
+
 			// Load PERSCOM notifications wrapper class
 			if ( !ipsRegistry::isClassLoaded('notifications') ){
 				$classToLoad = IPSLib::loadLibrary( IPSLib::getAppDir('perscom') . '/sources/classes/notifications.php', 'perscom_notifications_wrapper', 'notifications' );

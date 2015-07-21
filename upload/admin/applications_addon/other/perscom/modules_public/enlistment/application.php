@@ -293,7 +293,7 @@ class public_perscom_enlistment_application extends ipsCommand
 	public function getSupportedGames () {
 
 		// Get our supported games from PERSCOM settings to populate the game select field in the application
-		$this->supported_games = explode(',' , $this->settings['perscom_supported_games']);
+		$this->supported_games = array_map('trim', array_filter(explode(',' , $this->settings['perscom_supported_games'])));
 	}
 
 	public function createPersonnelFile() {

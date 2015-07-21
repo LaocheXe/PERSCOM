@@ -51,4 +51,12 @@ class perscom_model_admin_units extends perscom_model_perscom {
 		// Return the result
 		return $rows;
 	}
+
+	public function loadAdminUnitInformation($id) {
+
+		// Query the DB to get the admin unit
+		return $this->DB->buildAndFetch( array( 'select' => '*', 
+					'from' => $this->settings['perscom_database_dmos'], 
+					'where' => 'primary_id_field="' . $id . '"' ) );
+	}
 }

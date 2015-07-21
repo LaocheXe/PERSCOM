@@ -308,6 +308,22 @@
       <conf_is_title>0</conf_is_title>
     </setting>
     <setting>
+      <conf_title>Recruiting Mediums</conf_title>
+      <conf_description>Enter a list of recruiting mediums that may be used within the unit, separated by a comma.</conf_description>
+      <conf_type>textarea</conf_type>
+      <conf_key>perscom_recruiting_mediums</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>0</conf_protected>
+      <conf_position>7</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
       <conf_is_title>1</conf_is_title>
       <conf_title_keyword>perscom_general_settings</conf_title_keyword>
       <conf_title_title>General Settings</conf_title_title>
@@ -562,7 +578,7 @@ if ( $show == 1 )
     </setting>
     <setting>
       <conf_title>Enable Muster System</conf_title>
-      <conf_description><![CDATA[Switch on and off to enable the muster system]]></conf_description>
+      <conf_description>Switch on and off to enable the muster system.</conf_description>
       <conf_type>yes_no</conf_type>
       <conf_key>perscom_enable_muster</conf_key>
       <conf_default>1</conf_default>

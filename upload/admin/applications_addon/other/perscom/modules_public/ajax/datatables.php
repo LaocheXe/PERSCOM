@@ -58,6 +58,41 @@ class public_perscom_ajax_datatables extends ipsAjaxCommand
 
 			break;
 
+			case 'enlistment':
+
+				// Return the JSON
+				$this->returnJsonArray( $registry->statistics->loadEnlistmentApplicationTrends() );
+
+			break;
+
+			case 'combat_unit':
+
+				// Return the JSON
+				$this->returnJsonArray( $registry->combat_units->loadCombatUnitInformation( $this->request['id'] ) );
+
+			break;
+
+			case 'admin_unit':
+
+				// Return the JSON
+				$this->returnJsonArray( $registry->admin_units->loadAdminUnitInformation( $this->request['id'] ) );
+
+			break;
+
+			case 'weapon':
+
+				// Return the JSON
+				$this->returnJsonArray( $registry->weapons->loadWeaponInformation( $this->request['id'] ) );
+
+			break;
+
+			case 'recruiting':
+
+				// Return the JSON
+				$this->returnJsonArray( $registry->statistics->loadRecruitingMediumTrends() );
+
+			break;
+
 			default:
 
 			break;

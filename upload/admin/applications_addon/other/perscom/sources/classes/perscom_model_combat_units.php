@@ -53,4 +53,12 @@ class perscom_model_combat_units extends perscom_model_perscom {
 		// Return the result
 		return $rows;
 	}
+
+	public function loadCombatUnitInformation($id) {
+
+		// Query the DB to get the combat unit
+		return $this->DB->buildAndFetch( array( 'select' => '*', 
+					'from' => $this->settings['perscom_database_units'], 
+					'where' => 'primary_id_field="' . $id . '"' ) );
+	}
 }

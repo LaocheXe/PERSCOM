@@ -85,7 +85,7 @@ class public_perscom_personnel_soldier extends ipsCommand
 		$this->getForumData();
 
 		// Set HTML settings
-        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->viewSoldier( $this->soldier, $this->allowEdit, $this->combat_units->loadCombatUnits(), $this->ranks->loadRanks(), $this->weapons->loadWeapons(), $this->admin_units->loadAdminUnits(), $this->status->loadStatus(), $this->error, $this->personnel->loadPersonnel() ) );
+        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->viewSoldier( $this->soldier, $this->allowEdit, $this->combat_units->loadCombatUnits(), $this->ranks->loadRanks(), $this->weapons->loadWeapons(), $this->admin_units->loadAdminUnits(), $this->status->loadStatus(), $this->error, $this->personnel->loadPersonnel(), $this->personnel->loadRecruitingMediums() ) );
        	$this->registry->output->sendOutput();
 	}
 
@@ -186,6 +186,7 @@ class public_perscom_personnel_soldier extends ipsCommand
 			'combat_unit' => $this->request['combat_unit'],
 			'supervisor' => $this->request['supervisor'],
 			'recruiter' => $this->request['recruiter'],
+			'recruiting_medium' => $this->request['recruiting_medium'],
 			'admin_unit' => $dmos_ids,
 			'email' => $this->request['email'], 
 			'steam' => $this->request['steam'], 

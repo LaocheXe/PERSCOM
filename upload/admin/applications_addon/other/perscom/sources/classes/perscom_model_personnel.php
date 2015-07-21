@@ -426,4 +426,10 @@ class perscom_model_personnel extends perscom_model_perscom {
 		// Return nothing
 		return NULL;
 	}
+
+	public function loadRecruitingMediums() {
+
+		// Get the array of mediums
+		return array_map('trim', array_filter(explode(',', $this->settings['perscom_recruiting_mediums'])));
+	}
 }

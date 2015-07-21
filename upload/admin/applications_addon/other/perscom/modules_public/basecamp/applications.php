@@ -18,9 +18,6 @@ if ( ! defined( 'IN_IPB' ) )
 
 class public_perscom_basecamp_applications extends ipsCommand
 {
-	// Array that holds all the enlistment application statistics
-	private $stats = array();
-
 	public function doExecute( ipsRegistry $registry )
 	{
 		// Load our language files
@@ -45,6 +42,7 @@ class public_perscom_basecamp_applications extends ipsCommand
 		// Get PERSCOM classes
 		$this->notifications = $this->registry->notifications;
 		$this->enlistment_applications = $this->registry->enlistment_applications;
+		$this->statistics = $this->registry->statistics;
 
 		// Handle HTTP Request
 		switch ($this->request['do']) 
@@ -58,7 +56,7 @@ class public_perscom_basecamp_applications extends ipsCommand
 			break;
 
 			case 'reset':
-				$this->resetEnlistmentApplicationStatistics();
+				$this->statistics->resetEnlistmentApplicationStatistics();
 			break;
 
 			default:
@@ -66,148 +64,10 @@ class public_perscom_basecamp_applications extends ipsCommand
 			break;
 		}
 
-		// Get the enlistment application statistics
-		$this->getEnlistmentApplicationStatistics();
-
 		// Set HTML settings
 		$this->registry->output->setTitle( $this->lang->words['enlistment_applications'] );
-        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->viewApplications( $this->enlistment_applications->loadEnlistmentApplications(), $this->stats ) );
+        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->viewApplications( $this->enlistment_applications->loadEnlistmentApplications(), $this->statistics->loadEnlistmentApplicationStatistics() ) );
        	$this->registry->output->sendOutput();
-	}
-
-	public function getEnlistmentApplicationStatistics() {
-
-		// Get the number of total applications
-		$total_applications = $this->DB->buildAndFetch( array( 'select' => '*', 
-			'from' => $this->settings['perscom_database_settings'], 
-			'where' => '`key`="total_applications"' ) );
-
-		// Get the number of accepted applications
-		$accepted_applications = $this->DB->buildAndFetch( array( 'select' => '*', 
-			'from' => $this->settings['perscom_database_settings'], 
-			'where' => '`key`="accepted_applications"' ) );
-
-		// Get the number of accepted applications
-		$denied_applications = $this->DB->buildAndFetch( array( 'select' => '*', 
-			'from' => $this->settings['perscom_database_settings'], 
-			'where' => '`key`="denied_applications"' ) );
-
-		// Get the number of accepted applications
-		$dropped_applications = $this->DB->buildAndFetch( array( 'select' => '*', 
-			'from' => $this->settings['perscom_database_settings'], 
-			'where' => '`key`="dropped_applications"' ) );
-
-		// Get the latest reset date of the enlistment statistics
-		$enlistment_statistics_reset = $this->DB->buildAndFetch( array( 'select' => '*', 
-			'from' => $this->settings['perscom_database_settings'], 
-			'where' => '`key`="enlistment_statistics_reset"' ) );
-
-		// Get all the recruiters
-		$this->DB->build( array( 'select' => 'recruiter',
-			'from' => $this->settings['perscom_database_personnel_files'],
-			'where' => 'induction_date > ' . $enlistment_statistics_reset['value'] ) );
-
-		// Execute the DB query
-		$recruiters_result = $this->DB->execute();
-
-		// Create an array to store all the recruiters
-		$recruiters = array();
-
-		// Loop through the results and add to array
-		while( $r = $this->DB->fetch( $recruiters_result ) )
-		{
-			// If not a 0
-			if ($r['recruiter'] != '0') {
-				
-				// Add the result to the recruiters array
-				array_push($recruiters, $r['recruiter']);
-			}
-		}
-
-		// Count the array and look for the most popular result
-		$count = array_count_values($recruiters); 
-
-		// If we have an array with more than one element
-		if (count($count) > 0) {
-
-			// Get the most active recruiter's member id
-			$recruiter = array_search(max($count), $count);
-
-			// If we get a result
-			if ($recruiter) {
-				
-				// Get the member
-				$recruiter_pfile = IPSMember::load( $recruiter );
-
-				// If we get a member profile
-				if ($recruiter_pfile) {
-					
-					// Add the statistic
-					$this->stats['most_active_recruiter'] = $recruiter_pfile['members_display_name'] . ' - ' . $count[$recruiter] . ' recruit(s) since ' . strftime($this->settings['clock_short2'], $enlistment_statistics_reset['value']);
-				}
-
-				// Unable to load member
-				else {
-
-					// Inform the user
-					$this->stats['most_active_recruiter'] = 'Unable to load recruiter';
-				}
-			}
-		}
-
-		// No recruiters found
-		else {
-
-			// Inform the user
-			$this->stats['most_active_recruiter'] = 'There have been no assigned recruiters since the last reset date';
-		}
-
-		// Set our stats array
-		$this->stats['total_applications'] = $total_applications['value'];
-		$this->stats['applications_accepted'] = $accepted_applications['value'];
-		$this->stats['denied_applications'] = $denied_applications['value'];
-		$this->stats['dropped_applications'] = $dropped_applications['value'];
-		$this->stats['enlistment_statistics_reset'] = $enlistment_statistics_reset['value'];
-
-		// Query the DB to look for all accepted enlisment applications from today's year
-		$this->DB->build( array( 'select' => '*', 
-			'from' => $this->settings['perscom_database_personnel_files'], 
-			'where' => 'FROM_UNIXTIME(enlistment_date, "%Y")=YEAR(CURDATE()) AND status != "8" AND status != "7" AND status !="5"' ) );
-
-		// Execute the DB query
-		$result = $this->DB->execute();
-
-		// Create an array to store all the processing days values
-		$days = array();
-
-		// Loop through the accepted applications and find the difference between the date applied and date enlisted
-		while( $r = $this->DB->fetch( $result ) )
-		{
-			// Calculate the difference in time between the induction date and enlistment date and add the number of days to the array
-			$datediff = $r['enlistment_date'] - $r['induction_date'];
-			array_push($days, abs(floor($datediff/(60*60*24))));
-		}
-
-		// Set the average processing day value
-		$this->stats['application_processing_time'] = count($days) > 0 ? round(array_sum($days) / count($days), 3) : 0;
-	}
-
-	public function resetEnlistmentApplicationStatistics() {
-
-		// Update the last reset statistics date
-		$this->DB->update( $this->settings['perscom_database_settings'], array( '`value`' => strtotime('now') ), '`key`="enlistment_statistics_reset"' );
-
-		// Update the total applications
-		$this->DB->update( $this->settings['perscom_database_settings'], array( '`value`' => '0' ), '`key`="total_applications"' );
-
-		// Update the accepted applications
-		$this->DB->update( $this->settings['perscom_database_settings'], array( '`value`' => '0' ), '`key`="accepted_applications"' );
-
-		// Update the denied applications
-		$this->DB->update( $this->settings['perscom_database_settings'], array( '`value`' => '0' ), '`key`="denied_applications"' );
-
-		// Update dropped applications
-		$this->DB->update( $this->settings['perscom_database_settings'], array( '`value`' => '0' ), '`key`="dropped_applications"' );
 	}
 
 	public function denyApplication() {

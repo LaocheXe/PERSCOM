@@ -62,7 +62,7 @@ class public_perscom_basecamp_process_application extends ipsCommand
 
 		// Set HTML settings
 		$this->registry->output->setTitle( $this->lang->words['process_applicant'] );
-        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->processApplicant( $this->enlistment_applications->loadEnlistmentApplications(), $this->ranks->loadRanks(), $this->combat_units->loadCombatUnits(), $this->weapons->loadWeapons(), $this->personnel->loadPersonnel() ) );
+        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->processApplicant( $this->enlistment_applications->loadEnlistmentApplications(), $this->ranks->loadRanks(), $this->combat_units->loadCombatUnits(), $this->weapons->loadWeapons(), $this->personnel->loadPersonnel(), $this->personnel->loadRecruitingMediums() ) );
        	$this->registry->output->sendOutput();
 	}
 
@@ -76,6 +76,7 @@ class public_perscom_basecamp_process_application extends ipsCommand
 			'combat_unit' => $this->request['unit'], 
 			'supervisor' => $this->request['supervisor'],
 			'recruiter' => $this->request['recruiter'],
+			'recruiting_medium' => $this->request['recruiting_medium'],
 			'weapon' => $this->request['weapon'], 
 			'status' => '1', 
 			'induction_date' => strtotime('now'), 

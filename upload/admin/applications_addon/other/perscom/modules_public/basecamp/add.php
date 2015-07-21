@@ -59,7 +59,7 @@ class public_perscom_basecamp_add extends ipsCommand
 
 		// Set HTML settings
 		$this->registry->output->setTitle( $this->lang->words['add_soldier'] );
-        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->addSoldier( $this->ranks->loadRanks(), $this->combat_units->loadCombatUnits(), $this->weapons->loadWeapons(), $this->personnel->loadPersonnel() ) );
+        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->addSoldier( $this->ranks->loadRanks(), $this->combat_units->loadCombatUnits(), $this->weapons->loadWeapons(), $this->personnel->loadPersonnel(), $this->personnel->loadRecruitingMediums() ) );
        	$this->registry->output->sendOutput();
 	}
 
@@ -109,6 +109,7 @@ class public_perscom_basecamp_add extends ipsCommand
 			'position' => $bypass == TRUE ? $this->request['position'] : 'New Applicant',
 			'supervisor' => $bypass == TRUE ? $this->request['supervisor'] : '0',
 			'recruiter' => $bypass == TRUE ? $this->request['recruiter'] : '0',
+			'recruiting_medium' => $bypass == TRUE ? $this->request['recruiting_medium'] : '0',
 			'mos' => $bypass == TRUE ? $this->request['mos'] : '',
 			'admin_unit' => '',
 			'enlistment_date' => $bypass == TRUE ? $enlistment_date->getTimestamp() : strtotime('now'),
