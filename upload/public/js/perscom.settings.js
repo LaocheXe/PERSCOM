@@ -124,7 +124,7 @@ jQuery(document).ready(function() {
 	$('add_weapon').observe( 'click', function(e) {
 
 		// Set the form action
-		document.getElementById('weapon_form').setAttribute('action', ipb.vars['base_url'] + 'app=perscom&module=basecamp&section=settings&action=add_weapon&type=weapon');
+		document.getElementById('weapon_form').setAttribute('action', ipb.vars['base_url'] + 'app=perscom&module=basecamp&section=settings&action=add&type=weapon');
 
 		// Clear the element values
 		document.getElementById('make').setAttribute('value', '');
@@ -196,6 +196,13 @@ function getCombatUnitInformation() {
 								  	initial: $('view_cunit').innerHTML,
 								  	hideAtStart: false,
 								  	w: '600px' } );
+
+				// Loop through our cunit usergroup selects
+				jQuery("[dropdown='cunit_usergroup']").each(function(key, value) {
+
+					// Set the selected value to our saved usergroup
+					value.value = t.responseJSON['forum_usergroup'];
+				});
 				
 				// Stop the event
 				Event.stop(e);
@@ -249,6 +256,13 @@ function getAdminUnitInformation() {
 								  	initial: $('view_aunit').innerHTML,
 								  	hideAtStart: false,
 								  	w: '600px' } );
+
+				// Loop through our aunit usergroup selects
+				jQuery("[dropdown='aunit_usergroup']").each(function(key, value) {
+
+					// Set the selected value to our saved usergroup
+					value.value = t.responseJSON['forum_usergroup'];
+				});
 				
 				// Stop the event
 				Event.stop(e);

@@ -689,7 +689,7 @@
       <word_app>perscom</word_app>
       <word_pack>public_base_camp</word_pack>
       <word_key>add_ranks_and_insignia_image_notice</word_key>
-      <word_default><![CDATA[All rank images are stored in the following folder: <b>{$this->settings['board_url']}/images/perscom/insignia/large/multicam_background/</b>]]></word_default>
+      <word_default><![CDATA[All rank images should be placed in the following folder: <b>{$this->settings['board_url']}/images/perscom/insignia/large/multicam_background/</b>]]></word_default>
     </lang>
     <lang>
       <word_app>perscom</word_app>

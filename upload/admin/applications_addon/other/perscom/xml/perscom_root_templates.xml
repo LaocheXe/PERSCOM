@@ -3676,7 +3676,7 @@ document.getElementById('grade').onchange = function() {
                         <li class="ipsField ipsField_select" style="margin-bottom: 0px;">
                             <label class="ipsField_title" for="file_cat" style="width: 100px; line-height: 10px;">Usergroup</label>
                             <div class="ipsField_content" style="margin-left: 120px;">
-                                <select id="cunit_usergroup" class="input_select" tabindex="1" name="cunit_usergroup">
+                                <select id="cunit_usergroup" class="input_select" tabindex="1" name="cunit_usergroup" dropdown="cunit_usergroup">
                                     <if test="count($usergroups) > 0">
                                         <foreach loop="$usergroups as $group">
                                             <option value="{$group['g_id']}">{$group['g_title']}</option>
@@ -3763,7 +3763,7 @@ document.getElementById('grade').onchange = function() {
                         <li class="ipsField ipsField_select" style="margin-bottom: 0px;">
                             <label class="ipsField_title" for="file_cat" style="width: 100px; line-height: 10px;">Usergroup</label>
                             <div class="ipsField_content" style="margin-left: 120px;">
-                                <select id="aunit_usergroup" class="input_select" tabindex="1" name="aunit_usergroup">
+                                <select id="aunit_usergroup" class="input_select" tabindex="1" name="aunit_usergroup" dropdown="aunit_usergroup">
                                     <if test="count($usergroups) > 0">
                                         <foreach loop="$usergroups as $group">
                                             <option value="{$group['g_id']}">{$group['g_title']}</option>
