@@ -3850,7 +3850,7 @@ document.getElementById('grade').onchange = function() {
                         <li class="ipsField clear">
                             <label class="ipsField_title" for="file_name" style="width: 170px; line-height: 10px;">Fire Type</label>
                             <div class="ipsField_content" style="margin-left: 190px;">
-                                <select id="fire_type" class="input_select" tabindex="1" name="fire_type">
+                                <select id="fire_type" class="input_select" tabindex="1" name="fire_type" dropdown="fire_type">
                                     <option value="Automatic">Automatic</option>
                                     <option value="Burst">Burst</option>
                                     <option value="Semi-Automatic">Semi-Automatic</option>

@@ -249,7 +249,6 @@ function getAdminUnitInformation() {
 				document.getElementById('aunit_image').setAttribute('value', t.responseJSON['image']);
 				document.getElementById('responsibilities').innerHTML = t.responseJSON['responsibilities'];
 				document.getElementById('prerequisites').innerHTML = t.responseJSON['prerequisites'];
-				document.getElementById('aunit_usergroup').setAttribute('value', t.responseJSON['forum_usergroup']);
 
 				// Show our modal view
 				_var = new ipb.Popup( 'admin_unit', { type: 'pane',
@@ -309,7 +308,6 @@ function getWeaponInformation() {
 				document.getElementById('weight').setAttribute('value', t.responseJSON['weight']);
 				document.getElementById('magazine').setAttribute('value', t.responseJSON['magazine']);
 				document.getElementById('date').setAttribute('value', t.responseJSON['introduction_date']);
-				document.getElementById('fire_type').setAttribute('value', t.responseJSON['fire_type']);
 				document.getElementById('fire_rate').setAttribute('value', t.responseJSON['rate_of_fire']);
 				document.getElementById('firing_range').setAttribute('value', t.responseJSON['effective_firing_range']);
 				document.getElementById('weapon_image').setAttribute('value', t.responseJSON['image']);
@@ -324,6 +322,13 @@ function getWeaponInformation() {
 								  	hideAtStart: false,
 								  	w: '700px',
 								  	h: '800' } );
+
+				// Loop through our aunit usergroup selects
+				jQuery("[dropdown='fire_type']").each(function(key, value) {
+
+					// Set the selected value to our saved usergroup
+					value.value = t.responseJSON['fire_type'];
+				});
 				
 				// Stop the event
 				Event.stop(e);
