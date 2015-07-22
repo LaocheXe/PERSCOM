@@ -59,7 +59,7 @@ function setUpEnlistmentTrendsChart() {
 				    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 				    datasets: [
 				    	{
-				            label: "Wesbite Registrations",
+				            label: "Website Registrations",
 				            fillColor: "rgba(0,122,255,0.2)",
 				            strokeColor: "rgba(70,122,255,1)",
 				            pointColor: "rgba(0,122,255,1)",
