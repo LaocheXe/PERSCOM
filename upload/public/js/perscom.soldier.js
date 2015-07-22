@@ -61,6 +61,17 @@ function validateForm() {
         return false;
     }
 
+    // Get weapon
+    var weapon = document.forms["edit_soldier"]["weapon"].value;
+
+    // Make sure it is set and not null
+    if (weapon==null || weapon=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some weapons and select a valid one before submitting this form.");
+        return false;
+    }
+
    	// Get combat unit
     var combat_unit = document.forms["edit_soldier"]["combat_unit"].value;
 
