@@ -9,7 +9,7 @@
     <disabledatinstall>0</disabledatinstall>
     <global_caches/>
     <website>http://www.3rdinf.us</website>
-    <update_check/>
+    <update_check>http://3rdinf.us/update.php?app=perscom</update_check>
     <templategroups>
         <template match="contains">skin_perscom</template>
     </templategroups>
