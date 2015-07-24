@@ -9,6 +9,6 @@
 +--------------------------------------------------------------------------
 */
 
-$SQL[] = "ALTER TABLE `perscom_personnel` ADD `recruiting_medium` text";
+$SQL[] = "ALTER TABLE perscom_personnel ADD recruiting_medium text";
 
 ?>
