@@ -631,6 +631,17 @@ function validateProcessApplicant() {
         return false;
     }
 
+    // Get recruiting medium
+    var recruiting_medium = document.forms["process_applicant"]["recruiting_medium"].value;
+
+    // Make sure it is set and not null
+    if (recruiting_medium==null || recruiting_medium=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some recruiting mediums and select a valid one before submitting this form.");
+        return false;
+    }
+
     // Get the MOS
     var mos = document.forms["process_applicant"]["mos"].value;
 
@@ -639,6 +650,17 @@ function validateProcessApplicant() {
 
         // If it is, return alert and stop form submission
         alert("Please provide a combat MOS.");
+        return false;
+    }
+
+    // Get weapon
+    var weapon = document.forms["process_applicant"]["weapon"].value;
+
+    // Make sure it is set and not null
+    if (weapon==null || weapon=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some weapons and select a valid one before submitting this form.");
         return false;
     }
 
@@ -748,6 +770,17 @@ function validateAddSoldier() {
 
             // If it is, return alert and stop form submission
             alert("Please provide a position for the soldier.");
+            return false;
+        }
+
+        // Get recruiting medium
+        var recruiting_medium = document.forms["add_soldier"]["recruiting_medium"].value;
+
+        // Make sure it is set and not null
+        if (recruiting_medium==null || recruiting_medium=="") {
+
+            // If it is, return alert and stop form submission
+            alert("Please add some recruiting mediums and select a valid one before submitting this form.");
             return false;
         }
 

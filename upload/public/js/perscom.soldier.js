@@ -83,6 +83,17 @@ function validateForm() {
         return false;
     }
 
+    // Get recruiting medium
+    var recruiting_medium = document.forms["edit_soldier"]["recruiting_medium"].value;
+
+    // Make sure it is set and not null
+    if (recruiting_medium==null || recruiting_medium=="") {
+
+        // If it is, return alert and stop form submission
+        alert("Please add some recruiting mediums and select a valid one before submitting this form.");
+        return false;
+    }
+
 	// Validate date regex
 	var regex = /^(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d$/; 
 
