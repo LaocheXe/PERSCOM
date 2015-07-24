@@ -27,7 +27,7 @@ $TABLE[] = "CREATE TABLE IF NOT EXISTS perscom_awards (
   history mediumtext,
   prerequisites mediumtext,
   type text,
-  order int(11) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY(primary_id_field)
 );";
 
@@ -36,7 +36,7 @@ $TABLE[] = "CREATE TABLE IF NOT EXISTS perscom_combat_units (
   name text,
   unit_position text,
   nickname text,
-  order int(11) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '0',
   forum_usergroup int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY(primary_id_field)
 );";
@@ -93,7 +93,7 @@ $TABLE[] = "CREATE TABLE IF NOT EXISTS perscom_personnel (
 
 $TABLE[] = "CREATE TABLE IF NOT EXISTS perscom_ranks (
   primary_id_field int(11) NOT NULL auto_increment,
-  order int(11) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '0',
   title text,
   abbreviation text,
   pay_grade text,
@@ -135,10 +135,10 @@ $TABLE[] = "CREATE TABLE IF NOT EXISTS perscom_service_records (
 
 $TABLE[] = "CREATE TABLE IF NOT EXISTS perscom_settings (
   primary_id_field int(11) NOT NULL auto_increment,
-  title text CHARACTER SET latin1,
-  key text CHARACTER SET latin1,
+  title text,
+  `key` text,
   value int(11) NOT NULL DEFAULT '0',
-  description text CHARACTER SET latin1,
+  description text,
   PRIMARY KEY(primary_id_field)
 );";
 
