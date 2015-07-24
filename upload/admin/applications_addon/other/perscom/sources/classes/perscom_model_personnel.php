@@ -429,7 +429,13 @@ class perscom_model_personnel extends perscom_model_perscom {
 
 	public function loadRecruitingMediums() {
 
-		// Get the array of mediums
-		return array_map('trim', array_filter(explode(',', $this->settings['perscom_recruiting_mediums'])));
+		// Get the setting and format into an array, removing all the whitespaces
+		$mediums = array_map('trim', array_filter(explode(',', $this->settings['perscom_recruiting_mediums'])));
+
+		// Sort the array
+		sort($mediums, SORT_STRING);
+
+		// Return the array
+		return $mediums;
 	}
 }

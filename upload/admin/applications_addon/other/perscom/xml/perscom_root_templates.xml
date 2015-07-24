@@ -2914,7 +2914,7 @@ document.getElementById('grade').onchange = function() {
 						<if test="$this->settings['perscom_enable_muster']">
 							<li class="clear clearfix">
 								<span class="row_title" style="width: 49%;">Latest Muster</span>
-								<span class="row_data">{$stats['musters']['count']}&nbsp;&nbsp;<u><a href="#" id="muster">(Click to view)</a></u></span>
+								<span class="row_data">{$stats['musters']['count']}/{$stats['personnel']} | {parse expression="number_format($stats['musters']['count']/$stats['personnel'] * 100, 0)"}% | <u><a href="#" id="muster">Click to view</a></u></span>
 							</li>
 						</if>
 					</ul>
