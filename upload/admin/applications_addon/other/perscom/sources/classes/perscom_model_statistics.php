@@ -148,64 +148,68 @@ class perscom_model_statistics extends perscom_model_perscom {
 			'from' => $this->settings['perscom_database_settings'], 
 			'where' => '`key`="enlistment_statistics_reset"' ) );
 
-		// Get all the recruiters
-		$this->DB->build( array( 'select' => 'recruiter',
-			'from' => $this->settings['perscom_database_personnel_files'],
-			'where' => 'induction_date > ' . $enlistment_statistics_reset['value'] ) );
+		// Make sure we got a value
+		if ($enlistment_statistics_reset['value'] != '') {
+		
+			// Get all the recruiters
+			$this->DB->build( array( 'select' => 'recruiter',
+				'from' => $this->settings['perscom_database_personnel_files'],
+				'where' => 'induction_date > ' . $enlistment_statistics_reset['value'] ) );
 
-		// Execute the DB query
-		$recruiters_result = $this->DB->execute();
+			// Execute the DB query
+			$recruiters_result = $this->DB->execute();
 
-		// Create an array to store all the recruiters
-		$recruiters = array();
+			// Create an array to store all the recruiters
+			$recruiters = array();
 
-		// Loop through the results and add to array
-		while( $r = $this->DB->fetch( $recruiters_result ) )
-		{
-			// If not a 0
-			if ($r['recruiter'] != '0') {
-				
-				// Add the result to the recruiters array
-				array_push($recruiters, $r['recruiter']);
-			}
-		}
-
-		// Count the array and look for the most popular result
-		$count = array_count_values($recruiters); 
-
-		// If we have an array with more than one element
-		if (count($count) > 0) {
-
-			// Get the most active recruiter's member id
-			$recruiter = array_search(max($count), $count);
-
-			// If we get a result
-			if ($recruiter) {
-				
-				// Get the member
-				$recruiter_pfile = IPSMember::load( $recruiter );
-
-				// If we get a member profile
-				if ($recruiter_pfile) {
+			// Loop through the results and add to array
+			while( $r = $this->DB->fetch( $recruiters_result ) )
+			{
+				// If not a 0
+				if ($r['recruiter'] != '0') {
 					
-					// Add the statistic
-					$stats['most_active_recruiter'] = $recruiter_pfile['members_display_name'] . ' - ' . $count[$recruiter] . ' recruit(s) since ' . strftime($this->settings['clock_short2'], $enlistment_statistics_reset['value']);
-				}
-
-				// Unable to load member
-				else {
-
-					// Inform the user
-					$stats['most_active_recruiter'] = 'Unable to load recruiter';
+					// Add the result to the recruiters array
+					array_push($recruiters, $r['recruiter']);
 				}
 			}
-		}
 
-		// No recruiters found
-		else {
+			// Count the array and look for the most popular result
+			$count = array_count_values($recruiters); 
 
-			// Inform the user
-			$stats['most_active_recruiter'] = 'There have been no assigned recruiters since the last reset date';
+			// If we have an array with more than one element
+			if (count($count) > 0) {
+
+				// Get the most active recruiter's member id
+				$recruiter = array_search(max($count), $count);
+
+				// If we get a result
+				if ($recruiter) {
+					
+					// Get the member
+					$recruiter_pfile = IPSMember::load( $recruiter );
+
+					// If we get a member profile
+					if ($recruiter_pfile) {
+						
+						// Add the statistic
+						$stats['most_active_recruiter'] = $recruiter_pfile['members_display_name'] . ' - ' . $count[$recruiter] . ' recruit(s) since ' . strftime($this->settings['clock_short2'], $enlistment_statistics_reset['value']);
+					}
+
+					// Unable to load member
+					else {
+
+						// Inform the user
+						$stats['most_active_recruiter'] = 'Unable to load recruiter';
+					}
+				}
+			}
+
+			// No recruiters found
+			else {
+
+				// Inform the user
+				$stats['most_active_recruiter'] = 'There have been no assigned recruiters since the last reset date';
+			}	
 		}
 
 		// Set our stats array
