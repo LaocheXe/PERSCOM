@@ -116,14 +116,18 @@ class public_perscom_basecamp_demote extends ipsCommand
 			'name' => $this->request['new_name'], 
 			'title' => $rank['title'] ) ) );
 
-		// Update soldiers avatar
-		$this->DB->update( 'profile_portal', array ( 
-			'pp_main_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
-			'pp_main_width' => '100', 
-			'pp_main_height' => '100', 
-			'pp_thumb_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
-			'pp_thumb_width' => '100', 
-			'pp_thumb_height' => '100' ), 'pp_member_id="'.$soldier['member_id'].'"' );
+		// If the update avatar setting is set to yes
+		if ($this->settings['perscom_update_avatar']) {
+
+			// Update soldiers avatar
+			$this->DB->update( 'profile_portal', array ( 
+				'pp_main_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
+				'pp_main_width' => '100', 
+				'pp_main_height' => '100', 
+				'pp_thumb_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
+				'pp_thumb_width' => '100', 
+				'pp_thumb_height' => '100' ), 'pp_member_id="'.$soldier['member_id'].'"' );
+		}
 
 		// If send the notification
 		if ($this->request['opord'] == 'Yes') {

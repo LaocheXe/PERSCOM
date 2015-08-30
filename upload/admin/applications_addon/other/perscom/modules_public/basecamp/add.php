@@ -59,7 +59,7 @@ class public_perscom_basecamp_add extends ipsCommand
 
 		// Set HTML settings
 		$this->registry->output->setTitle( $this->lang->words['add_soldier'] );
-        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->addSoldier( $this->ranks->loadRanks(), $this->combat_units->loadCombatUnits(), $this->weapons->loadWeapons(), $this->personnel->loadPersonnel(), $this->personnel->loadRecruitingMediums() ) );
+        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->addSoldier( $this->ranks->loadRanks(), $this->combat_units->loadCombatUnits(), $this->weapons->loadWeapons(), $this->personnel->loadPersonnel(), $this->personnel->loadRecruitingMediums(), $this->personnel->loadUniforms() ) );
        	$this->registry->output->sendOutput();
 	}
 
@@ -105,6 +105,7 @@ class public_perscom_basecamp_add extends ipsCommand
 			'member_id' => $member['member_id'], 
 			'firstname' => ucfirst($this->request['first_name']),
 			'lastname' => ucfirst($this->request['last_name']),
+			'uniform' => $this->request['uniform'],
 			'rank' => $bypass == TRUE ? $this->request['rank'] : '128',
 			'position' => $bypass == TRUE ? $this->request['position'] : 'New Applicant',
 			'supervisor' => $bypass == TRUE ? $this->request['supervisor'] : '0',
@@ -169,14 +170,18 @@ class public_perscom_basecamp_add extends ipsCommand
 				'member_group_id' => $primary_usergroup,
 				'mgroup_others' => $secondary_usergroup ) ) );
 
-			// Update soldiers avatar
-			$this->DB->update( 'profile_portal', array ( 
-				'pp_main_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
-				'pp_main_width' => '100', 
-				'pp_main_height' => '100', 
-				'pp_thumb_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
-				'pp_thumb_width' => '100', 
-				'pp_thumb_height' => '100' ), 'pp_member_id="'.$member['member_id'].'"' );
+			// If the update avatar setting is set to yes
+			if ($this->settings['perscom_update_avatar']) {
+
+				// Update soldiers avatar
+				$this->DB->update( 'profile_portal', array ( 
+					'pp_main_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
+					'pp_main_width' => '100', 
+					'pp_main_height' => '100', 
+					'pp_thumb_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
+					'pp_thumb_width' => '100', 
+					'pp_thumb_height' => '100' ), 'pp_member_id="'.$member['member_id'].'"' );
+			}
 		}
 
 		// We are not bypassing, we are adding the soldier the the application processing stage

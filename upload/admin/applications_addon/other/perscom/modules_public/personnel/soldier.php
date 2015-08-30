@@ -85,7 +85,7 @@ class public_perscom_personnel_soldier extends ipsCommand
 		$this->getForumData();
 
 		// Set HTML settings
-        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->viewSoldier( $this->soldier, $this->allowEdit, $this->combat_units->loadCombatUnits(), $this->ranks->loadRanks(), $this->weapons->loadWeapons(), $this->admin_units->loadAdminUnits(), $this->status->loadStatus(), $this->error, $this->personnel->loadPersonnel(), $this->personnel->loadRecruitingMediums() ) );
+        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->viewSoldier( $this->soldier, $this->allowEdit, $this->combat_units->loadCombatUnits(), $this->ranks->loadRanks(), $this->weapons->loadWeapons(), $this->admin_units->loadAdminUnits(), $this->status->loadStatus(), $this->error, $this->personnel->loadPersonnel(), $this->personnel->loadRecruitingMediums(), $this->personnel->loadUniforms() ) );
        	$this->registry->output->sendOutput();
 	}
 
@@ -181,6 +181,7 @@ class public_perscom_personnel_soldier extends ipsCommand
 		// Update personnel file
 		$this->DB->update( $this->settings['perscom_database_personnel_files'], array ( 
 			'status' => $this->request['status'], 
+			'uniform' => $this->request['uniform'], 
 			'weapon' => $this->request['weapon'], 
 			'mos' => $this->request['mos'], 
 			'combat_unit' => $this->request['combat_unit'],
@@ -246,5 +247,8 @@ class public_perscom_personnel_soldier extends ipsCommand
 		// Delete the personnel file
 		$this->DB->delete( $this->settings['perscom_database_personnel_files'], 
 			'member_id="' . $this->request['id'] . '"' );
+
+		// Load the personnel page
+		header('location:' . $this->settings['base_url'] . 'app=perscom&module=personnel');
 	}
 }

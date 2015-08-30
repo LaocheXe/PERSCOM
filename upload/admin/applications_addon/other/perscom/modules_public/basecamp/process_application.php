@@ -62,7 +62,7 @@ class public_perscom_basecamp_process_application extends ipsCommand
 
 		// Set HTML settings
 		$this->registry->output->setTitle( $this->lang->words['process_applicant'] );
-        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->processApplicant( $this->enlistment_applications->loadEnlistmentApplications(), $this->ranks->loadRanks(), $this->combat_units->loadCombatUnits(), $this->weapons->loadWeapons(), $this->personnel->loadPersonnel(), $this->personnel->loadRecruitingMediums() ) );
+        $this->registry->output->addContent( $this->registry->output->getTemplate('perscom')->processApplicant( $this->enlistment_applications->loadEnlistmentApplications(), $this->ranks->loadRanks(), $this->combat_units->loadCombatUnits(), $this->weapons->loadWeapons(), $this->personnel->loadPersonnel(), $this->personnel->loadRecruitingMediums(), $this->personnel->loadUniforms() ) );
        	$this->registry->output->sendOutput();
 	}
 
@@ -79,6 +79,7 @@ class public_perscom_basecamp_process_application extends ipsCommand
 			'recruiting_medium' => $this->request['recruiting_medium'],
 			'weapon' => $this->request['weapon'], 
 			'status' => '1', 
+			'uniform' => $this->request['uniform'],
 			'induction_date' => strtotime('now'), 
 			'promotion_date' => strtotime('now') ), 'primary_id_field=' . $this->request['application'] );
 
@@ -108,16 +109,20 @@ class public_perscom_basecamp_process_application extends ipsCommand
 			'title' => $rank['title'],
 			'member_group_id' => $this->settings['perscom_base_unit_usergroup'],
 	       	'mgroup_others' => $unit['forum_usergroup'] ) ) );
+
+		// If the update avatar setting is set to yes
+		if ($this->settings['perscom_update_avatar']) {
 	
-		// Update soldiers avatar
-		$this->DB->update( 'profile_portal', array ( 
-			'pp_main_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
-			'pp_main_width' => '100', 
-			'pp_main_height' => '100', 
-			'pp_thumb_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
-			'pp_thumb_width' => '100', 
-			'pp_thumb_height' => '100' ), 
-			'pp_member_id="' . $application['member_id'] . '"' );
+			// Update soldiers avatar
+			$this->DB->update( 'profile_portal', array ( 
+				'pp_main_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
+				'pp_main_width' => '100', 
+				'pp_main_height' => '100', 
+				'pp_thumb_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
+				'pp_thumb_width' => '100', 
+				'pp_thumb_height' => '100' ), 
+				'pp_member_id="' . $application['member_id'] . '"' );
+		}
 
 		// Add to log
 		$this->DB->insert( $this->settings['perscom_database_requests'], array( 

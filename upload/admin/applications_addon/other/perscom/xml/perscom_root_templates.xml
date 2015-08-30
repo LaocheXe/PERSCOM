@@ -620,6 +620,12 @@
                     </div>
                 </li>
                 <li class="ipsField clear">
+                    <label class="ipsField_title" for="file_name">Combat MOS</label>
+                    <div class="ipsField_content">
+                        <input id="mos" class="input_text" type="text" value="" placeholder="Example: 11B" size="50" name="mos">
+                    </div>
+                </li>
+                <li class="ipsField clear">
                     <label class="ipsField_title" for="file_name">Position</label>
                     <div class="ipsField_content">
                         <input id="position" class="input_text" type="text" value="" placeholder="Example: Fireteam Member" size="50" name="position">
@@ -667,12 +673,6 @@
                         </select>
                     </div>
                 </li>
-                <li class="ipsField clear">
-                    <label class="ipsField_title" for="file_name">Combat MOS</label>
-                    <div class="ipsField_content">
-                        <input id="mos" class="input_text" type="text" value="" placeholder="Example: 11B" size="50" name="mos">
-                    </div>
-                </li>
                 <li class="ipsField ipsField_select">
                     <label class="ipsField_title" for="file_cat" style="line-height: 10px;">Weapon</label>
                     <div class="ipsField_content">
@@ -687,6 +687,23 @@
                         </select>
                     </div>
                 </li>
+                <if test="$this->settings['perscom_enable_uniform']">
+                    <li class="ipsField ipsField_select">
+                        <label class="ipsField_title" for="file_name" style="line-height: 10px;">Uniform</label>
+                        <div class="ipsField_content">
+                            <select id="uniform" class="input_select" tabindex="1" name="uniform">
+                                <if test="count($uniforms) > 0">
+                                    <option value="">No Uniform</option>
+                                    <foreach loop="$uniforms as $uniform">
+                                        <option value="{$uniform}" <if test="$uniform == $soldier['uniform']">selected</if>>{$uniform}</option>
+                                    </foreach>
+                                <else />
+                                    <option value="">No Uniforms Available</option>
+                                </if>
+                            </select>
+                        </div>
+                    </li>
+                </if>  
                 <li class="ipsField clear">
                     <label class="ipsField_title" for="file_name">Enlistment Date</label>
                     <div class="ipsField_content">
@@ -737,7 +754,7 @@
     </p>
 </form>]]></template_content>
       <template_name>addSoldier</template_name>
-      <template_data>$ranks, $units, $weapons, $personnel, $mediums</template_data>
+      <template_data>$ranks, $units, $weapons, $personnel, $mediums, $uniforms</template_data>
       <template_removable>0</template_removable>
       <template_user_added>0</template_user_added>
       <template_user_edited>0</template_user_edited>
@@ -1626,167 +1643,184 @@ document.getElementById('grade').onchange = function() {
         <br />
 </if>
 <div class="ipbfs_titlebox">
-	<h1 class="ipsType_pagetitle">{$this->lang->words['process_applicant']}</h1>
-	<div class="ipsType_pagedesc">{$this->lang->words['process_applicant_desc']}</div>
+    <h1 class="ipsType_pagetitle">{$this->lang->words['process_applicant']}</h1>
+    <div class="ipsType_pagedesc">{$this->lang->words['process_applicant_desc']}</div>
 </div>
 <br />
 <form action="" method="post" enctype="multipart/form-data" name="process_applicant" onsubmit="return validateProcessApplicant()">
-	<input type='hidden' name='app' value='perscom' />
-	<input type='hidden' name='module' value='basecamp' />
-	<input type='hidden' name='section' value='process_application' />
-	<input type='hidden' name='do' value='submit' />
-	<div class="maintitle">Step 1: Select Application</div>
-	<div class="ipsBox">
-		<div class="ipsBox_container ipsPad">
-			<ul class="ipsForm_horizontal ipsPad">
-				<li class="ipsField clear" style="margin-bottom: 0px;">
-					<label class="ipsField_title" for="file_name" style="line-height: 10px;">Application</label>
-					<div class="ipsField_content">
-						<select id="application" class="input_select" tabindex="1" name="application">
-							<if test="count($applications) > 0">
-								<foreach loop="$applications as $application">
-									<option value="{$application['primary_id_field']}">Application ID: {$application['primary_id_field']} {$application['firstname']} {$application['lastname']}</option>
-								</foreach>
-							<else />
-								<option value="">No Applications to Process</option>
-							</if>
-						</select>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<br />
-	<div class="maintitle">Step 2: Process Application</div>
-	<div class="ipsBox">
-		<div class="ipsBox_container ipsPad">
-			<ul class="ipsForm_horizontal ipsPad">
-		
-				<li class="ipsField clear">
-					<label class="ipsField_title" for="file_name" style="line-height: 10px;">Rank</label>
-					<div class="ipsField_content">
-						<select id="rank" class="input_select" tabindex="1" name="rank">
-							<if test="count($ranks) > 0">
-								<foreach loop="$ranks as $rank">
-									<option value="{$rank['primary_id_field']}">{$rank['order']} - {$rank['title']}</option>
-								</foreach>
-							<else />
-								<option value="">No Ranks Available</option>
-							</if>
-						</select>
-					</div>
-				</li>	
-				<li class="ipsField clear">
-					<label class="ipsField_title" for="file_name" style="line-height: 10px;">Combat Unit</label>
-					<div class="ipsField_content">
-						<select id="unit" class="input_select" tabindex="1" name="unit">
-							<if test="count($units) > 0">
-								<foreach loop="$units as $unit">
-									<option value="{$unit['primary_id_field']}">{$unit['name']}</option>
-								</foreach>
-							<else />
-								<option value="">No Combat Units Available</option>
-							</if>
-						</select>
-					</div>
-				</li>
-				<li class="ipsField clear">
-					<label class="ipsField_title" for="file_name">Position</label>
-					<div class="ipsField_content">
-						<input id="position" class="input_text" type="text" value="" placeholder="Example: Fireteam Member" size="50" name="position">
-					</div>
-				</li>
-				<li class="ipsField clear">
-					<label class="ipsField_title" for="file_name" style="line-height: 10px;">Supervisor</label>
-					<div class="ipsField_content">
-						<select id="supervisor" class="input_select" tabindex="1" name="supervisor">
-							<if test="count($personnel) > 0">
-								<foreach loop="$personnel as $supervisor">
-									<option value="{$supervisor['member_id']}">{parse expression="strtoupper($supervisor['lastname'])"}, {$supervisor['firstname']} ({$supervisor['member_id']})</option>
-								</foreach>
-							<else />
-								<option value="">No Personnel Available</option>
-							</if>
-						</select>
-					</div>
-				</li>	
-				<li class="ipsField clear">
-					<label class="ipsField_title" for="file_name" style="line-height: 10px;">Recruiter</label>
-					<div class="ipsField_content">
-						<select id="recruiter" class="input_select" tabindex="1" name="recruiter">
-							<if test="count($personnel) > 0">
-								<foreach loop="$personnel as $supervisor">
-									<option value="{$supervisor['member_id']}">{parse expression="strtoupper($supervisor['lastname'])"}, {$supervisor['firstname']} ({$supervisor['member_id']})</option>
-								</foreach>
-							<else />
-								<option value="">No Personnel Available</option>
-							</if>
-						</select>
-					</div>
-				</li>
-				<li class="ipsField clear">
-					<label class="ipsField_title" for="file_name" style="line-height: 10px;">Recruiting Medium</label>
-					<div class="ipsField_content">
-						<select id="recruiting_medium" class="input_select" tabindex="1" name="recruiting_medium">
-							<if test="count($mediums) > 0">
-								<foreach loop="$mediums as $medium">
-									<option value="{$medium}">{$medium}</option>
-								</foreach>
-							<else />
-								<option value="">No Mediums Available</option>
-							</if>
-						</select>
-					</div>
-				</li>
-				<li class="ipsField clear">
-					<label class="ipsField_title" for="file_name">Combat MOS</label>
-					<div class="ipsField_content">
-						<input id="mos" class="input_text" type="text" value="" placeholder="Example: 11B" size="50" name="mos">
-					</div>
-				</li>
-				<li class="ipsField clear" style="margin-bottom: 0px;">
-					<label class="ipsField_title" for="file_name" style="line-height: 10px;">Weapon</label>
-					<div class="ipsField_content">
-						<select id="weapon" class="input_select" tabindex="1" name="weapon">
-							<if test="count($weapons) > 0">
-								<foreach loop="$weapons as $weapon">
-									<option value="{$weapon['primary_id_field']}">{$weapon['make_and_model']}</option>
-								</foreach>
-							<else />
-								<option value="">No Weapons Available</option>
-							</if>
-						</select>
-					</div>
-				</li>	
-			</ul>
-		</div>
-	</div>
-	<br />
-	<div class="maintitle">Step 3: Process Enlistment</div>
-	<div class="ipsBox">
-		<div class="ipsBox_container ipsPad">
-			<ul class="ipsForm_horizontal ipsPad">
-		
-				<li class="ipsField clear" style="margin-bottom: 0px;">
-					<label class="ipsField_title" for="file_name" style="line-height: 5px;">Enlistment Type</label>
-					<div class="ipsField_content">
-						<input id="enlistment_type" type="radio" checked="checked" value="New Enlistment" name="enlistment_type">
-						<label for="enlistment_type_new_enlistment">New Enlistment</label>
-						&nbsp;&nbsp;&nbsp;
-						<input id="enlistment_type" type="radio" value="Re-instatement" name="enlistment_type">
-						<label for="enlistment_type_reinstatement">Re-instatement</label>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<br />
-	<p class="submit">
-		<input class="input_submit" type="submit" accesskey="s" value="{$this->lang->words['process_applicant']}" name="dosubmit" <if test="count($applications) == 0">disabled</if>> or <a href="{$this->settings['base_url']}" title="Cancel" id="close_filters" class="cancel">{$this->lang->words['cancel']}</a>
-	</p>
+    <input type='hidden' name='app' value='perscom' />
+    <input type='hidden' name='module' value='basecamp' />
+    <input type='hidden' name='section' value='process_application' />
+    <input type='hidden' name='do' value='submit' />
+    <div class="maintitle">Step 1: Select Application</div>
+    <div class="ipsBox">
+        <div class="ipsBox_container ipsPad">
+            <ul class="ipsForm_horizontal ipsPad">
+                <li class="ipsField clear" style="margin-bottom: 0px;">
+                    <label class="ipsField_title" for="file_name" style="line-height: 10px;">Application</label>
+                    <div class="ipsField_content">
+                        <select id="application" class="input_select" tabindex="1" name="application">
+                            <if test="count($applications) > 0">
+                                <foreach loop="$applications as $application">
+                                    <option value="{$application['primary_id_field']}">Application ID: {$application['primary_id_field']} {$application['firstname']} {$application['lastname']}</option>
+                                </foreach>
+                            <else />
+                                <option value="">No Applications to Process</option>
+                            </if>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <div class="maintitle">Step 2: Process Application</div>
+    <div class="ipsBox">
+        <div class="ipsBox_container ipsPad">
+            <ul class="ipsForm_horizontal ipsPad">
+        
+                <li class="ipsField clear">
+                    <label class="ipsField_title" for="file_name" style="line-height: 10px;">Rank</label>
+                    <div class="ipsField_content">
+                        <select id="rank" class="input_select" tabindex="1" name="rank">
+                            <if test="count($ranks) > 0">
+                                <foreach loop="$ranks as $rank">
+                                    <option value="{$rank['primary_id_field']}">{$rank['order']} - {$rank['title']}</option>
+                                </foreach>
+                            <else />
+                                <option value="">No Ranks Available</option>
+                            </if>
+                        </select>
+                    </div>
+                </li>   
+                <li class="ipsField clear">
+                    <label class="ipsField_title" for="file_name" style="line-height: 10px;">Combat Unit</label>
+                    <div class="ipsField_content">
+                        <select id="unit" class="input_select" tabindex="1" name="unit">
+                            <if test="count($units) > 0">
+                                <foreach loop="$units as $unit">
+                                    <option value="{$unit['primary_id_field']}">{$unit['name']}</option>
+                                </foreach>
+                            <else />
+                                <option value="">No Combat Units Available</option>
+                            </if>   
+                        </select>
+                    </div>
+                </li>
+                <li class="ipsField clear">
+                    <label class="ipsField_title" for="file_name">Combat MOS</label>
+                    <div class="ipsField_content">
+                        <input id="mos" class="input_text" type="text" value="" placeholder="Example: 11B" size="50" name="mos">
+                    </div>
+                </li>
+                <li class="ipsField clear">
+                    <label class="ipsField_title" for="file_name">Position</label>
+                    <div class="ipsField_content">
+                        <input id="position" class="input_text" type="text" value="" placeholder="Example: Fireteam Member" size="50" name="position">
+                    </div>
+                </li>
+                <li class="ipsField clear">
+                    <label class="ipsField_title" for="file_name" style="line-height: 10px;">Supervisor</label>
+                    <div class="ipsField_content">
+                        <select id="supervisor" class="input_select" tabindex="1" name="supervisor">
+                            <if test="count($personnel) > 0">
+                                <foreach loop="$personnel as $supervisor">
+                                    <option value="{$supervisor['member_id']}">{parse expression="strtoupper($supervisor['lastname'])"}, {$supervisor['firstname']} ({$supervisor['member_id']})</option>
+                                </foreach>
+                            <else />
+                                <option value="">No Personnel Available</option>
+                            </if>
+                        </select>
+                    </div>
+                </li>   
+                <li class="ipsField clear">
+                    <label class="ipsField_title" for="file_name" style="line-height: 10px;">Recruiter</label>
+                    <div class="ipsField_content">
+                        <select id="recruiter" class="input_select" tabindex="1" name="recruiter">
+                            <if test="count($personnel) > 0">
+                                <foreach loop="$personnel as $supervisor">
+                                    <option value="{$supervisor['member_id']}">{parse expression="strtoupper($supervisor['lastname'])"}, {$supervisor['firstname']} ({$supervisor['member_id']})</option>
+                                </foreach>
+                            <else />
+                                <option value="">No Personnel Available</option>
+                            </if>
+                        </select>
+                    </div>
+                </li>
+                <li class="ipsField clear">
+                    <label class="ipsField_title" for="file_name" style="line-height: 10px;">Recruiting Medium</label>
+                    <div class="ipsField_content">
+                        <select id="recruiting_medium" class="input_select" tabindex="1" name="recruiting_medium">
+                            <if test="count($mediums) > 0">
+                                <foreach loop="$mediums as $medium">
+                                    <option value="{$medium}">{$medium}</option>
+                                </foreach>
+                            <else />
+                                <option value="">No Mediums Available</option>
+                            </if>
+                        </select>
+                    </div>
+                </li>
+                <li class="ipsField clear" <if test="!$this->settings['perscom_enable_uniform']">style="margin-bottom: 0px;"</if>>
+                    <label class="ipsField_title" for="file_name" style="line-height: 10px;">Weapon</label>
+                    <div class="ipsField_content">
+                        <select id="weapon" class="input_select" tabindex="1" name="weapon">
+                            <if test="count($weapons) > 0">
+                                <foreach loop="$weapons as $weapon">
+                                    <option value="{$weapon['primary_id_field']}">{$weapon['make_and_model']}</option>
+                                </foreach>
+                            <else />
+                                <option value="">No Weapons Available</option>
+                            </if>
+                        </select>
+                    </div>
+                </li>
+                <if test="$this->settings['perscom_enable_uniform']">
+                    <li class="ipsField clear" style="margin-bottom: 0px;">
+                        <label class="ipsField_title" for="file_name" style="line-height: 10px;">Uniform</label>
+                        <div class="ipsField_content">
+                            <select id="uniform" class="input_select" tabindex="1" name="uniform">
+                                <if test="count($uniforms) > 0">
+                                    <option value="">No Uniform</option>
+                                    <foreach loop="$uniforms as $uniform">
+                                        <option value="{$uniform}" <if test="$uniform == $soldier['uniform']">selected</if>>{$uniform}</option>
+                                    </foreach>
+                                <else />
+                                    <option value="">No Uniforms Available</option>
+                                </if>
+                            </select>
+                        </div>
+                    </li>
+                </if>   
+            </ul>
+        </div>
+    </div>
+    <br />
+    <div class="maintitle">Step 3: Process Enlistment</div>
+    <div class="ipsBox">
+        <div class="ipsBox_container ipsPad">
+            <ul class="ipsForm_horizontal ipsPad">
+        
+                <li class="ipsField clear" style="margin-bottom: 0px;">
+                    <label class="ipsField_title" for="file_name" style="line-height: 5px;">Enlistment Type</label>
+                    <div class="ipsField_content">
+                        <input id="enlistment_type" type="radio" checked="checked" value="New Enlistment" name="enlistment_type">
+                        <label for="enlistment_type_new_enlistment">New Enlistment</label>
+                        &nbsp;&nbsp;&nbsp;
+                        <input id="enlistment_type" type="radio" value="Re-instatement" name="enlistment_type">
+                        <label for="enlistment_type_reinstatement">Re-instatement</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <p class="submit">
+        <input class="input_submit" type="submit" accesskey="s" value="{$this->lang->words['process_applicant']}" name="dosubmit" <if test="count($applications) == 0">disabled</if>> or <a href="{$this->settings['base_url']}" title="Cancel" id="close_filters" class="cancel">{$this->lang->words['cancel']}</a>
+    </p>
 </form>]]></template_content>
       <template_name>processApplicant</template_name>
-      <template_data>$applications, $ranks, $units, $weapons, $personnel, $mediums</template_data>
+      <template_data>$applications, $ranks, $units, $weapons, $personnel, $mediums, $uniforms</template_data>
       <template_removable>0</template_removable>
       <template_user_added>0</template_user_added>
       <template_user_edited>0</template_user_edited>
@@ -3998,30 +4032,12 @@ document.getElementById('grade').onchange = function() {
     </table>
 </div>
 <br />
-<if test="$this->settings['perscom_enable_uniform']">
+<if test="$this->settings['perscom_enable_uniform'] && $soldier['uniform'] != ''">
     <div class="maintitle">Uniform</div>
     <div class="ipsBox">
         <div class="ipsBox_container ipsPad ipsType_textblock">
             <div class="texture" style="text-align: center;">
-                <php>
-                    /* Initiate curl request */
-                    $img = $this->settings['board_url'] . '/images/perscom/uniforms/dress_blue/' . strtoupper(substr($soldier['firstname'], 0, 1)) . '.' . ucfirst(strtolower($soldier['lastname'])) . '.jpg';
-                    $handle = curl_init($img);
-                    curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
-                    /* Get the HTML or whatever is linked in $url. */
-                    $response = curl_exec($handle);
-                    /* Check for 404 (file not found). */
-                    $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-                    if ($httpCode == 404) {
-                        
-                        /* Handle 404 here. */
-                        $img = $this->settings['board_url'] . "/images/perscom/uniforms/dress_blue/BlankUniform.jpg";
-                    }
-                    /* Close the request */
-                    curl_close($handle);
-                    /* Handle $response here. */                
-                </php>
-                <img src="{$img}" />
+                <img src="{$this->settings['board_url']}/images/perscom/uniforms/dress_blue/{$soldier['uniform']}" />
             </div>
         </div>
     </div>
@@ -4186,6 +4202,23 @@ document.getElementById('grade').onchange = function() {
                                         <input id="last" class="input_text" type="text" <if test="$soldier['lastname'] != ''">value="{$soldier['lastname']}"</if> placeholder="Last Name" size="50" name="last">
                                     </div>
                                 </li>
+                                <if test="$this->settings['perscom_enable_uniform']">
+                                    <li class="ipsField ipsField_select">
+                                        <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Uniform</label>
+                                        <div class="ipsField_content" style="margin-left: 120px;">
+                                            <select id="uniform" class="input_select" tabindex="1" name="uniform">
+                                                <if test="count($uniforms) > 0">
+                                                    <option value="">No Uniform</option>
+                                                    <foreach loop="$uniforms as $uniform">
+                                                        <option value="{$uniform}" <if test="$uniform == $soldier['uniform']">selected</if>>{$uniform}</option>
+                                                    </foreach>
+                                                <else />
+                                                    <option value="">No Uniforms Available</option>
+                                                </if>
+                                            </select>
+                                        </div>
+                                    </li>
+                                </if>
                                 <li class="ipsField ipsField_select">
                                     <label class="ipsField_title" for="file_cat" style="line-height: 6px; width: 100px;">Status</label>
                                     <div class="ipsField_content" style="margin-left: 120px;">
@@ -4485,7 +4518,7 @@ document.getElementById('grade').onchange = function() {
     </div>
 </foreach>]]></template_content>
       <template_name>viewSoldier</template_name>
-      <template_data>$soldier, $allowEdit = false, $combat_units, $ranks, $weapons, $admin_units, $status, $error, $personnel, $mediums</template_data>
+      <template_data>$soldier, $allowEdit = false, $combat_units, $ranks, $weapons, $admin_units, $status, $error, $personnel, $mediums, $uniforms</template_data>
       <template_removable>0</template_removable>
       <template_user_added>0</template_user_added>
       <template_user_edited>0</template_user_edited>

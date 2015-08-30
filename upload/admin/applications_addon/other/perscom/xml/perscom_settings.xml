@@ -625,6 +625,22 @@ if ( $show == 1 )
       <conf_is_title>0</conf_is_title>
     </setting>
     <setting>
+      <conf_title>Enable Auto-Update Avatar</conf_title>
+      <conf_description><![CDATA[Setting this to yes will update a user's avatar with a rank image when promoting or demoting the soldier. No will leave the avatar as the user has it set.]]></conf_description>
+      <conf_type>yes_no</conf_type>
+      <conf_key>perscom_update_avatar</conf_key>
+      <conf_default>1</conf_default>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>16</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
       <conf_title>Enable Uniform</conf_title>
       <conf_description><![CDATA[Displays's the user's uniform in their personnel profile.]]></conf_description>
       <conf_type>yes_no</conf_type>
@@ -633,7 +649,7 @@ if ( $show == 1 )
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>16</conf_position>
+      <conf_position>17</conf_position>
       <conf_start_group>Personnel Profiles</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>

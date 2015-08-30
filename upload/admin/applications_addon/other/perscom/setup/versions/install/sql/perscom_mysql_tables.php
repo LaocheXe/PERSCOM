@@ -71,6 +71,7 @@ $TABLE[] = "CREATE TABLE IF NOT EXISTS perscom_personnel (
   member_id int(11) DEFAULT '0',
   firstname text,
   lastname text,
+  uniform text,
   status int(11) NOT NULL DEFAULT '0',
   rank int(11) NOT NULL DEFAULT '0',
   position text,

@@ -438,4 +438,20 @@ class perscom_model_personnel extends perscom_model_perscom {
 		// Return the array
 		return $mediums;
 	}
+
+	public function loadUniforms() {
+
+		// Create array
+		$uniforms = array();
+
+		// Loop through the uniforms folder directory
+		foreach(glob(getcwd().'/images/perscom/uniforms/dress_blue/*.*') as $file) {
+    	
+    		// Add onto the end of the array
+    		array_push($uniforms, basename($file));	
+		}
+
+		// Return the array
+		return $uniforms;
+	}
 }
