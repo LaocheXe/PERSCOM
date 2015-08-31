@@ -53,7 +53,14 @@ If you are upgrading your current version of PERSCOM, follow the step-by-step di
 
 * Please note, upgrading your copy of PERSCOM will update the template and skin files on your website. If you have made changes to your template via the Admin CP, the changes will not be seen unless you revert the template to it's original. Original templates have a black dot next to them. Modified templates have a red dot next to them. If you would like to see the changes from the upgrade, click "Revert" on all templates with a red dot.
 
+Documentation
+-
+
+Documentation for PERSCOM can be found at: <a href="http://3rdinfantrydivision.github.io/PERSCOM">PERSCOM Documentation</a>
+
 Support
 -
 
 Support can be found by proceeding to the the <a href="http://www.3rdinf.us/index.php?app=nexus&module=support"><i>Client Area - Support</i></a> section of the <a href="http://www.3rdinf.us">3rd Infantry Division</a> website and clicking on <i>Purchases</i> on the left hand side. You may then request support by filling out the form under "Support Request" and clicking Submit.
+
+<b>The Third Infantry Division does NOT offer support to clients that have otherwise modified or changed the original product to meet their needs.</b>
