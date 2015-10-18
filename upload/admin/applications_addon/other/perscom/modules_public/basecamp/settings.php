@@ -246,7 +246,27 @@ class public_perscom_basecamp_settings extends ipsCommand
 							'unit_position' => $this->request['position'],
 							'nickname' => $this->request['nickname'],
 							'`order`' => $this->request['order'],
-							'forum_usergroup' => $this->request['cunit_usergroup'] ), 'primary_id_field="' . $this->request['id'] . '"' );
+							'forum_usergroup' => $this->request['cunit_usergroup'],
+							'loa' => false,
+							'retired' => false ), 'primary_id_field="' . $this->request['id'] . '"' );
+
+						// If the loa option is selected
+						if ($this->request['options'] == 'loa') {
+						
+							// Set the perscom loa unit and retired unit
+							$this->DB->update( $this->settings['perscom_database_units'], array( 
+								'loa' => true,
+								'retired' => false ), 'primary_id_field="' . $this->request['id'] . '"' );
+						}
+
+						// If the loa option is selected
+						if ($this->request['options'] == 'retired') {
+						
+							// Set the perscom loa unit and retired unit
+							$this->DB->update( $this->settings['perscom_database_units'], array( 
+								'retired' => true,
+								'loa' => false ), 'primary_id_field="' . $this->request['id'] . '"' );
+						}
 
 						// Set description
 						$description = sprintf('The %s combat unit was updated in the database.', $this->request['cunit_name']);
