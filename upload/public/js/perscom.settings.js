@@ -203,6 +203,24 @@ function getCombatUnitInformation() {
 					// Set the selected value to our saved usergroup
 					value.value = t.responseJSON['forum_usergroup'];
 				});
+
+				// Loop through our options dropdown
+				jQuery("[dropdown='options']").each(function(key, value) {
+
+					// If this combat unit is marked as retired
+					if (t.responseJSON['retired'] == true) {
+
+						// Set the selected value to our saved usergroup
+						value.value = 'retired';
+					};
+
+					// If this combat unit is marked as loa
+					if (t.responseJSON['loa'] == true) {
+
+						// Set the selected value to our saved usergroup
+						value.value = 'loa';
+					};
+				});
 				
 				// Stop the event
 				Event.stop(e);

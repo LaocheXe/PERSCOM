@@ -74,66 +74,77 @@ class public_perscom_basecamp_discharge extends ipsCommand
 
 		// If the grade was honorable retirement
 		if ($this->request['grade'] == 'Honorable Retirement') {	
-			
-			// Add to log
-			$this->DB->insert( $this->settings['perscom_database_requests'], array( 
-				'member_id' => $soldier['member_id'], 
-				'members_display_name' => $soldier['members_display_name'],
-				'date' => strtotime('now'),
-				'description' => sprintf('%s was Honorably Retired', $soldier['members_display_name']),
-				'type' => 'Retirement',
-				'administrator_member_id' => $this->memberData['member_id'],
-				'administrator_members_display_name' => $this->memberData['members_display_name'],
-				'status' => '---',
-				'relational_primary_id_field' => NULL ) );
-
-			// Add service record
-			$this->DB->insert( $this->settings['perscom_database_records'], array( 
-				'member_id' => $soldier['member_id'], 
-				'members_display_name' => $soldier['members_display_name'],
-				'date' => $date->getTimestamp(),
-				'entry' => 'Honorably Retired',
-				'type' => 'Retirement',
-				'award' => '',
-				'rank' => '',
-				'discharge_grade' => '',
-				'display' => $this->request['service_record'],
-		       	'position' => '',
-				'combat_unit' => '' ) );
 
 			// Get the retired group forum id
 			$combat_unit = $this->DB->buildAndFetch( array ( 'select' => '*', 
 				'from' => $this->settings['perscom_database_units'], 
-				'where' => 'name="Retired"' ) );
+				'where' => 'retired=true' ) );
 
-			// Update personnel file
-			$this->DB->update( $this->settings['perscom_database_personnel_files'], array ( 
-				'combat_unit' => $combat_unit['primary_id_field'], 
-				'position' => 'Retired', 
-				'status' => '9' ), 'member_id="' . $soldier['member_id'] . '"' );
+			// If we get a combat unit
+			if ($combat_unit) {
 
-			// Set the new name
-			$new_name = explode(' ', $soldier['members_display_name'], 2);
-			$new_name[0] = 'RET';
-			$name = implode(' ', $new_name);
+				// Add to log
+				$this->DB->insert( $this->settings['perscom_database_requests'], array( 
+					'member_id' => $soldier['member_id'], 
+					'members_display_name' => $soldier['members_display_name'],
+					'date' => strtotime('now'),
+					'description' => sprintf('%s was Honorably Retired', $soldier['members_display_name']),
+					'type' => 'Retirement',
+					'administrator_member_id' => $this->memberData['member_id'],
+					'administrator_members_display_name' => $this->memberData['members_display_name'],
+					'status' => '---',
+					'relational_primary_id_field' => NULL ) );
 
-			// Set the retired members properties
-			IPSMember::save( $soldier['member_id'], array( 'core' => array( 
-				'member_group_id' => $this->settings['perscom_retired_usergroup'], 
-				'mgroup_others' => '',
-		       	'title' => 'Retired',
-				'name' => $name,
-				'members_display_name' => $name ) ) );
+				// Add service record
+				$this->DB->insert( $this->settings['perscom_database_records'], array( 
+					'member_id' => $soldier['member_id'], 
+					'members_display_name' => $soldier['members_display_name'],
+					'date' => $date->getTimestamp(),
+					'entry' => 'Honorably Retired',
+					'type' => 'Retirement',
+					'award' => '',
+					'rank' => '',
+					'discharge_grade' => '',
+					'display' => $this->request['service_record'],
+			       	'position' => '',
+					'combat_unit' => '' ) );
+			
+				// Update personnel file
+				$this->DB->update( $this->settings['perscom_database_personnel_files'], array ( 
+					'combat_unit' => $combat_unit['primary_id_field'], 
+					'position' => 'Retired', 
+					'status' => '9' ), 'member_id="' . $soldier['member_id'] . '"' );
 
-			// If send the notification
-			if ($this->request['opord'] == 'Yes') {
+				// Set the new name
+				$new_name = explode(' ', $soldier['members_display_name'], 2);
+				$new_name[0] = 'RET';
+				$name = implode(' ', $new_name);
 
-				// Send the notification
-				$this->notifications->sendNotification( array (
-					'to' => $soldier, 
-					'from' => $this->settings['perscom_application_submission_author'], 
-					'title' => 'PERSCOM: Honorable Retirement', 
-					'text' => sprintf( $this->lang->words['notification_retirement'], $name ) ) );
+				// Set the retired members properties
+				IPSMember::save( $soldier['member_id'], array( 'core' => array( 
+					'member_group_id' => $this->settings['perscom_retired_usergroup'], 
+					'mgroup_others' => '',
+			       	'title' => 'Retired',
+					'name' => $name,
+					'members_display_name' => $name ) ) );
+
+				// If send the notification
+				if ($this->request['opord'] == 'Yes') {
+
+					// Send the notification
+					$this->notifications->sendNotification( array (
+						'to' => $soldier, 
+						'from' => $this->settings['perscom_application_submission_author'], 
+						'title' => 'PERSCOM: Honorable Retirement', 
+						'text' => sprintf( $this->lang->words['notification_retirement'], $name ) ) );
+				}	
+			}
+
+			// We did not find a combat unit to use for retirees
+			else {
+
+				// Throw error
+				$this->registry->output->showError( 'There is no combat unit for retired soldiers. Please add one before continuing.', 000123, false, '', 400 );
 			}
 		}
 

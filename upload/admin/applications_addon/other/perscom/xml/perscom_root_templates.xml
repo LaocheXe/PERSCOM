@@ -3707,7 +3707,7 @@ document.getElementById('grade').onchange = function() {
                                 Please enter the display order for the combat unit. The lower the number, the higher on the personnel files list. Integers only.
                             </div>
                         </li>
-                        <li class="ipsField ipsField_select" style="margin-bottom: 0px;">
+                        <li class="ipsField ipsField_select">
                             <label class="ipsField_title" for="file_cat" style="width: 100px; line-height: 10px;">Usergroup</label>
                             <div class="ipsField_content" style="margin-left: 120px;">
                                 <select id="cunit_usergroup" class="input_select" tabindex="1" name="cunit_usergroup" dropdown="cunit_usergroup">
@@ -3723,6 +3723,20 @@ document.getElementById('grade').onchange = function() {
                             <br />
                             <div class="ipsField_content" style="margin-left: 120px;">
                                 Please select a forum usergroup that the member will be apart of when in this combat unit. Each combat unit must have its own, unique forum usergroup. No two combat units can have the same forum usergroup.
+                            </div>
+                        </li>
+                        <li class="ipsField ipsField_select">
+                            <label class="ipsField_title" for="file_cat" style="width: 100px; line-height: 10px;">Options</label>
+                            <div class="ipsField_content" style="margin-left: 120px;">
+                                <select id="options" class="input_select" tabindex="1" name="options" dropdown="options">
+                                    <option value="">Standard Combat Unit</option>
+                                    <option value="loa">Leave of Absence Combat Unit</option>
+                                    <option value="retired">Retired Combat Unit</option>
+                                </select>
+                            </div>
+                            <br />
+                            <div class="ipsField_content" style="margin-left: 120px;">
+                                Please select if this combat unit is a standard combat unit or if the unit is specifically for leave of absence or retired soldiers.
                             </div>
                         </li>
                     </ul>

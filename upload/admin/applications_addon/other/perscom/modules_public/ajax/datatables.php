@@ -127,51 +127,67 @@ class public_perscom_ajax_datatables extends ipsAjaxCommand
 								$this->registry->output->showError( 'Unable to load specified soldier.', 12345678, false, '', 404 );
 							}
 
-							// Update the LOA entry as Approved and set the approvers name
-							$this->DB->update( $this->settings['perscom_database_loa'], array( 
-								'status' => 'Approved', 
-								'returned' => 'false',
-								'approved_member_id' => $this->memberData['member_id'],
-								'approved_display_name' => $this->memberData['members_display_name'],
-								'approved_date' => strtotime('now') ), 'primary_id_field="' . $this->request['relational'] . '"' );
+							// Query the db to get the unit for LOA's
+							$combat_unit = $this->DB->buildAndFetch( array ( 'select' => '*', 
+								'from' => $this->settings['perscom_database_units'], 
+								'where' => 'loa=true' ) );
 
-							// Update the request entry to Approved and set the approver's name
-							$this->DB->update( $this->settings['perscom_database_requests'], array( 
-								'status' => 'Approved', 
-								'administrator_members_display_name' => $this->memberData['members_display_name'],
-								'administrator_member_id' => $this->memberData['member_id'] ), 'primary_id_field="' . $this->request['id'] . '"' );
+							// If we get an LOA unit
+							if ($combat_unit) {
+							
+								// Update the LOA entry as Approved and set the approvers name
+								$this->DB->update( $this->settings['perscom_database_loa'], array( 
+									'status' => 'Approved', 
+									'returned' => 'false',
+									'approved_member_id' => $this->memberData['member_id'],
+									'approved_display_name' => $this->memberData['members_display_name'],
+									'approved_date' => strtotime('now') ), 'primary_id_field="' . $this->request['relational'] . '"' );
 
-							// Update the personnel file by setting status to LOA and move them to the LOA combat unit
-							$this->DB->update( $this->settings['perscom_database_personnel_files'], array( 
-								'status' => '4', 
-								'combat_unit' => '625' ), 'member_id="' . $soldier['member_id'] . '"' );
-						
-							// Get the LOA
-							$loa = $this->DB->buildAndFetch( array( 
-								'select' => '*', 
-								'from' => $this->settings['perscom_database_loa'], 
-								'where' => 'primary_id_field="' . $this->request['relational'] . '"' ) );
-				
-							// Add service record
-							$this->DB->insert( $this->settings['perscom_database_records'], array( 
-								'member_id' => $loa['member_id'], 
-								'members_display_name' => $soldier['members_display_name'],
-								'date' => strtotime('now'),
-								'entry' => sprintf('Placed on Leave of Absence. Expected Return Date: %s', strftime($this->settings['clock_short2'], $loa['end_date'])),
-								'type' => 'LOA',
-								'award' => '',
-								'rank' => '',
-								'discharge_grade' => '',
-								'display' => 'Yes',
-			     			  	'position' => '',
-								'combat_unit' => '' ) );
+								// Update the request entry to Approved and set the approver's name
+								$this->DB->update( $this->settings['perscom_database_requests'], array( 
+									'status' => 'Approved', 
+									'administrator_members_display_name' => $this->memberData['members_display_name'],
+									'administrator_member_id' => $this->memberData['member_id'] ), 'primary_id_field="' . $this->request['id'] . '"' );
 
-							// Send notification
-							$registry->notifications->sendNotification( array (
-								'to' => $soldier, 
-								'from' => $this->settings['perscom_application_submission_author'], 
-								'title' => 'PERSCOM: Leave of Absence Approved', 
-								'text' => $this->lang->words['notification_loa_approved'] ) );
+								// Update the personnel file by setting status to LOA and move them to the LOA combat unit
+								$this->DB->update( $this->settings['perscom_database_personnel_files'], array( 
+									'status' => '4', 
+									'combat_unit' => $combat_unit['primary_id_field'] ), 'member_id="' . $soldier['member_id'] . '"' );
+							
+								// Get the LOA
+								$loa = $this->DB->buildAndFetch( array( 
+									'select' => '*', 
+									'from' => $this->settings['perscom_database_loa'], 
+									'where' => 'primary_id_field="' . $this->request['relational'] . '"' ) );
+					
+								// Add service record
+								$this->DB->insert( $this->settings['perscom_database_records'], array( 
+									'member_id' => $loa['member_id'], 
+									'members_display_name' => $soldier['members_display_name'],
+									'date' => strtotime('now'),
+									'entry' => sprintf('Placed on Leave of Absence. Expected Return Date: %s', strftime($this->settings['clock_short2'], $loa['end_date'])),
+									'type' => 'LOA',
+									'award' => '',
+									'rank' => '',
+									'discharge_grade' => '',
+									'display' => 'Yes',
+				     			  	'position' => '',
+									'combat_unit' => '' ) );
+
+								// Send notification
+								$registry->notifications->sendNotification( array (
+									'to' => $soldier, 
+									'from' => $this->settings['perscom_application_submission_author'], 
+									'title' => 'PERSCOM: Leave of Absence Approved', 
+									'text' => $this->lang->words['notification_loa_approved'] ) );	
+							}
+
+							// We could not find a combat unit for LOA soldiers
+							else {
+
+								// Return the JSON
+								$this->returnJsonArray( array( 'error' => 'There is no combat unit for LOA soldiers. Please add one before continuing.' ) );
+							}
 						}
 
 					break;

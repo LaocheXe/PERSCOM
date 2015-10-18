@@ -38,6 +38,8 @@ $TABLE[] = "CREATE TABLE IF NOT EXISTS perscom_combat_units (
   nickname text,
   `order` int(11) NOT NULL DEFAULT '0',
   forum_usergroup int(11) NOT NULL DEFAULT '0',
+  retired tinyint(1) NOT NULL DEFAULT '0',
+  loa tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY(primary_id_field)
 );";
 
