@@ -238,56 +238,79 @@ class public_perscom_basecamp_settings extends ipsCommand
 				// We did not get a combat unit
 				else {
 
-					// If we are editing
-					if ($this->request['action'] == 'edit') {
-
-						// Update the combat unit
-						$this->DB->update( $this->settings['perscom_database_units'], array( 'name' => $this->request['cunit_name'], 
-							'unit_position' => $this->request['position'],
-							'nickname' => $this->request['nickname'],
-							'`order`' => $this->request['order'],
-							'forum_usergroup' => $this->request['cunit_usergroup'],
-							'loa' => false,
-							'retired' => false ), 'primary_id_field="' . $this->request['id'] . '"' );
-
-						// If the loa option is selected
-						if ($this->request['options'] == 'loa') {
+					// If this is a loa usergroup
+					if ($this->request['options'] == 'loa') {
 						
-							// Set the perscom loa unit and retired unit
-							$this->DB->update( $this->settings['perscom_database_units'], array( 
-								'loa' => true,
-								'retired' => false ), 'primary_id_field="' . $this->request['id'] . '"' );
-						}
-
-						// If the loa option is selected
-						if ($this->request['options'] == 'retired') {
-						
-							// Set the perscom loa unit and retired unit
-							$this->DB->update( $this->settings['perscom_database_units'], array( 
-								'retired' => true,
-								'loa' => false ), 'primary_id_field="' . $this->request['id'] . '"' );
-						}
-
-						// Set description
-						$description = sprintf('The %s combat unit was updated in the database.', $this->request['cunit_name']);
+						// Check to make sure we dont have any loa units already checked
+						$combat_unit = $this->DB->buildAndFetch( array( 'select' => '*', 
+							'from' => $this->settings['perscom_database_units'], 
+							'where' => 'loa=1 AND primary_id_field!="'. $this->request['id'] . '"' ) );
 					}
 
-					// We are adding
+					else if ($this->request['options'] == 'retired') {
+						
+						// Check to make sure we dont have any retired units already checked
+						$combat_unit = $this->DB->buildAndFetch( array( 'select' => '*', 
+							'from' => $this->settings['perscom_database_units'], 
+							'where' => 'retired=1 AND primary_id_field!="'. $this->request['id'] . '"' ) );
+					}
+
+					// If we get a combat unit
+					if ($combat_unit && $combat_unit['primary_id_field'] != $this->request['id'] ) {
+
+						// If it is a loa group
+						if ($this->request['options'] == 'loa') {
+							
+							// Throw an error
+							$this->registry->output->showError( 'There is alreay a combat unit that has been set as the Leave of Absence group. Please unset the current one to continue.', 12345678, false, '', 401 );
+						}
+
+						// If it is a loa group
+						if ($this->request['options'] == 'retired') {
+							
+							// Throw an error
+							$this->registry->output->showError( 'There is alreay a combat unit that has been set as the Retired group. Please unset the current one to continue.', 12345678, false, '', 401 );
+						}
+					}
+
+					// We are good to proceed
 					else {
 
-						// Insert the combat unit
-						$this->DB->insert( $this->settings['perscom_database_units'], array( 'name' => $this->request['cunit_name'], 
-							'unit_position' => $this->request['position'],
-							'nickname' => $this->request['nickname'],
-							'order' => $this->request['order'],
-							'forum_usergroup' => $this->request['cunit_usergroup'] ) );
+						// If we are editing
+						if ($this->request['action'] == 'edit') {
 
-						// Set description
-						$description = sprintf('The %s combat unit was added to the database.', $this->request['cunit_name']);
+							// Update the combat unit
+							$this->DB->update( $this->settings['perscom_database_units'], array( 'name' => $this->request['cunit_name'], 
+								'unit_position' => $this->request['position'],
+								'nickname' => $this->request['nickname'],
+								'`order`' => $this->request['order'],
+								'forum_usergroup' => $this->request['cunit_usergroup'],
+								'loa' => $this->request['options'] == 'loa' ? true : false,
+								'retired' => $this->request['options'] == 'retired' ? true : false ), 'primary_id_field="' . $this->request['id'] . '"' );
+
+							// Set description
+							$description = sprintf('The %s combat unit was updated in the database.', $this->request['cunit_name']);
+						}
+
+						// We are adding
+						else {
+
+							// Insert the combat unit
+							$this->DB->insert( $this->settings['perscom_database_units'], array( 'name' => $this->request['cunit_name'], 
+								'unit_position' => $this->request['position'],
+								'nickname' => $this->request['nickname'],
+								'order' => $this->request['order'],
+								'forum_usergroup' => $this->request['cunit_usergroup'],
+								'loa' => $this->request['options'] == 'loa' ? true : false,
+								'retired' => $this->request['options'] == 'retired' ? true : false ) );
+
+							// Set description
+							$description = sprintf('The %s combat unit was added to the database.', $this->request['cunit_name']);
+						}
+
+						// Set the type
+						$type = 'Combat Unit';
 					}
-
-					// Set the type
-					$type = 'Combat Unit';
 				}
 
 			break;
