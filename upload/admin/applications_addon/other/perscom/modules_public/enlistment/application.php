@@ -116,7 +116,7 @@ class public_perscom_enlistment_application extends ipsCommand
 				$this->addToEnlisteesGroup();
 
 				// Add the personnel file
-				$this->createPersonnelFile();
+				$this->createPersonnelFile( $topic_id );
 
 				// Update the enlistment statistics
 				$this->updateEnlistmentStatistics();	
@@ -215,16 +215,6 @@ class public_perscom_enlistment_application extends ipsCommand
 
 			// Get the topic data
 			$topic = $this->post->getTopicData();
-
-			// Make sure our tag is a prefix
-			$_REQUEST['ipsTags_prefix'] = 1;
-
-			// Add the tag
-			$this->registry->tags->add( array( 'New Application' ), array( 
-				'member_id' => $this->memberData['member_id'], 
-				'meta_id' => $topic['tid'], 
-				'meta_parent_id' => $topic['forum_id'],
-				'meta_visible' => '1' ) );
 			
 			// Return the topic ID
 			return $topic['tid'];
@@ -296,7 +286,7 @@ class public_perscom_enlistment_application extends ipsCommand
 		$this->supported_games = array_map('trim', array_filter(explode(',' , $this->settings['perscom_supported_games'])));
 	}
 
-	public function createPersonnelFile() {
+	public function createPersonnelFile( $topic_id ) {
 
 		// Build query
 		$this->DB->insert( $this->settings['perscom_database_personnel_files'], array( 
@@ -316,6 +306,9 @@ class public_perscom_enlistment_application extends ipsCommand
 			'email' => $this->memberData['email'],
 			'status' => '5',
 			'induction_date' => '',
-			'promotion_date' => '' ) );
+			'promotion_date' => '',
+			'recruiter' => '0',
+			'recruiting_medium' => '',
+			'application_topic_id' => $topic_id ) );
 	}
 }

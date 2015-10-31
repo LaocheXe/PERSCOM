@@ -228,22 +228,6 @@
       <conf_title_noshow>0</conf_title_noshow>
     </setting>
     <setting>
-      <conf_title>Recruiting and Retention Group</conf_title>
-      <conf_description>This is the user group that every member must be apart of to access and manage the enlistment applications, soldier processing and the adding of a soldier feature in PERSCOM.	</conf_description>
-      <conf_type>dropdown</conf_type>
-      <conf_key>perscom_recruiting_and_retention_group</conf_key>
-      <conf_default>4</conf_default>
-      <conf_extra>#show_groups#</conf_extra>
-      <conf_evalphp/>
-      <conf_protected>1</conf_protected>
-      <conf_position>1</conf_position>
-      <conf_start_group/>
-      <conf_add_cache>1</conf_add_cache>
-      <conf_keywords/>
-      <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
-      <conf_is_title>0</conf_is_title>
-    </setting>
-    <setting>
       <conf_title>Supported Games</conf_title>
       <conf_description>All games supported by the unit. These games will be listed in the dropdown menu of the enlistment application. Separate by a COMMA. No line breaks.</conf_description>
       <conf_type>textarea</conf_type>
@@ -253,6 +237,22 @@
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
       <conf_position>2</conf_position>
+      <conf_start_group>Enlistment Application Settings</conf_start_group>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Enlistment Requirements</conf_title>
+      <conf_description>The enlistment requirements that are displayed prior to filling out the application.</conf_description>
+      <conf_type>editor</conf_type>
+      <conf_key>perscom_enlistment_requirements</conf_key>
+      <conf_default/>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>3</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -268,8 +268,8 @@
       <conf_extra>#show_forums#</conf_extra>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>3</conf_position>
-      <conf_start_group/>
+      <conf_position>4</conf_position>
+      <conf_start_group>Enlistment Application Submission</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
       <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
@@ -292,15 +292,47 @@
       <conf_is_title>0</conf_is_title>
     </setting>
     <setting>
-      <conf_title>Enlistment Requirements</conf_title>
-      <conf_description>The enlistment requirements that are displayed prior to filling out the application.</conf_description>
-      <conf_type>editor</conf_type>
-      <conf_key>perscom_enlistment_requirements</conf_key>
+      <conf_title>Enable Auto-Move Applications</conf_title>
+      <conf_description>Enabling this setting will allow the system to auto-move accepted/denied enlistment applications to forums that are specified below.</conf_description>
+      <conf_type>yes_no</conf_type>
+      <conf_key>perscom_enable_automove_applications</conf_key>
       <conf_default/>
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
       <conf_position>6</conf_position>
+      <conf_start_group>Enlistment Application Auto-Move</conf_start_group>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Accepted Applications Forum</conf_title>
+      <conf_description>If enabled, the forum that an accepted enlistment application will be moved to.</conf_description>
+      <conf_type>dropdown</conf_type>
+      <conf_key>perscom_automove_accepted</conf_key>
+      <conf_default/>
+      <conf_extra>#show_forums#</conf_extra>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>7</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
+      <conf_title>Denied Applications Forum</conf_title>
+      <conf_description>If enabled, the forum that a denied enlistment application will be moved to. Dropped applications will go to the same forum.</conf_description>
+      <conf_type>dropdown</conf_type>
+      <conf_key>perscom_automove_denied</conf_key>
+      <conf_default/>
+      <conf_extra>#show_forums#</conf_extra>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>8</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -315,9 +347,9 @@
       <conf_default/>
       <conf_extra/>
       <conf_evalphp/>
-      <conf_protected>0</conf_protected>
-      <conf_position>7</conf_position>
-      <conf_start_group/>
+      <conf_protected>1</conf_protected>
+      <conf_position>9</conf_position>
+      <conf_start_group>Recruiting Analytics</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
       <conf_title_keyword>perscom_enlistment_application</conf_title_keyword>
@@ -462,6 +494,22 @@ if ( $show == 1 )
       <conf_is_title>0</conf_is_title>
     </setting>
     <setting>
+      <conf_title>Recruiting and Retention Usergroup</conf_title>
+      <conf_description>This is the user group that every member must be apart of to access and manage the enlistment applications, soldier processing and the adding of a soldier feature in PERSCOM.	</conf_description>
+      <conf_type>dropdown</conf_type>
+      <conf_key>perscom_recruiting_and_retention_group</conf_key>
+      <conf_default>4</conf_default>
+      <conf_extra>#show_groups#</conf_extra>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>8</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
       <conf_title>Civilian Usergroup</conf_title>
       <conf_description>This is the default user group that every member who signs up for your IPB website will be automatically assigned to. It is also the group that soldiers will be placed into upon discharge.</conf_description>
       <conf_type>dropdown</conf_type>
@@ -470,7 +518,7 @@ if ( $show == 1 )
       <conf_extra>#show_groups#</conf_extra>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>8</conf_position>
+      <conf_position>9</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -487,7 +535,7 @@ if ( $show == 1 )
       <conf_extra>#show_groups#</conf_extra>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>9</conf_position>
+      <conf_position>10</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -503,7 +551,7 @@ if ( $show == 1 )
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>10</conf_position>
+      <conf_position>11</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -536,7 +584,7 @@ if ( $show == 1 )
 	$key = 'perscom_signing_soldier';
 }]]></conf_evalphp>
       <conf_protected>1</conf_protected>
-      <conf_position>11</conf_position>
+      <conf_position>12</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -569,7 +617,7 @@ if ( $show == 1 )
 	$key = 'perscom_tpr_expiration';
 }]]></conf_evalphp>
       <conf_protected>1</conf_protected>
-      <conf_position>12</conf_position>
+      <conf_position>13</conf_position>
       <conf_start_group>Temporary Pass Request</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -585,7 +633,7 @@ if ( $show == 1 )
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>13</conf_position>
+      <conf_position>14</conf_position>
       <conf_start_group>Miscellaneous Settings</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -601,7 +649,7 @@ if ( $show == 1 )
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>14</conf_position>
+      <conf_position>15</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -617,7 +665,7 @@ if ( $show == 1 )
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>15</conf_position>
+      <conf_position>16</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -633,7 +681,7 @@ if ( $show == 1 )
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>16</conf_position>
+      <conf_position>17</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -649,7 +697,7 @@ if ( $show == 1 )
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>17</conf_position>
+      <conf_position>18</conf_position>
       <conf_start_group>Personnel Profiles</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>

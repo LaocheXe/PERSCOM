@@ -105,7 +105,43 @@ class public_perscom_basecamp_applications extends ipsCommand
 				'title' => 'PERSCOM: Enlistment Application Denied', 
 				'text' => $this->lang->words['notification_application_denied'] ) );
 
-			// Delete the application
+			// If we have auto move applications enabled
+			if ($this->settings['perscom_enable_automove_applications']) {
+				
+				// If we have an application topic id
+				if (isset($application['application_topic_id']) && $application['application_topic_id'] != '' && $application['application_topic_id'] != '0') {
+					
+					// Get the forums class
+					ipsRegistry::getAppClass( 'forums' );
+
+					// Load the forum moderating class
+					$classToLoad = IPSLib::loadLibrary( IPSLib::getAppDir( 'forums' ) . '/sources/classes/moderate.php', 'moderatorLibrary' );
+					$this->moderator = new $classToLoad( $this->registry );
+					
+					// Move the topic
+					$result = $this->moderator->topicMove( $application['application_topic_id'], $this->settings['perscom_application_submission_forum'], $this->settings['perscom_automove_denied'], 0);
+
+					// If we fail to move the topic
+					if ($result == FALSE) {
+						
+						// Show an error
+						$this->registry->output->showError( 'There was an error while trying to move the application topic. Please make sure you have a valid forum selected in settings.', 000123, false, '', 400 );
+					}
+
+					// If the move happened
+					else {
+
+						// Unpin, close, rebuild and recount the topic
+						$this->moderator->topicUnpin( $application['application_topic_id'] );
+						$this->moderator->topicClose( $application['application_topic_id'] );
+						$this->moderator->rebuildTopic( $application['application_topic_id'], false );
+						$this->moderator->forumRecount( $this->settings['perscom_automove_denied'] );
+						$this->moderator->forumRecount( $this->settings['perscom_application_submission_forum'] );
+					}
+				}
+			}
+
+			// // Delete the application
 			$this->DB->delete( $this->settings['perscom_database_personnel_files'], 
 				'primary_id_field="' . $this->request['id'] . '"');
 
@@ -148,6 +184,42 @@ class public_perscom_basecamp_applications extends ipsCommand
 				'from' => $this->settings['perscom_application_submission_author'], 
 				'title' => 'PERSCOM: Enlistment Application Dropped', 
 				'text' => $this->lang->words['notification_application_dropped'] ) );
+
+			// If we have auto move applications enabled
+			if ($this->settings['perscom_enable_automove_applications']) {
+				
+				// If we have an application topic id
+				if (isset($application['application_topic_id']) && $application['application_topic_id'] != '' && $application['application_topic_id'] != '0') {
+					
+					// Get the forums class
+					ipsRegistry::getAppClass( 'forums' );
+
+					// Load the forum moderating class
+					$classToLoad = IPSLib::loadLibrary( IPSLib::getAppDir( 'forums' ) . '/sources/classes/moderate.php', 'moderatorLibrary' );
+					$this->moderator = new $classToLoad( $this->registry );
+					
+					// Move the topic
+					$result = $this->moderator->topicMove( $application['application_topic_id'], $this->settings['perscom_application_submission_forum'], $this->settings['perscom_automove_denied'], 0);
+
+					// If we fail to move the topic
+					if ($result == FALSE) {
+						
+						// Show an error
+						$this->registry->output->showError( 'There was an error while trying to move the application topic. Please make sure you have a valid forum selected in settings.', 000123, false, '', 400 );
+					}
+
+					// If the move happened
+					else {
+
+						// Unpin, close, rebuild and recount the topic
+						$this->moderator->topicUnpin( $application['application_topic_id'] );
+						$this->moderator->topicClose( $application['application_topic_id'] );
+						$this->moderator->rebuildTopic( $application['application_topic_id'], false );
+						$this->moderator->forumRecount( $this->settings['perscom_automove_denied'] );
+						$this->moderator->forumRecount( $this->settings['perscom_application_submission_forum'] );
+					}
+				}
+			}
 
 			// Delete the application
 			$this->DB->delete( $this->settings['perscom_database_personnel_files'], 

@@ -68,158 +68,204 @@ class public_perscom_basecamp_process_application extends ipsCommand
 
 	public function processApplication() {
 
-		// Update our personnel file
-		$this->DB->update( $this->settings['perscom_database_personnel_files'], array( 
-			'rank' => $this->request['rank'], 
-			'position' => $this->request['position'], 
-			'mos' => $this->request['mos'], 
-			'combat_unit' => $this->request['unit'], 
-			'supervisor' => $this->request['supervisor'],
-			'recruiter' => $this->request['recruiter'],
-			'recruiting_medium' => $this->request['recruiting_medium'],
-			'weapon' => $this->request['weapon'], 
-			'status' => '1', 
-			'uniform' => $this->request['uniform'],
-			'induction_date' => strtotime('now'), 
-			'promotion_date' => strtotime('now') ), 'primary_id_field=' . $this->request['application'] );
-
 		// Query the DB to get the application that we are dealing with
 		$application = $this->DB->buildAndFetch( array( 'select' => '*', 
 			'from' => $this->settings['perscom_database_personnel_files'], 
 			'where' => 'primary_id_field="' . $this->request['application'] .'"' ) );
 
-		// Query the DB to get the application that we are dealing with
-		$rank = $this->DB->buildAndFetch( array( 'select' => '*', 
-			'from' => $this->settings['perscom_database_ranks'], 
-			'where' => 'primary_id_field="' . $this->request['rank'] .'"' ) );
+		// If we get the application
+		if ($application) {
 
-		// Query the DB to get the unit that the soldier is being assigned to
-		$unit = $this->DB->buildAndFetch( array( 'select' => '*', 
-			'from' => $this->settings['perscom_database_units'], 
-			'where' => 'primary_id_field="' . $this->request['unit'] .'"' ) );
+			// Update our personnel file
+			$this->DB->update( $this->settings['perscom_database_personnel_files'], array( 
+				'rank' => $this->request['rank'], 
+				'position' => $this->request['position'], 
+				'mos' => $this->request['mos'], 
+				'combat_unit' => $this->request['unit'], 
+				'supervisor' => $this->request['supervisor'],
+				'recruiter' => $this->request['recruiter'],
+				'recruiting_medium' => $this->request['recruiting_medium'],
+				'weapon' => $this->request['weapon'], 
+				'status' => '1', 
+				'uniform' => $this->request['uniform'],
+				'induction_date' => strtotime('now'), 
+				'promotion_date' => strtotime('now') ), 'primary_id_field=' . $this->request['application'] );
 
-		// Create our formatted display name to save to the member DB
-		$name = trim(sprintf('%s %s.%s', $rank['abbreviation'], strtoupper(substr($application['firstname'], 0, 1)), ucfirst(strtolower($application['lastname']))));
+			// Query the DB to get the application that we are dealing with
+			$rank = $this->DB->buildAndFetch( array( 'select' => '*', 
+				'from' => $this->settings['perscom_database_ranks'], 
+				'where' => 'primary_id_field="' . $this->request['rank'] .'"' ) );
 
-		// Update the user in IPB
-		IPSMember::save( $application['member_id'], array( 'core' => array( 
-			'members_display_name' => $name, 
-			'name' => $name,
-			'members_seo_name' => strtolower(str_replace('.', '', $name)),
-			'title' => $rank['title'],
-			'member_group_id' => $this->settings['perscom_base_unit_usergroup'],
-	       	'mgroup_others' => $unit['forum_usergroup'] ) ) );
+			// Query the DB to get the unit that the soldier is being assigned to
+			$unit = $this->DB->buildAndFetch( array( 'select' => '*', 
+				'from' => $this->settings['perscom_database_units'], 
+				'where' => 'primary_id_field="' . $this->request['unit'] .'"' ) );
 
-		// If the update avatar setting is set to yes
-		if ($this->settings['perscom_update_avatar']) {
-	
-			// Update soldiers avatar
-			$this->DB->update( 'profile_portal', array ( 
-				'pp_main_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
-				'pp_main_width' => '100', 
-				'pp_main_height' => '100', 
-				'pp_thumb_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
-				'pp_thumb_width' => '100', 
-				'pp_thumb_height' => '100' ), 
-				'pp_member_id="' . $application['member_id'] . '"' );
-		}
+			// Create our formatted display name to save to the member DB
+			$name = trim(sprintf('%s %s.%s', $rank['abbreviation'], strtoupper(substr($application['firstname'], 0, 1)), ucfirst(strtolower($application['lastname']))));
 
-		// Add to log
-		$this->DB->insert( $this->settings['perscom_database_requests'], array( 
-			'member_id' => $application['member_id'], 
-			'members_display_name' => sprintf('%s %s', $application['firstname'], $application['lastname']),
-			'date' => strtotime('now'),
-			'description' => sprintf('%s %s\'s Enlistment Application was Approved. Rank: %s, Position: %s, Unit: %s', $application['firstname'], $application['lastname'], $rank['title'], $this->request['position'], $unit['name']),
-			'type' => 'Enlistment Application',
-			'administrator_member_id' => $this->memberData['member_id'],
-			'administrator_members_display_name' => $this->memberData['members_display_name'],
-			'status' => 'Approved',
-			'relational_primary_id_field' => NULL ) );
+			// Update the user in IPB
+			IPSMember::save( $application['member_id'], array( 'core' => array( 
+				'members_display_name' => $name, 
+				'name' => $name,
+				'members_seo_name' => strtolower(str_replace('.', '', $name)),
+				'title' => $rank['title'],
+				'member_group_id' => $this->settings['perscom_base_unit_usergroup'],
+		       	'mgroup_others' => $unit['forum_usergroup'] ) ) );
 
-		// Update the accepted applications
-		$this->DB->update( $this->settings['perscom_database_settings'], '`value`=`value`+1', '`key`="accepted_applications"', false, true );
+			// If the update avatar setting is set to yes
+			if ($this->settings['perscom_update_avatar']) {
+		
+				// Update soldiers avatar
+				$this->DB->update( 'profile_portal', array ( 
+					'pp_main_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
+					'pp_main_width' => '100', 
+					'pp_main_height' => '100', 
+					'pp_thumb_photo' => 'perscom/insignia/large/multicam_background/'.$rank['abbreviation'].'.jpg', 
+					'pp_thumb_width' => '100', 
+					'pp_thumb_height' => '100' ), 
+					'pp_member_id="' . $application['member_id'] . '"' );
+			}
 
-		// If new enlistment
-		if ($this->request['enlistment_type'] == 'New Enlistment') {
+			// Add to log
+			$this->DB->insert( $this->settings['perscom_database_requests'], array( 
+				'member_id' => $application['member_id'], 
+				'members_display_name' => sprintf('%s %s', $application['firstname'], $application['lastname']),
+				'date' => strtotime('now'),
+				'description' => sprintf('%s %s\'s Enlistment Application was Approved. Rank: %s, Position: %s, Unit: %s', $application['firstname'], $application['lastname'], $rank['title'], $this->request['position'], $unit['name']),
+				'type' => 'Enlistment Application',
+				'administrator_member_id' => $this->memberData['member_id'],
+				'administrator_members_display_name' => $this->memberData['members_display_name'],
+				'status' => 'Approved',
+				'relational_primary_id_field' => NULL ) );
+
+			// Update the accepted applications
+			$this->DB->update( $this->settings['perscom_database_settings'], '`value`=`value`+1', '`key`="accepted_applications"', false, true );
+
+			// If new enlistment
+			if ($this->request['enlistment_type'] == 'New Enlistment') {
+
+				// Add our service record entries
+				$this->DB->insert( $this->settings['perscom_database_records'], array( 
+					'member_id' => $application['member_id'], 
+					'members_display_name' => $name,
+					'date' => strtotime('now'),
+					'entry' => 'Enlisted with the ' . $this->settings['board_name'],
+					'type' => 'Enlistment',
+					'award' => '',
+					'rank' => '',
+					'discharge_grade' => '',
+					'display' => 'Yes',
+			       	'position' => '',
+					'combat_unit' => '' ) );
+
+				// Add our service record entries
+				$this->DB->insert( $this->settings['perscom_database_records'], array( 
+					'member_id' => $application['member_id'], 
+					'members_display_name' => $name,
+					'date' => strtotime('now'),
+					'entry' => sprintf('Inducted as a %s', $rank['title']),
+					'type' => 'Induction',
+					'award' => '',
+					'rank' => '',
+					'discharge_grade' => '',
+					'display' => 'Yes',
+			       	'position' => '',
+					'combat_unit' => '' ) );
+			}
+			else {
+
+				// Add our service record entries
+				$this->DB->insert( $this->settings['perscom_database_records'], array( 
+					'member_id' => $application['member_id'], 
+					'members_display_name' => $name,
+					'date' => strtotime('now'),
+					'entry' => sprintf('Re-instated as %s', $rank['title']),
+					'type' => 'Enlistment',
+					'award' => '',
+					'rank' => '',
+					'discharge_grade' => '',
+					'display' => 'Yes',
+			       	'position' => '',
+					'combat_unit' => '' ) );
+			}
 
 			// Add our service record entries
 			$this->DB->insert( $this->settings['perscom_database_records'], array( 
 				'member_id' => $application['member_id'], 
 				'members_display_name' => $name,
 				'date' => strtotime('now'),
-				'entry' => 'Enlisted with the ' . $this->settings['board_name'],
-				'type' => 'Enlistment',
+				'entry' => sprintf('Assigned to %s', $unit['name']),
+				'type' => 'Assignment',
 				'award' => '',
 				'rank' => '',
 				'discharge_grade' => '',
 				'display' => 'Yes',
-		       	'position' => '',
-				'combat_unit' => '' ) );
+		       	'position' => $this->request['position'],
+				'combat_unit' => $unit['name'] ) );
 
-			// Add our service record entries
-			$this->DB->insert( $this->settings['perscom_database_records'], array( 
-				'member_id' => $application['member_id'], 
-				'members_display_name' => $name,
-				'date' => strtotime('now'),
-				'entry' => sprintf('Inducted as a %s', $rank['title']),
-				'type' => 'Induction',
-				'award' => '',
-				'rank' => '',
-				'discharge_grade' => '',
-				'display' => 'Yes',
-		       	'position' => '',
-				'combat_unit' => '' ) );
+			// Send a notification to user
+			$this->notifications->sendNotification( array ( 
+				'to' => $application['member_id'], 
+				'from' => $this->settings['perscom_application_submission_author'],
+				'title' => 'PERSCOM: Enlistment Application Processed',
+				'text' => sprintf( $this->lang->words['notification_application_processed'], $name ) ) );
+
+			// Get recruiters's name
+			$recruiter = IPSMember::load( $this->request['recruiter'] );
+
+			// Get the supervisor's name
+			$supervisor = IPSMember::load( $this->request['supervisor'] );
+
+			// Send the private message
+			$this->messenger->sendPrivateMessage( array (
+				'to' => $application['member_id'], 
+				'from' => $this->memberData['member_id'], 
+				'title' => 'PERSCOM: Enlistment Application Information', 
+				'text' => sprintf( $this->lang->words['notification_application_private_message'], ucfirst(strtolower($application['firstname'])), $rank['title'], $unit['name'], $this->request['position'], $supervisor['members_display_name'], $recruiter['members_display_name'] ) ) );
+
+			// If we have auto move applications enabled
+			if ($this->settings['perscom_enable_automove_applications']) {
+				
+				// If we have an application topic id
+				if (isset($application['application_topic_id']) && $application['application_topic_id'] != '' && $application['application_topic_id'] != '0') {
+					
+					// Get the forums class
+					ipsRegistry::getAppClass( 'forums' );
+
+					// Load the forum moderating class
+					$classToLoad = IPSLib::loadLibrary( IPSLib::getAppDir( 'forums' ) . '/sources/classes/moderate.php', 'moderatorLibrary' );
+					$this->moderator = new $classToLoad( $this->registry );
+					
+					// Move the topic
+					$result = $this->moderator->topicMove( $application['application_topic_id'], $this->settings['perscom_application_submission_forum'], $this->settings['perscom_automove_accepted'], 0);
+
+					// If we fail to move the topic
+					if ($result == FALSE) {
+						
+						// Show an error
+						$this->registry->output->showError( 'There was an error while trying to move the application topic. Please make sure you have a valid forum selected in settings.', 000123, false, '', 400 );
+					}
+
+					// If the move happened
+					else {
+
+						// Unpin, close, rebuild and recount the topic
+						$this->moderator->topicUnpin( $application['application_topic_id'] );
+						$this->moderator->topicClose( $application['application_topic_id'] );
+						$this->moderator->rebuildTopic( $application['application_topic_id'], false );
+						$this->moderator->forumRecount( $this->settings['perscom_automove_accepted'] );
+						$this->moderator->forumRecount( $this->settings['perscom_application_submission_forum'] );
+					}
+				}
+			}
 		}
+
+		// We could not find the application
 		else {
 
-			// Add our service record entries
-			$this->DB->insert( $this->settings['perscom_database_records'], array( 
-				'member_id' => $application['member_id'], 
-				'members_display_name' => $name,
-				'date' => strtotime('now'),
-				'entry' => sprintf('Re-instated as %s', $rank['title']),
-				'type' => 'Enlistment',
-				'award' => '',
-				'rank' => '',
-				'discharge_grade' => '',
-				'display' => 'Yes',
-		       	'position' => '',
-				'combat_unit' => '' ) );
-		}
-
-		// Add our service record entries
-		$this->DB->insert( $this->settings['perscom_database_records'], array( 
-			'member_id' => $application['member_id'], 
-			'members_display_name' => $name,
-			'date' => strtotime('now'),
-			'entry' => sprintf('Assigned to %s', $unit['name']),
-			'type' => 'Assignment',
-			'award' => '',
-			'rank' => '',
-			'discharge_grade' => '',
-			'display' => 'Yes',
-	       	'position' => $this->request['position'],
-			'combat_unit' => $unit['name'] ) );
-
-		// Send a notification to user
-		$this->notifications->sendNotification( array ( 
-			'to' => $application['member_id'], 
-			'from' => $this->settings['perscom_application_submission_author'],
-			'title' => 'PERSCOM: Enlistment Application Processed',
-			'text' => sprintf( $this->lang->words['notification_application_processed'], $name ) ) );
-
-		// Get recruiters's name
-		$recruiter = IPSMember::load( $this->request['recruiter'] );
-
-		// Get the supervisor's name
-		$supervisor = IPSMember::load( $this->request['supervisor'] );
-
-		// Send the private message
-		$this->messenger->sendPrivateMessage( array (
-			'to' => $application['member_id'], 
-			'from' => $this->memberData['member_id'], 
-			'title' => 'PERSCOM: Enlistment Application Information', 
-			'text' => sprintf( $this->lang->words['notification_application_private_message'], ucfirst(strtolower($application['firstname'])), $rank['title'], $unit['name'], $this->request['position'], $supervisor['members_display_name'], $recruiter['members_display_name'] ) ) );
-			
+			// Show error
+			$this->registry->output->showError( 'There was an error while trying to retrieve the application from the database.', 000123, false, '', 400 );
+		}	
 	}
 }

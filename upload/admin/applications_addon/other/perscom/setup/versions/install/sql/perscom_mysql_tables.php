@@ -91,6 +91,7 @@ $TABLE[] = "CREATE TABLE IF NOT EXISTS perscom_personnel (
   promotion_date text,
   recruiter int(11) NOT NULL DEFAULT '0',
   recruiting_medium text,
+  application_topic_id int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY(primary_id_field)
 );";
 
