@@ -72,4 +72,8 @@
         <human>2.0.7</human>
         <long>20007</long>
     </version>
+    <version>
+        <human>2.0.8</human>
+        <long>20008</long>
+    </version>
 </versions>
