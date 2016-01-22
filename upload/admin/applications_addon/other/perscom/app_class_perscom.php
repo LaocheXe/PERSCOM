@@ -182,7 +182,7 @@ class app_class_perscom
 					$classXmlRpc = new classXmlRpc();
 					$response = $classXmlRpc->sendXmlRpc( "http://www.3rdinf.us/interface/licenses.php", "check", array( 
 						'key' => ipsRegistry::$settings['perscom_license_key'],
-						'usage_id' => '1' ) );
+						'usage_id' => isset(ipsRegistry::$settings['perscom_license_key_usage_id']) ? ipsRegistry::$settings['perscom_license_key_usage_id'] : "1" ) );
 					
 					// If we get an error
 					if ($classXmlRpc->errors) {
@@ -193,6 +193,13 @@ class app_class_perscom
 							// Activate the license key
 							$activate = $classXmlRpc->sendXmlRpc( "http://www.3rdinf.us/interface/licenses.php", "activate", array( 
 								'key' => ipsRegistry::$settings['perscom_license_key'] ) );	
+
+							// If we successfully activated
+							if ($activate) {
+								
+								// Get the usage id
+								ipsRegistry::$settings['perscom_license_key_usage_id'] = $classXmlRpc->xmlrpc_params[0]['USAGE_ID'];
+							}
 						}
 
 						// Some other error
