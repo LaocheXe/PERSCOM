@@ -56,7 +56,7 @@ If you are upgrading your current version of PERSCOM, follow the step-by-step di
 Documentation
 -
 
-Documentation for PERSCOM can be found at: <a href="http://3rdinfantrydivision.github.io/PERSCOM">PERSCOM Documentation</a>
+Documentation for PERSCOM can be found at: <a href="http://wiki.3rdinf.us/index.php/Perscom">PERSCOM Documentation</a>
 
 Support
 -
