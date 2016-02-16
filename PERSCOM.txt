@@ -1,0 +1,16 @@
+PERSCOM Features:
+Enable/Disable email
+All BMO to view logs
+
+Bugs:
+
+Implemented Features:
+
+Feature Requests:
+Integrated points system
+
+Updated files:
+Settings
+viewPersonnel template
+viewSoldier template
+application.php

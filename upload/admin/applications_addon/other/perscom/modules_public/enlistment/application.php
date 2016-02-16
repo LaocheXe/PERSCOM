@@ -156,6 +156,13 @@ class public_perscom_enlistment_application extends ipsCommand
 		$classToLoad = IPSLib::loadLibrary( IPSLib::getAppDir( 'forums' ) . '/sources/classes/post/classPostForms.php', 'classPostForms', 'forums' );
 		$this->post = new $classToLoad( $this->registry );
 
+		// If the email is disabled
+		if (!$this->settings['perscom_enable_email']) {
+			
+			// Remove user's email
+			$this->memberData['email'] = "Email Disabled";
+		}
+
 		// Set Message Data
 		$message = "<p style=\"text-align:center;\"><span style=\"font-size:18px;\"><strong>Enlistment Application from " . $this->request['first_name'] . "&nbsp;" . $this->request['last_name'] . "</strong></span></p>
 					<p style=\"text-align:center;\">&nbsp;</p>

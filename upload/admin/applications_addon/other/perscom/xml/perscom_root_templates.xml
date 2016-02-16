@@ -3348,20 +3348,22 @@ document.getElementById('grade').onchange = function() {
                             <td style="width: 25%; padding: 2px;">
                                 {$soldier['position']}, {$soldier['unit_position']}
                             </td>
-                            <td style="width: <if test="$this->settings['perscom_enable_steam']">14%<else />17%</if>; padding: 2px;">
+                            <td style="width: 14%; padding: 2px;">
                                 <a href="#" weapon="{$soldier['weapon_primary_id_field']}" class="weapon">{$soldier['make_and_model']}</a>
                             </td>
                             <td style="width: 14%; padding: 2px;">
                                 <span style='color: #{$soldier['status_hex_color']};'>{$soldier['status_name']}</span>
                             </td>
                             <td style="width: 3%; padding: 2px;">
-                                <a href="mailto:{$soldier['email']}"><img src="{$this->settings['board_url']}/images/perscom/icons/email.gif" /></a>
+                                <if test="$this->settings['perscom_enable_email']">
+                                    <a href="mailto:{$soldier['email']}"><img src="{$this->settings['board_url']}/images/perscom/icons/email.gif" /></a>
+                                </if>
                             </td>
-                            <if test="$this->settings['perscom_enable_steam']">
-                                <td style="width: 3%; padding: 2px;">
+                            <td style="width: 3%; padding: 2px;">
+                                <if test="$this->settings['perscom_enable_steam']">
                                     <a href="http://steamcommunity.com/id/{$soldier['steam']}" target="_blank"><img src="{$this->settings['board_url']}/images/perscom/icons/steam.png" /></a>
-                                </td>
-                            </if>
+                                </if>
+                            </td>
                             <td style="width: 3%; padding: 2px;">
                                 <img src="{$this->settings['board_url']}/images/perscom/flags/{parse expression="strtolower($soldier['country'])"}.png" />
                             </td>
@@ -4031,9 +4033,11 @@ document.getElementById('grade').onchange = function() {
             </td>
             <td style="width: 100px; padding: 0px; text-align: center;">
                 <span class="right">
-                    <a href="mailto:{$soldier['email']}" class="ipsButton_secondary">Email {$soldier['rank_short']} {$soldier['lastname']}</a>
-                    <br />
-                    <br />
+                    <if test="$this->settings['perscom_enable_email']">
+                        <a href="mailto:{$soldier['email']}" class="ipsButton_secondary">Email {$soldier['rank_short']} {$soldier['lastname']}</a>
+                        <br />
+                        <br />
+                    </if>
                     <a href="{$this->settings['base_url']}app=members&module=messaging&section=send&do=form&fromMemberID={$soldier['member_id']}" class="ipsButton_secondary">Private Message {$soldier['rank_short']} {$soldier['lastname']}</a>
                     <if test="$allowEdit">
                         <br />
@@ -4530,7 +4534,7 @@ document.getElementById('grade').onchange = function() {
             </div>
         </div>
     </div>
-</foreach>]]></template_content>
+</foreach>j]]></template_content>
       <template_name>viewSoldier</template_name>
       <template_data>$soldier, $allowEdit = false, $combat_units, $ranks, $weapons, $admin_units, $status, $error, $personnel, $mediums, $uniforms</template_data>
       <template_removable>0</template_removable>

@@ -673,6 +673,22 @@ if ( $show == 1 )
       <conf_is_title>0</conf_is_title>
     </setting>
     <setting>
+      <conf_title>Enable Email Integration</conf_title>
+      <conf_description><![CDATA[Enabling this setting will integrate each user's email into the system. The email will be displayed in the user's personnel file, enlistment application and other areas of the system.]]></conf_description>
+      <conf_type>yes_no</conf_type>
+      <conf_key>perscom_enable_email</conf_key>
+      <conf_default>1</conf_default>
+      <conf_extra/>
+      <conf_evalphp/>
+      <conf_protected>1</conf_protected>
+      <conf_position>17</conf_position>
+      <conf_start_group/>
+      <conf_add_cache>1</conf_add_cache>
+      <conf_keywords/>
+      <conf_title_keyword>perscom_general_settings</conf_title_keyword>
+      <conf_is_title>0</conf_is_title>
+    </setting>
+    <setting>
       <conf_title>Enable Auto-Update Avatar</conf_title>
       <conf_description><![CDATA[Setting this to yes will update a user's avatar with a rank image when promoting or demoting the soldier. No will leave the avatar as the user has it set.]]></conf_description>
       <conf_type>yes_no</conf_type>
@@ -681,7 +697,7 @@ if ( $show == 1 )
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>17</conf_position>
+      <conf_position>18</conf_position>
       <conf_start_group/>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
@@ -697,7 +713,7 @@ if ( $show == 1 )
       <conf_extra/>
       <conf_evalphp/>
       <conf_protected>1</conf_protected>
-      <conf_position>18</conf_position>
+      <conf_position>19</conf_position>
       <conf_start_group>Personnel Profiles</conf_start_group>
       <conf_add_cache>1</conf_add_cache>
       <conf_keywords/>
