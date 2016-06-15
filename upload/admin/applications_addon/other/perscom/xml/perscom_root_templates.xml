@@ -4534,7 +4534,7 @@ document.getElementById('grade').onchange = function() {
             </div>
         </div>
     </div>
-</foreach>j]]></template_content>
+</foreach>]]></template_content>
       <template_name>viewSoldier</template_name>
       <template_data>$soldier, $allowEdit = false, $combat_units, $ranks, $weapons, $admin_units, $status, $error, $personnel, $mediums, $uniforms</template_data>
       <template_removable>0</template_removable>
